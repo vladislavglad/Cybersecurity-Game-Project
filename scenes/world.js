@@ -42,13 +42,14 @@ class WorldScene extends Phaser.Scene {
         //this.cameras.main.roundPixels = true;
         this.cameras.main.setRoundPixels(true);
 
-        // this.spawns = this.physics.add.group({ classType: Phaser.GameObjects.Zone});
+        this.spawns = this.physics.add.group({ classType: Phaser.GameObjects.Sprite});
+        this.spawns.create(110, 180, "baddie"); 
         // for (var i = 0; i < 30; i++) {
         //     var x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
         //     var y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
         //     this.spawns.create(x, y, 20,20);
         // }
-        // this.physics.add.overlap(this.player, this.spawns, this.onMeetZone, null, this);
+        this.physics.add.overlap(this.player, this.spawns, this.onMeetZone, null, this);
     }
 
     update(time, delta) {
@@ -89,14 +90,20 @@ class WorldScene extends Phaser.Scene {
     }
 
     onMeetZone(player, zone) {
-        //move zone to another location.
-        zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
-        zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
+
+        this.player.body.setVelocity(0);
+
+        //move object/zone to another location.
+        // zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
+        // zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
 
         //shake camera if player overlaps with a zone.
         this.cameras.main.shake(300);
 
         //following will be the logic for battle.
+        this.scene.pause();
+    
+        this.scene.start("BattleScene");
     }
     
 }

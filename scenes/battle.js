@@ -8,24 +8,24 @@ class BattleScene extends Phaser.Scene {
 
     create() {
         //set a background color.
-        this.cameras.main.setBackgroundColor('rgba(0, 200, 0, 0.5)');
+        this.add.image(0,0, "space").setOrigin(0,0);
 
         //instanciate player chars; hardcoded.
-        let warrior = new Player(this, 250, 50, "player", 1, "Warrior", 100, 20);
+        let warrior = new Player(this, 250, 50, "player", 0, "Warrior", 100, 20);
         this.add.existing(warrior);
         this.heroes.push(warrior);
 
-        let mage = new Player(this, 250, 100, "player", 4, "Mage", 80, 8);
+        let mage = new Player(this, 250, 100, "npc", 4, "Mage", 80, 8);
         this.add.existing(mage);
         this.heroes.push(mage);
 
-        let dragonblue = new Enemy(this, 50, 50, "dragonblue", null, "Dragon", 50, 3);
-        this.add.existing(dragonblue);
-        this.enemies.push(dragonblue);
+        let baddie1 = new Enemy(this, 50, 50, "baddie", 3, "Baddie1", 50, 3);
+        this.add.existing(baddie1);
+        this.enemies.push(baddie1);
 
-        let dragonorange = new Enemy(this, 50, 100, "dragonorrange", null, "Dragon2", 50, 3);
-        this.add.existing(dragonorange);
-        this.enemies.push(dragonorange);
+        let baddie2 = new Enemy(this, 50, 100, "baddie", 3, "Baddie2", 50, 3);
+        this.add.existing(baddie2);
+        this.enemies.push(baddie2);
 
         //run BattleScene and UIScene in parallel.
         this.scene.launch("UIScene");     

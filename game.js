@@ -8,10 +8,10 @@ var config = {
         default: "arcade",
         arcade: {
             gravity: {y: 0},
-            debug: false
+            debug: true
         }
     },
-    scene: [BootScene, WorldScene],
+    scene: [BootScene, WorldScene, BattleScene, UIScene],
 };
 
 var game = new Phaser.Game(config);

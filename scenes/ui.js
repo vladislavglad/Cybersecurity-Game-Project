@@ -69,6 +69,7 @@ class UIScene extends Phaser.Scene {
     // }
 
     onKeyInput(event) {
+        console.log(event.code);
         //first, check if some menue is "active"
         if (this.currentMenu) {
 
@@ -80,6 +81,16 @@ class UIScene extends Phaser.Scene {
 
             } else if (event.code === "Space" || event.code === "ArrowLeft") {
                 this.currentMenu.confirm(); //confirm method emmits an event that UIScene listens to.
+            } else if (event.code === "Digit1") {
+                
+                //pause current scenes and transfer to the WorldScene.
+                this.battleScene.scene.setVisible(false);
+                this.scene.setVisible(false);
+
+                this.battleScene.scene.pause();
+                this.scene.pause();
+
+                this.scene.start("WorldScene");
             }
         }
     }

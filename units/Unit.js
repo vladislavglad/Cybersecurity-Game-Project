@@ -24,7 +24,7 @@ class Player extends Unit {
         super(scene, x, y, texture, frame, type, hp, damage);
 
         //flip sprite and scale it x2.
-        this.flipX = true;
+        //this.flipX = true;
         this.setScale(2);
     }
 }
@@ -32,5 +32,7 @@ class Player extends Unit {
 class Enemy extends Unit {
     constructor(scene, x, y, texture, frame, type, hp, damage) {
         super(scene, x, y, texture, frame, type, hp, damage);
+
+        this.setScale(2);
     }
 }

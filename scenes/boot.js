@@ -16,6 +16,18 @@ class BootScene extends Phaser.Scene {
             frameWidth: 48/3,
             frameHeight: 64/4
         }); 
+
+        this.load.spritesheet("npc", "assets/spritesheets/npc.png", {
+            frameWidth: 48/3,
+            frameHeight: 64/4
+        });
+
+        this.load.spritesheet("baddie", "assets/spritesheets/baddie.png", {
+            frameWidth: 64/4,
+            frameHeight: 16
+        });
+
+        this.load.image("space", "assets/space3.png");
     }
 
     create() {
