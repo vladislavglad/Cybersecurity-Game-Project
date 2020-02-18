@@ -1,4 +1,4 @@
-class BootScene extends Phaser.Scene {
+class BootScene extends Phaser.Scene { 
     constructor() {
         super("BootScene");
     }
@@ -7,6 +7,9 @@ class BootScene extends Phaser.Scene {
         //tile images.
         this.load.image("layer1", "assets/map/grass-tile.png");
         this.load.image("layer2", "assets/map/tileset.png");
+        
+        this.load.image("sky", "assets/sky.png");
+        this.load.image("npc_dialog", "assets/mage-dialog.png");
 
         //preload map in JSON.
         this.load.tilemapTiledJSON("map", "assets/map/myMap.json");
@@ -25,6 +28,11 @@ class BootScene extends Phaser.Scene {
         this.load.spritesheet("baddie", "assets/spritesheets/baddie.png", {
             frameWidth: 64/4,
             frameHeight: 16
+        });
+
+        this.load.spritesheet("npc_mage", "assets/spritesheets/mage.png", {
+            frameWidth: 164/8.3,
+            frameHeight: 134/8.3
         });
 
         this.load.image("space", "assets/space3.png");
@@ -56,6 +64,15 @@ class BootScene extends Phaser.Scene {
                 frames: [6,7,8]
             }),
             frameRate: 10,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: "idle_mage",
+            frames: this.anims.generateFrameNumbers("npc_mage", {
+                frames: [9, 10, 11, 12]
+            }),
+            frameRate: 3,
             repeat: -1
         });
 

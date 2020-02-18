@@ -11,13 +11,13 @@ class BattleScene extends Phaser.Scene {
         this.add.image(0,0, "space").setOrigin(0,0);
 
         //instanciate player chars; hardcoded.
-        let warrior = new Player(this, 250, 50, "player", 0, "Warrior", 100, 20);
-        this.add.existing(warrior);
-        this.heroes.push(warrior);
+        let char1 = new Player(this, 250, 50, "player", 0, "Char1", 100, 20);
+        this.add.existing(char1);
+        this.heroes.push(char1);
 
-        let mage = new Player(this, 250, 100, "npc", 4, "Mage", 80, 8);
-        this.add.existing(mage);
-        this.heroes.push(mage);
+        let char2 = new Player(this, 250, 100, "npc", 7, "Char2", 80, 8);
+        this.add.existing(char2);
+        this.heroes.push(char2);
 
         let baddie1 = new Enemy(this, 50, 50, "baddie", 3, "Baddie1", 50, 3);
         this.add.existing(baddie1);

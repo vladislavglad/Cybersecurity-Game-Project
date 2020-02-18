@@ -133,3 +133,21 @@ class EnemiesMenu extends Menu {
         this.scene.events.emit("Enemy", this.menuItemIndex); //UIScene is listening.
     }
 }
+
+class DialogMenu extends Menu {
+    constructor(scene, x, y) {
+        super(scene, x, y);
+        // this.addMenuItem("Bla-Blaa-Blad!");
+        // this.addMenuItem("Something else!");
+    }
+
+    remap(arr) {
+        this.clear();
+        
+        //repopulate this/current container
+        for (let i = 0; i < arr.length; i++) {
+            let elm = arr[i];
+            this.addMenuItem(elm);
+        }
+    }
+}

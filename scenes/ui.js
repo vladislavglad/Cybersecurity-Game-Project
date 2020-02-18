@@ -69,7 +69,8 @@ class UIScene extends Phaser.Scene {
     // }
 
     onKeyInput(event) {
-        console.log(event.code);
+        //console.log(event.code);
+        
         //first, check if some menue is "active"
         if (this.currentMenu) {
 

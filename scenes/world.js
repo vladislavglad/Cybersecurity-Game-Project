@@ -42,14 +42,14 @@ class WorldScene extends Phaser.Scene {
         //this.cameras.main.roundPixels = true;
         this.cameras.main.setRoundPixels(true);
 
-        this.spawns = this.physics.add.group({ classType: Phaser.GameObjects.Sprite});
+        this.spawns = this.physics.add.group({classType: Phaser.GameObjects.Sprite});
         this.spawns.create(110, 180, "baddie"); 
-        // for (var i = 0; i < 30; i++) {
-        //     var x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
-        //     var y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
-        //     this.spawns.create(x, y, 20,20);
-        // }
-        this.physics.add.overlap(this.player, this.spawns, this.onMeetZone, null, this);
+        this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, null, this);
+
+        this.npc_mage = this.physics.add.sprite(313, 350, "npc_mage", 10);
+        this.npc_mage.flipX = true;
+        this.npc_mage.play("idle_mage");
+        this.physics.add.overlap(this.player, this.npc_mage, this.onMeetNPC, null, this);
     }
 
     update(time, delta) {
@@ -89,7 +89,7 @@ class WorldScene extends Phaser.Scene {
         }
     }
 
-    onMeetZone(player, zone) {
+    onMeetEnemy(player, zone) {
 
         this.player.body.setVelocity(0);
 
@@ -105,5 +105,10 @@ class WorldScene extends Phaser.Scene {
     
         this.scene.start("BattleScene");
     }
-    
+
+    onMeetNPC() {
+        this.player.body.setVelocity(0);
+        this.scene.pause();
+        this.scene.start("DialogScene");
+    }
 }
