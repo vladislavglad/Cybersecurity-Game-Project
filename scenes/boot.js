@@ -10,6 +10,7 @@ class BootScene extends Phaser.Scene {
         
         this.load.image("sky", "assets/sky.png");
         this.load.image("npc_dialog", "assets/mage-dialog.png");
+        this.load.image("book", "assets/book.png");
 
         //preload map in JSON.
         this.load.tilemapTiledJSON("map", "assets/map/myMap.json");
@@ -39,6 +40,8 @@ class BootScene extends Phaser.Scene {
     }
 
     create() {
+        this.add.text(20, 20, "Loading...");
+        
         //craete player movement animations.
         this.anims.create({
             key: "left",

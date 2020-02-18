@@ -46,10 +46,16 @@ class WorldScene extends Phaser.Scene {
         this.spawns.create(110, 180, "baddie"); 
         this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, null, this);
 
-        this.npc_mage = this.physics.add.sprite(313, 350, "npc_mage", 10);
+        this.npc_mage = this.physics.add.sprite(379, 343, "npc_mage", 10); //x = 313, y = 350
         this.npc_mage.flipX = true;
         this.npc_mage.play("idle_mage");
         this.physics.add.overlap(this.player, this.npc_mage, this.onMeetNPC, null, this);
+
+        this.book = this.physics.add.image(150, 580, "book");
+        this.book.setScale(0.35);
+        this.physics.add.overlap(this.player, this.book, (pl, bk) => {
+            bk.destroy();
+        }, null, this);
     }
 
     update(time, delta) {

@@ -17,7 +17,7 @@ class DialogScene extends Phaser.Scene {
         this.container = this.add.container();
         this.dialogMenu = new DialogMenu(this, 10, 155);
                                                             //placeholder.
-        let dialogPhrases = ["Bla-Blaa-Blad,", "Something Else!", "", "(Press Space To Continue)"];
+        let dialogPhrases = ["Bla-Blaa-Blad,", "Search books, learn spells!", "", "(Press Space To Continue)"];
         this.dialogMenu.remap(dialogPhrases); //load and remap phrases into Menu class.
 
         //add to this Scene's container to display on screen.
