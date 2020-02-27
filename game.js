@@ -1,3 +1,7 @@
+/**
+ * Have to keep this "var" to be able to use it 
+ * as a global variable (possible due to Hoisting).
+ */
 var config = {
     type: Phaser.AUTO,
     width: 320,
@@ -8,10 +12,10 @@ var config = {
         default: "arcade",
         arcade: {
             gravity: {y: 0},
-            debug: false
+            debug: true
         }
     },
     scene: [BootScene, WorldScene, BattleScene, UIScene, DialogScene],
 };
 
-var game = new Phaser.Game(config);
+let game = new Phaser.Game(config);

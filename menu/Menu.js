@@ -95,7 +95,9 @@ class Menu extends Phaser.GameObjects.Container {
         }
     }
 
-    //TO BE overriden in inheriting classes.
+    /**
+     * TO BE overriden in inheriting classes.
+     */
     confirm() {
         //logic when item is selected.
     }
@@ -129,7 +131,11 @@ class EnemiesMenu extends Menu {
     }
 
     confirm() {
-        //select an enemy to attack.
+        /**
+         * Select an enemy to attack.
+         * (Custom events can include parameters such as here 
+         * menuItemIndex is passed for the recieveng listener)
+         */
         this.scene.events.emit("Enemy", this.menuItemIndex); //UIScene is listening.
     }
 }

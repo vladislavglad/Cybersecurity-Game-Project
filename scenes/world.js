@@ -60,6 +60,8 @@ class WorldScene extends Phaser.Scene {
             bk.destroy();
         }, null, this);
 
+        this.events.on("wake", this.onWake, this);
+
     }
 
     update(time, delta) {
@@ -109,22 +111,28 @@ class WorldScene extends Phaser.Scene {
         }
     }
 
-    onMeetEnemy(player, zone) {
-
-        this.player.body.setVelocity(0);
-
-        //shake camera if player overlaps with a zone.
-        this.cameras.main.shake(300);
+    onMeetEnemy(player, spawn) {
+        //move enemy out of character's way so no overlap logic would happen again.
+        spawn.x = spawn.x + 128;
 
         //following will be the transition to the BattleScene.
-        //this.scene.pause();
         this.scene.switch("BattleScene");
     }
 
     onMeetNPC() {
-        this.player.body.setVelocity(0);
-        this.scene.pause();
-        this.scene.start("DialogScene");
+        /**
+         * disable npc's body to not triger overlap funcion 
+         * after returning from the DialogScene back to the WorldScene.
+         */
+        this.npc_mage.disableBody();
+        this.scene.switch("DialogScene");
+    }
+
+    onWake() {
+        this.cursors.left.reset();
+        this.cursors.right.reset();
+        this.cursors.up.reset();
+        this.cursors.down.reset();
     }
 
     shootBeam(direction) {

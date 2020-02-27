@@ -4,6 +4,12 @@ class BattleScene extends Phaser.Scene {
         this.heroes = [];
         this.enemies = [];
         this.units = []; //both heroes and enemies.
+
+        /**
+         * who's turn is this? 
+         * (start from -1 since we first increment the index)
+         */
+        this.index = -1; 
     }
 
     create() {
@@ -28,14 +34,20 @@ class BattleScene extends Phaser.Scene {
         this.enemies.push(baddie2);
 
         //run BattleScene and UIScene in parallel/concurrently.
-        this.scene.run("UIScene");     //lunch or run?
+        this.scene.run("UIScene");   //what's the difference: lunch() or run()?
         
         //group all units in one collection.
         this.units = this.heroes.concat(this.enemies); //first turn: two heroes, next two enemies.
 
-        this.index = -1; //who's turn is this? (start from -1 since we first increment the index)
+        //test scene transitioning (since there is no actuall battle logic to exit the BattleScene).
+        this.time.addEvent({delay: 3000, callback: this.exitScene, callbackScope: this});
 
-        let timeEvent = this.time.addEvent({delay: 2000, callback: this.exitScene, callbackScope: this});
+        /**
+         * IMPORTANT: 
+         * In Phaser when a Scene is switched, "wake" event is emmited.
+         * Here we listen to this event and call onWake() function.
+         */
+        this.events.on("wake", this.onWake, this);
     }
 
     nextTurn() {
@@ -85,5 +97,10 @@ class BattleScene extends Phaser.Scene {
     exitScene() {
         this.scene.sleep("UIScene");
         this.scene.switch("WorldScene");
+    }
+
+    onWake() {
+        this.scene.run("UIScene");
+        this.time.addEvent({delay: 3000, callback: this.exitScene, callbackScope: this});
     }
 }

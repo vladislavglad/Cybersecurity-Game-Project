@@ -34,7 +34,7 @@ class UIScene extends Phaser.Scene {
         //current menu. 
         this.currentMenu = this.actionsMenu;
 
-        //access the specified scene.
+        //IMPORTANT: access the specified scene.
         this.battleScene = this.scene.get("BattleScene"); //Essential line to communicate between Scenes.
 
         //alocate menu items within the containers.
@@ -45,7 +45,7 @@ class UIScene extends Phaser.Scene {
         this.enemiesMenu.remap(enemies);
 
         //following lines listen to various events (from various Scenes).
-        this.input.keyboard.on("keydown", this.onKeyInput, this); //listens from UIscene.
+        this.input.keyboard.on("keydown", this.onKeyInput, this); //listens from within this scene -> UIscene.
 
         //listen for BattleScene's custom event emitter from withing "this" scene -> UIScene. 
         this.battleScene.events.on("PlayerSelect", this.onPlayerSelect, this); //possiblity to listen accros different Scenes.
@@ -54,7 +54,7 @@ class UIScene extends Phaser.Scene {
 
         this.events.on("Enemy", this.onEnemy, this);
 
-        //IMPORTANT! this is where turns start -> game loop begins.
+        //IMPORTANT: this is where turns start -> game loop begins.
         this.battleScene.nextTurn();
     }
 
@@ -70,19 +70,11 @@ class UIScene extends Phaser.Scene {
                 this.currentMenu.moveSelectionDown();
             } else if (event.code === "ArrowRight" || event.code === "Shift") {
 
-            } else if (event.code === "Space" || event.code === "ArrowLeft") {
+            } else if (event.code === "Space") {
                 this.currentMenu.confirm(); //confirm method emmits an event that UIScene listens to.
             } else if (event.code === "Digit1") {
-                
-                //pause current scenes and transfer to the WorldScene.
-                //this.battleScene.scene.setVisible(false);
-                //this.scene.setVisible(false);
 
-                //this.battleScene.scene.pause();
-                //this.scene.pause();
-
-                //this.scene.start("WorldScene");
-
+                //works, but when switching to WorldScene character keeps moving.
                 this.battleScene.scene.sleep("UIScene");
                 this.battleScene.scene.switch("WorldScene");
             }
