@@ -3,22 +3,16 @@ class WorldScene extends Phaser.Scene {
         super("WorldScene");
     }
 
-    preload() {
-
-    }
-
     create() {
         //Phaser's Tilemap object.
-        var map = this.make.tilemap({key: "map"});
+        let map = this.make.tilemap({key: "map"});
 
-        //Processed Tileset (from image).
-        //args in the following function: (nameOfFile.noExt, key that you specified when loading)
-        //var grassTileset = map.addTilesetImage("grass-tile", "layer1"); 
-        //var objectsTileset = map.addTilesetImage("tileset", "layer2");
-
+        //Processed Tileset (from an image).
+        //tilemap.addTilesetImage(nameOfFile (noExt), key that you specified when loading in a boot scene); 
+        
         //Create layers.
         map.createStaticLayer("grass", map.addTilesetImage("grass-tile", "layer1"), 0,0); //name of your layer in .JSON file.
-        var obstacles = map.createStaticLayer("obstacles", map.addTilesetImage("tileset", "layer2"), 0,0);
+        let obstacles = map.createStaticLayer("obstacles", map.addTilesetImage("tileset", "layer2"), 0,0);
 
         //Make obstacles availabel for collison detection.
         obstacles.setCollisionByExclusion([-1]);
@@ -26,6 +20,16 @@ class WorldScene extends Phaser.Scene {
         //at our player/character.
         this.player = this.physics.add.sprite(50, 100, "player", 6);
 
+        //0 down, 1 is up, 2 is left, 3 is right.
+        this.facingDirection = 0;
+        
+        /**
+         * group container for all spells objects shot.
+         * (this is done in order to add logic for 
+         * the collision with entities such as enemies)
+         */
+        //this.spells = this.physics.add.group();
+         
         //specify world's borders and make player's character colidable with bounds.
         this.physics.world.bounds.width = map.widthInPixels;
         this.physics.world.bounds.height = map.heightInPixels;
@@ -39,7 +43,6 @@ class WorldScene extends Phaser.Scene {
 
         this.cameras.main.setBounds(0,0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
-        //this.cameras.main.roundPixels = true;
         this.cameras.main.setRoundPixels(true);
 
         this.spawns = this.physics.add.group({classType: Phaser.GameObjects.Sprite});
@@ -56,6 +59,7 @@ class WorldScene extends Phaser.Scene {
         this.physics.add.overlap(this.player, this.book, (pl, bk) => {
             bk.destroy();
         }, null, this);
+
     }
 
     update(time, delta) {
@@ -68,15 +72,19 @@ class WorldScene extends Phaser.Scene {
         //horizonatal movements.
         if (this.cursors.left.isDown) {
             this.player.body.setVelocityX(-80);
+            this.facingDirection = 2;
         } else if (this.cursors.right.isDown) {
             this.player.body.setVelocityX(80);
+            this.facingDirection = 3;
         }
 
         //vertical movements.
         if (this.cursors.up.isDown) {
             this.player.body.setVelocityY(-80);
+            this.facingDirection = 1;
         } else if (this.cursors.down.isDown) {
             this.player.body.setVelocityY(80);
+            this.facingDirection = 0;
         }
 
         //animations for movements.
@@ -91,7 +99,13 @@ class WorldScene extends Phaser.Scene {
         } else if (this.cursors.down.isDown) {
             this.player.anims.play('down', true);
         } else {
+            //stops any animation from playing.
             this.player.anims.stop();
+        }
+        
+        //execute a spell only when space key is down.
+        if (Phaser.Input.Keyboard.JustDown(this.cursors.space)) {
+            this.shootBeam(this.facingDirection);
         }
     }
 
@@ -99,22 +113,42 @@ class WorldScene extends Phaser.Scene {
 
         this.player.body.setVelocity(0);
 
-        //move object/zone to another location.
-        // zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
-        // zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
-
         //shake camera if player overlaps with a zone.
         this.cameras.main.shake(300);
 
-        //following will be the logic for battle.
-        this.scene.pause();
-    
-        this.scene.start("BattleScene");
+        //following will be the transition to the BattleScene.
+        //this.scene.pause();
+        this.scene.switch("BattleScene");
     }
 
     onMeetNPC() {
         this.player.body.setVelocity(0);
         this.scene.pause();
         this.scene.start("DialogScene");
+    }
+
+    shootBeam(direction) {
+        let beam;
+        
+        if (direction === 0) {
+            beam = this.physics.add.sprite(this.player.x, this.player.y + 16, "beam");
+            beam.flipY = true;
+            beam.setVelocityY(200);
+        } else if (direction === 1) {
+            beam = this.physics.add.sprite(this.player.x, this.player.y - 16, "beam");
+            beam.flipY = false;
+            beam.setVelocityY(-200);
+        } else if (direction === 2) {
+            beam = this.physics.add.sprite(this.player.x - 16, this.player.y, "beam");
+            beam.rotation = -1.6;
+            beam.setVelocityX(-200);
+        } else if (direction === 3) {
+            beam = this.physics.add.sprite(this.player.x + 16, this.player.y, "beam");
+            beam.rotation = 1.6;
+            beam.setVelocityX(200);
+        }
+
+        beam.play('beam_anim');
+        //this.spells.add(beam);
     }
 }

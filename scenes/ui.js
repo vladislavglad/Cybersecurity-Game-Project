@@ -54,19 +54,9 @@ class UIScene extends Phaser.Scene {
 
         this.events.on("Enemy", this.onEnemy, this);
 
-        //this is where turns start -> game loop.
+        //IMPORTANT! this is where turns start -> game loop begins.
         this.battleScene.nextTurn();
     }
-
-    // remapHeroes() {
-    //     let heroes = this.battleScene.heroes;
-    //     this.heroesMenu.remap(heroes);
-    // }
-
-    // remapEnemies() {
-    //     let enemies = this.battleScene.enemies;
-    //     this.enemiesMenu.remap(enemies);
-    // }
 
     onKeyInput(event) {
         //console.log(event.code);
@@ -85,13 +75,16 @@ class UIScene extends Phaser.Scene {
             } else if (event.code === "Digit1") {
                 
                 //pause current scenes and transfer to the WorldScene.
-                this.battleScene.scene.setVisible(false);
-                this.scene.setVisible(false);
+                //this.battleScene.scene.setVisible(false);
+                //this.scene.setVisible(false);
 
-                this.battleScene.scene.pause();
-                this.scene.pause();
+                //this.battleScene.scene.pause();
+                //this.scene.pause();
 
-                this.scene.start("WorldScene");
+                //this.scene.start("WorldScene");
+
+                this.battleScene.scene.sleep("UIScene");
+                this.battleScene.scene.switch("WorldScene");
             }
         }
     }

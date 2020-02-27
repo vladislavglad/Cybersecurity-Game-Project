@@ -27,13 +27,15 @@ class BattleScene extends Phaser.Scene {
         this.add.existing(baddie2);
         this.enemies.push(baddie2);
 
-        //run BattleScene and UIScene in parallel.
-        this.scene.launch("UIScene");     
+        //run BattleScene and UIScene in parallel/concurrently.
+        this.scene.run("UIScene");     //lunch or run?
         
         //group all units in one collection.
         this.units = this.heroes.concat(this.enemies); //first turn: two heroes, next two enemies.
 
-        this.index = -1; //who's turn is this?
+        this.index = -1; //who's turn is this? (start from -1 since we first increment the index)
+
+        let timeEvent = this.time.addEvent({delay: 2000, callback: this.exitScene, callbackScope: this});
     }
 
     nextTurn() {
@@ -78,5 +80,10 @@ class BattleScene extends Phaser.Scene {
             callback: this.nextTurn,
             callbackScope: this
         });
+    }
+
+    exitScene() {
+        this.scene.sleep("UIScene");
+        this.scene.switch("WorldScene");
     }
 }

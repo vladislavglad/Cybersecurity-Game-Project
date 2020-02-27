@@ -37,6 +37,11 @@ class BootScene extends Phaser.Scene {
         });
 
         this.load.image("space", "assets/space3.png");
+
+        this.load.spritesheet("beam", "assets/spritesheets/beam.png", {
+            frameWidth: 16,
+            frameHeight: 16
+        });
     }
 
     create() {
@@ -78,11 +83,15 @@ class BootScene extends Phaser.Scene {
             frameRate: 3,
             repeat: -1
         });
+        
+        this.anims.create({
+            key: "beam_anim",
+            frames: this.anims.generateFrameNumbers("beam"),
+            frameRate: 20,
+            repeat: -1
+        });
 
+        //transition to the WorldScene.
         this.scene.start("WorldScene");
-    }
-
-    update() {
-
     }
 }

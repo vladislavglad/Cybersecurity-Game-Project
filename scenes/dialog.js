@@ -20,7 +20,7 @@ class DialogScene extends Phaser.Scene {
         let dialogPhrases = ["Bla-Blaa-Blad,", "Search books, learn spells!", "", "(Press Space To Continue)"];
         this.dialogMenu.remap(dialogPhrases); //load and remap phrases into Menu class.
 
-        //add to this Scene's container to display on screen.
+        //IMPORTANT! add to this Scene's container to display on screen.
         this.container.add(this.dialogMenu);
 
         //highlight n-th item in the Menu.
@@ -28,8 +28,8 @@ class DialogScene extends Phaser.Scene {
 
         //add npc.
         this.npc = this.add.image(55, 87, "npc_dialog");
-        this.npc.setScale(-0.5);
-        this.npc.flipY = true;
+        this.npc.setScale(0.5);
+        this.npc.flipX = true;
 
         //listen to input.
         this.input.keyboard.on("keydown", this.onSpaceKey, this);
