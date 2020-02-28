@@ -52,6 +52,8 @@ class WorldScene extends Phaser.Scene {
         this.npc_mage = this.physics.add.sprite(379, 343, "npc_mage", 10); //x = 313, y = 350
         this.npc_mage.flipX = true;
         this.npc_mage.play("idle_mage");
+
+        //plan to create an interactive "ZONE" that will call a DialogScene (instead of NPC's own collision bounds)
         this.physics.add.overlap(this.player, this.npc_mage, this.onMeetNPC, null, this);
 
         this.book = this.physics.add.image(150, 580, "book");

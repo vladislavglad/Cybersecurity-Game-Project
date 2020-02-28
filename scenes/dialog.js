@@ -1,6 +1,15 @@
 class DialogScene extends Phaser.Scene {
     constructor() {
         super("DialogScene");
+
+        //index to check the flow of a dialog.
+        this.dialogIndex = 0;
+
+        //Next phrases to display (after user presses "Space" bar)
+        //Will be refactored later; for now jsut checking that the idea works.
+        this.dialogPhrases = ["Hello travaler, I will teach you", "some decription techniques!", " ", '(Press "Space" To Continue)'];
+        this.dialogPhrases2 = ["Another dialog,", "Some words, Just checking!" ," ", '(Press "Space" To Continue)'];
+        this.dialogPhrases3 = ["Another check", " ", " ", '(Press "Space" To Exit)'];
     }
 
     create() {
@@ -15,17 +24,20 @@ class DialogScene extends Phaser.Scene {
         this.graphics.fillRect(2, 150, 317, 300);
 
         //Scene level container.
-        this.container = this.add.container();
+        this.dialogContainer = this.add.container();
+
+        //Our custom container. 
+        //(Needs to be added to this Scene's actual container -> dialogContainer)
         this.dialogMenu = new DialogMenu(this, 10, 155);
-                                                                        //placeholder.
-        let dialogPhrases = ["Bla-Blaa-Blad,", "Search books, learn spells!", " ", "(Press Space To Continue)"];
-        this.dialogMenu.remap(dialogPhrases); //load and remap phrases into Menu class.
+                                     
+        //Load and remap phrases into Menu class.
+        this.dialogMenu.remap(this.dialogPhrases);
+        
+        //Highlight n-th item in the Menu.
+        this.dialogMenu.select(3);
 
         //IMPORTANT: add to this Scene's container to display on screen.
-        this.container.add(this.dialogMenu);
-
-        //highlight n-th item in the Menu.
-        this.dialogMenu.select(3);
+        this.dialogContainer.add(this.dialogMenu);
 
         //add image of the npc.
         this.npcImage = this.add.image(55, 87, "npc_dialog");
@@ -40,7 +52,17 @@ class DialogScene extends Phaser.Scene {
 
     onSpaceKey(event) {
         if (event.code === "Space") {
-            this.scene.switch("WorldScene");
+            if (this.dialogIndex === 0) {
+                this.dialogMenu.remap(this.dialogPhrases2);
+                this.dialogMenu.select(3);
+                this.dialogIndex++;
+            } else if (this.dialogIndex === 1) {
+                this.dialogMenu.remap(this.dialogPhrases3);
+                this.dialogMenu.select(3);
+                this.dialogIndex++;
+            } else if (this.dialogIndex === 2) {
+                this.exitScene();
+            }
         }
     }
 
