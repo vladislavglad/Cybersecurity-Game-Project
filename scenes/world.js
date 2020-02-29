@@ -58,9 +58,7 @@ class WorldScene extends Phaser.Scene {
 
         this.book = this.physics.add.image(150, 580, "book");
         this.book.setScale(0.35);
-        this.physics.add.overlap(this.player, this.book, (pl, bk) => {
-            bk.destroy();
-        }, null, this);
+        this.physics.add.overlap(this.player, this.book, this.onBookPickup, null, this);
 
         this.events.on("wake", this.onWake, this);
 
@@ -128,6 +126,11 @@ class WorldScene extends Phaser.Scene {
          */
         this.npc_mage.disableBody();
         this.scene.switch("DialogScene");
+    }
+
+    onBookPickup(player, book) {
+        book.destroy();
+        this.scene.switch("BookInteraction");
     }
 
     onWake() {

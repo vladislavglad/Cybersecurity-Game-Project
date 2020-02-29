@@ -17,7 +17,7 @@ var config = {
             debug: true
         }
     },
-    scene: [BootScene, WorldScene, BattleScene, UIScene, DialogScene],
+    scene: [BootScene, WorldScene, BattleScene, UIScene, DialogScene, BookInteraction]
 };
 
 /**
