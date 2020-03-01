@@ -42,6 +42,9 @@ class BootScene extends Phaser.Scene {
             frameWidth: 16,
             frameHeight: 16
         });
+
+        //loading audio.
+        this.load.audio("heroic_music", "assets/audio/heroism.ogg");
     }
 
     create() {

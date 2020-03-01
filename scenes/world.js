@@ -60,8 +60,14 @@ class WorldScene extends Phaser.Scene {
         this.book.setScale(0.35);
         this.physics.add.overlap(this.player, this.book, this.onBookPickup, null, this);
 
-        this.events.on("wake", this.onWake, this);
+        //creating audio.
+        this.heroicMusic = this.sound.add("heroic_music");
 
+        //listening for an input to toggle audio.
+        this.input.keyboard.on("keydown", this.onMute, this);
+
+        //When Scene is "woken up" (reset).
+        this.events.on("wake", this.onWake, this);
     }
 
     update(time, delta) {
@@ -108,6 +114,19 @@ class WorldScene extends Phaser.Scene {
         //execute a spell only when space key is down.
         if (Phaser.Input.Keyboard.JustDown(this.cursors.space)) {
             this.shootBeam(this.facingDirection);
+        }
+    }
+
+    onMute(event) {
+        //logic to toggle audio.
+        if (event.code === "KeyM") {
+            if (this.heroicMusic.isPaused) {
+                this.heroicMusic.resume();
+            } else if (!this.heroicMusic.isPlaying) {
+                this.heroicMusic.play();
+            } else {
+                this.heroicMusic.pause()
+            }
         }
     }
 
