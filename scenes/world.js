@@ -56,15 +56,15 @@ class WorldScene extends Phaser.Scene {
         //plan to create an interactive "ZONE" that will call a DialogScene (instead of NPC's own collision bounds)
         this.physics.add.overlap(this.player, this.npc_mage, this.onMeetNPC, null, this);
 
-        this.book = this.physics.add.image(150, 580, "book");
+        this.book = this.physics.add.image(160, 240, "book"); //x=150, y=580
         this.book.setScale(0.35);
         this.physics.add.overlap(this.player, this.book, this.onBookPickup, null, this);
 
         //creating audio.
-        this.heroicMusic = this.sound.add("heroic_music");
+        //this.heroicMusic = this.sound.add("heroic_music");
 
         //listening for an input to toggle audio.
-        this.input.keyboard.on("keydown", this.onMute, this);
+        //this.input.keyboard.on("keydown", this.onMute, this);
 
         //When Scene is "woken up" (reset).
         this.events.on("wake", this.onWake, this);

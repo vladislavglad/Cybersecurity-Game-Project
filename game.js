@@ -17,13 +17,16 @@ var config = {
             debug: true
         }
     },
+    dom: {
+        createContainer: true
+    },
     scene: [BootScene, WorldScene, BattleScene, UIScene, DialogScene, BookInteraction]
 };
 
 /**
  * You can keep all your global "var"iables in this file.
  * For example: var isGameOver = false;
- * The above will be seen across all the JS files.
+ * The above will be seen across all JS files.
  */
 
 let game = new Phaser.Game(config);

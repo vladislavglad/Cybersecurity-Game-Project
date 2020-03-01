@@ -44,7 +44,9 @@ class BootScene extends Phaser.Scene {
         });
 
         //loading audio.
-        this.load.audio("heroic_music", "assets/audio/heroism.ogg");
+        //this.load.audio("heroic_music", "assets/audio/heroism.ogg");
+
+        this.load.html("inputform", "assets/text/inputform.html");
     }
 
     create() {
