@@ -46,8 +46,6 @@ class DialogScene extends Phaser.Scene {
 
         //listen to an input.
         this.input.keyboard.on("keydown", this.onSpaceKey, this);
-
-        //this.time.addEvent({delay: 3000, callback: this.exitScene, callbackScope: this});
     }
 
     onSpaceKey(event) {

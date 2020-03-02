@@ -1,0 +1,4 @@
+node_modules
+phaser.min.js
+package.json
+package-lock.json

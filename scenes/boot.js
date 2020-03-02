@@ -8,9 +8,11 @@ class BootScene extends Phaser.Scene {
         this.load.image("layer1", "assets/map/grass-tile.png");
         this.load.image("layer2", "assets/map/tileset.png");
         
-        this.load.image("sky", "assets/sky.png");
-        this.load.image("npc_dialog", "assets/mage-dialog.png");
-        this.load.image("book", "assets/book.png");
+        this.load.image("space", "assets/images/space3.png");
+        this.load.image("sky", "assets/images/sky.png");
+        this.load.image("book-bg", "assets/images/book-background.png");
+        this.load.image("npc_dialog", "assets/images/mage-dialog.png");
+        this.load.image("book", "assets/images/book.png");
 
         //preload map in JSON.
         this.load.tilemapTiledJSON("map", "assets/map/myMap.json");
@@ -35,8 +37,6 @@ class BootScene extends Phaser.Scene {
             frameWidth: 164/8.3,
             frameHeight: 134/8.3
         });
-
-        this.load.image("space", "assets/space3.png");
 
         this.load.spritesheet("beam", "assets/spritesheets/beam.png", {
             frameWidth: 16,
