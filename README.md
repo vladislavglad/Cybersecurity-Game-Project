@@ -1,7 +1,20 @@
 ## CISC 4900 encryption game module.
-**This is a first prototype of my module made using [Phaser.io](https://phaser.io) HTML5 game framework.**
+**This is a first [prototype](https://vladglad.itch.io/phaser-rpg?secret=6ltnySNslGpibAeh8dyZCC8PotI) of my module made using [Phaser.io](https://phaser.io) HTML5 game framework.**
 
-### Update: 
+### Update:
+Encryption/decryption educational module is outsourced to Gallal. 
+My main focus now is development of the game world.
+
+**Considering things to be done in the near future:**
+* Update tiled map layout.
+* Transition between worlds/biomes.
+* UI that runs in parallel with WorldScene (HP bar, items, currency/score).
+* Pause menu (with options to mute sounds).
+* World map; contamination/decontamination.
+* Basic enemy AI.
+* Character invincibility frames.
+* New Enemies.
+
 **(Week 3-4) What has been done:**
 * Bug fixed when exiting Scenes: could not exit a Scene due to overlap of game objects.
 * Configured "smooth" transitioning between Scenes -> no more Scene restart (on exiting).
@@ -10,23 +23,16 @@
 * Explored possibility of loading and using HTML DOM elements into Phaser3.
 * Introduced new Scene BookInteraction: where players solve a decryption puzzle. Input check and evaluated (only rudiments so far; the full logic is to be implemented in the future).
 
-**Considering things to be done in the future:**
-- [ ] complete teaching component in the NPC's dialog
-- [ ] complete assesment component in the BookInteraction Scene
-- [ ] create a UI that runs on top of the WorldScene
-- [ ] create a "contamination map" to evaluate player's progress.
-
 **Alternative idea for the game:**
 * As we disussed during the 2nd meeting: we could have a world map completely contaminated and it is a player's task to decontaminate the world from this cybersecurity threat. 
 * As players travel through this world they learn things from NPCs and need to solve problems introduced in our modules upon encountering enemies.
 * Upon succesful progress, world gets gradually cleansed from this threat.
 
 **Potential problems and concerns:**
-* **Heavily** time consuming: (I have fallen behind on severall of my classes; need to really catch up).
+* **Heavily** time consuming (complexity).
 * We are limited on time: when to integrate and polish.
-* One man army: will I have to integrate/assemble everything by myself into this game world? Team should step up!
 
-**___________________________________________________________________________________________________________________________________**
+**__________________________________________________________________________________________________________________________________**
 
 **(Week 1-2) Things that had been done:**
 * Learned the basics of Phaser3: Loading resources - images spritesheets, creating animation, using "Arcade" physics, scene managemnet, update logic.
