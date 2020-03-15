@@ -47,6 +47,16 @@ class BootScene extends Phaser.Scene {
         //this.load.audio("heroic_music", "assets/audio/heroism.ogg");
 
         this.load.html("inputform", "assets/text/inputform.html");
+
+        //player UI assets.
+        this.load.spritesheet("hp-hearts", "assets/spritesheets/hp-hearts.png", {
+            frameWidth: 455/2,
+            frameHeight: 265
+        });
+
+        this.load.image("pause-toggle", "assets/ui/toggles/1.png");
+        this.load.image("pause-icon", "assets/ui/icons/pause-icon.png");
+        this.load.image("pause-button", "assets/ui/buttons/set2/1.png");
     }
 
     create() {

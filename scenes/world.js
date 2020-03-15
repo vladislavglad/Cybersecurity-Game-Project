@@ -7,18 +7,21 @@ class WorldScene extends Phaser.Scene {
         //Phaser's Tilemap object.
         let map = this.make.tilemap({key: "map"});
 
-        //Processed Tileset (from an image).
+        //Processed Tileset (from an image) Syntax: 
         //tilemap.addTilesetImage(nameOfFile (noExt), key that you specified when loading in a boot scene); 
         
         //Create layers.
         map.createStaticLayer("grass", map.addTilesetImage("grass-tile", "layer1"), 0,0); //name of your layer in .JSON file.
         let obstacles = map.createStaticLayer("obstacles", map.addTilesetImage("tileset", "layer2"), 0,0);
 
+        //adding new layer (same tileset).
+        map.createStaticLayer("road", map.getTileset("tileset"));
+
         //Make obstacles availabel for collison detection.
         obstacles.setCollisionByExclusion([-1]);
 
         //at our player/character.
-        this.player = this.physics.add.sprite(50, 100, "player", 6);
+        this.player = this.physics.add.sprite(50, 100, "player", 7);
 
         //0 down, 1 is up, 2 is left, 3 is right.
         this.facingDirection = 0;
@@ -40,16 +43,17 @@ class WorldScene extends Phaser.Scene {
 
         //user input.
         this.cursors = this.input.keyboard.createCursorKeys();
+        //this.input.keyboard.on("keydown", this.playerMovementManager, this);
 
         this.cameras.main.setBounds(0,0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
         this.cameras.main.setRoundPixels(true);
 
         this.spawns = this.physics.add.group({classType: Phaser.GameObjects.Sprite});
-        this.spawns.create(110, 180, "baddie"); 
+        this.spawns.create(70, 180, "baddie"); 
         this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, null, this);
 
-        this.npc_mage = this.physics.add.sprite(379, 343, "npc_mage", 10); //x = 313, y = 350
+        this.npc_mage = this.physics.add.sprite(150, 100, "npc_mage", 10); //x = 379, y = 343
         this.npc_mage.flipX = true;
         this.npc_mage.play("idle_mage");
 
@@ -68,52 +72,57 @@ class WorldScene extends Phaser.Scene {
 
         //When Scene is "woken up" (reset).
         this.events.on("wake", this.onWake, this);
+
+        this.scene.run("PlayerUI");
     }
 
     update(time, delta) {
         this.playerMovementManager();
     }
 
+    //key codes: KeyW, KeyS, KeyA, KeyD. 
     playerMovementManager() {
         this.player.body.setVelocity(0);
-        
-        //horizonatal movements.
-        if (this.cursors.left.isDown) {
-            this.player.body.setVelocityX(-80);
-            this.facingDirection = 2;
-        } else if (this.cursors.right.isDown) {
-            this.player.body.setVelocityX(80);
-            this.facingDirection = 3;
-        }
+    
+        if (!isGamePaused) {
+            //horizonatal movements.
+            if (this.cursors.left.isDown) {
+                this.player.body.setVelocityX(-80);
+                this.facingDirection = 2;
+            } else if (this.cursors.right.isDown) {
+                this.player.body.setVelocityX(80);
+                this.facingDirection = 3;
+            }
 
-        //vertical movements.
-        if (this.cursors.up.isDown) {
-            this.player.body.setVelocityY(-80);
-            this.facingDirection = 1;
-        } else if (this.cursors.down.isDown) {
-            this.player.body.setVelocityY(80);
-            this.facingDirection = 0;
-        }
+            //vertical movements.
+            if (this.cursors.up.isDown) {
+                this.player.body.setVelocityY(-80);
+                this.facingDirection = 1;
+            } else if (this.cursors.down.isDown) {
+                this.player.body.setVelocityY(80);
+                this.facingDirection = 0;
+            }
 
-        //animations for movements.
-        if (this.cursors.left.isDown) {
-            this.player.flipX = false;
-            this.player.anims.play('left', true);
-        } else if (this.cursors.right.isDown) {
-            this.player.flipX = true;
-            this.player.anims.play('left', true);
-        } else if (this.cursors.up.isDown) {
-            this.player.anims.play('up', true);
-        } else if (this.cursors.down.isDown) {
-            this.player.anims.play('down', true);
-        } else {
-            //stops any animation from playing.
-            this.player.anims.stop();
-        }
-        
-        //execute a spell only when space key is down.
-        if (Phaser.Input.Keyboard.JustDown(this.cursors.space)) {
-            this.shootBeam(this.facingDirection);
+            //animations for movements.
+            if (this.cursors.left.isDown) {
+                this.player.flipX = false;
+                this.player.anims.play('left', true);
+            } else if (this.cursors.right.isDown) {
+                this.player.flipX = true;
+                this.player.anims.play('left', true);
+            } else if (this.cursors.up.isDown) {
+                this.player.anims.play('up', true);
+            } else if (this.cursors.down.isDown) {
+                this.player.anims.play('down', true);
+            } else {
+                //stops any animation from playing.
+                this.player.anims.stop();
+            }
+            
+            //execute a spell only when space key is down.
+            if (Phaser.Input.Keyboard.JustDown(this.cursors.space)) {
+                this.shootBeam(this.facingDirection);
+            }
         }
     }
 

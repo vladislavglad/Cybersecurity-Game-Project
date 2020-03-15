@@ -20,7 +20,8 @@ var config = {
     dom: {
         createContainer: true
     },
-    scene: [BootScene, WorldScene, BattleScene, UIScene, DialogScene, BookInteraction]
+    //Array of all Scenes that Phaser sees and will use.
+    scene: [BootScene, WorldScene, BattleScene, UIScene, DialogScene, BookInteraction, PlayerUI, PauseScene]
 };
 
 /**
@@ -28,5 +29,6 @@ var config = {
  * For example: var isGameOver = false;
  * The above will be seen across all JS files.
  */
+let isGamePaused = false;
 
 let game = new Phaser.Game(config);

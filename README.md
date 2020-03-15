@@ -6,14 +6,16 @@ Encryption/decryption educational module is outsourced to Gallal.
 My main focus now is development of the game world.
 
 **Considering things to be done in the near future:**
-* Update tiled map layout.
-* Transition between worlds/biomes.
-* UI that runs in parallel with WorldScene (HP bar, items, currency/score).
-* Pause menu (with options to mute sounds).
-* World map; contamination/decontamination.
-* Basic enemy AI.
-* Character invincibility frames.
-* New Enemies.
+- [ ] Title screen.
+- [X] Pause menu (Resume, Options, Quit).
+- [X] UI that runs in parallel with WorldScene (HP bar, items, currency/score).
+- [ ] Player control with WASD.
+- [ ] Transition between worlds/biomes.
+- [ ] World map; contamination/decontamination.
+- [ ] New Enemies.
+- [ ] Basic enemy AI.
+- [ ] Character invincibility frames.
+- [X] Update tiled map layout (added roads).
 
 **(Week 3-4) What has been done:**
 * Bug fixed when exiting Scenes: could not exit a Scene due to overlap of game objects.
