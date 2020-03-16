@@ -5,7 +5,7 @@ class BookInteraction extends Phaser.Scene {
 
     create() {
         //add a background image.
-        this.add.image(config.width/2, config.height/2, "book-bg").setScale(1.25);
+        this.add.image(config.width/2, config.height/2, "title-bg").setScale(1.25);
 
         this.add.text(20,20, "Decryption module:");
         this.add.text(20, config.height/3, "Some text describing the task.");

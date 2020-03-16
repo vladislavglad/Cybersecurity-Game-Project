@@ -65,10 +65,10 @@ class WorldScene extends Phaser.Scene {
         this.physics.add.overlap(this.player, this.book, this.onBookPickup, null, this);
 
         //creating audio.
-        //this.heroicMusic = this.sound.add("heroic_music");
+        this.heroicMusic = this.sound.add("heroic_music");
 
         //listening for an input to toggle audio.
-        //this.input.keyboard.on("keydown", this.onMute, this);
+        this.input.keyboard.on("keydown", this.onMute, this);
 
         //When Scene is "woken up" (reset).
         this.events.on("wake", this.onWake, this);
@@ -141,7 +141,7 @@ class WorldScene extends Phaser.Scene {
 
     onMeetEnemy(player, spawn) {
         //move enemy out of character's way so no overlap logic would happen again.
-        spawn.x = spawn.x + 128;
+        spawn.x = spawn.x + 170;
 
         //following will be the transition to the BattleScene.
         this.scene.switch("BattleScene");

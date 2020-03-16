@@ -33,8 +33,8 @@ class BattleScene extends Phaser.Scene {
         this.add.existing(baddie2);
         this.enemies.push(baddie2);
 
-        //run BattleScene and UIScene in parallel/concurrently.
-        this.scene.run("UIScene");   //what's the difference: lunch() or run()?
+        //run BattleScene and BattleUI in parallel/concurrently.
+        this.scene.run("BattleUI");   //what's the difference: lunch() or run()?
         
         //group all units in one collection.
         this.units = this.heroes.concat(this.enemies); //first turn: two heroes, next two enemies.
@@ -95,12 +95,12 @@ class BattleScene extends Phaser.Scene {
     }
 
     exitScene() {
-        this.scene.sleep("UIScene");
+        this.scene.sleep("BattleUI");
         this.scene.switch("WorldScene");
     }
 
     onWake() {
-        this.scene.run("UIScene");
+        this.scene.run("BattleUI");
         this.time.addEvent({delay: 3000, callback: this.exitScene, callbackScope: this});
     }
 }

@@ -1,6 +1,6 @@
-class UIScene extends Phaser.Scene {
+class BattleUI extends Phaser.Scene {
     constructor() {
-        super("UIScene");
+        super("BattleUI");
     }
 
     create() {
@@ -45,9 +45,9 @@ class UIScene extends Phaser.Scene {
         this.enemiesMenu.remap(enemies);
 
         //following lines listen to various events (from various Scenes).
-        this.input.keyboard.on("keydown", this.onKeyInput, this); //listens from within this scene -> UIscene.
+        this.input.keyboard.on("keydown", this.onKeyInput, this); //listens from within this scene -> BattleUI.
 
-        //listen for BattleScene's custom event emitter from withing "this" scene -> UIScene. 
+        //listen for BattleScene's custom event emitter from withing "this" scene -> BattleUI. 
         this.battleScene.events.on("PlayerSelect", this.onPlayerSelect, this); //possiblity to listen accros different Scenes.
 
         this.events.on("SelectEnemies", this.onSelectEnemies, this);
@@ -71,11 +71,11 @@ class UIScene extends Phaser.Scene {
             } else if (event.code === "ArrowRight" || event.code === "Shift") {
 
             } else if (event.code === "Space") {
-                this.currentMenu.confirm(); //confirm method emmits an event that UIScene listens to.
+                this.currentMenu.confirm(); //confirm method emmits an event that BattleUI listens to.
             } else if (event.code === "Digit1") {
 
                 //works, but when switching to WorldScene character keeps moving.
-                this.battleScene.scene.sleep("UIScene");
+                this.battleScene.scene.sleep("BattleUI");
                 this.battleScene.scene.switch("WorldScene");
             }
         }
