@@ -6,15 +6,15 @@ Encryption/decryption educational module is outsourced to Gallal.
 My main focus now is development of the game world.
 
 **Considering things to be done in the near future:**
-- [ ] Title screen.
+- [X] Title screen.
 - [X] Pause menu (Resume, Options, Quit).
 - [X] UI that runs in parallel with WorldScene (HP bar, items, currency/score).
-- [ ] Player control with WASD.
-- [ ] Transition between worlds/biomes.
+- [ ] Player control with WASD (not necessary).
+- [X] Transition between worlds/biomes.
 - [ ] World map; contamination/decontamination.
 - [ ] New Enemies.
 - [ ] Basic enemy AI.
-- [ ] Character invincibility frames.
+- [ ] Character invincibility frames (when enemy strikes back).
 - [X] Update tiled map layout (added roads).
 
 **(Week 3-4) What has been done:**

@@ -1,6 +1,8 @@
 class TitleScreen extends Phaser.Scene {
     constructor() {
         super("TitleScreen");
+
+        //Flag value for internal state.
         this.index = 0;
     }
 
@@ -14,10 +16,10 @@ class TitleScreen extends Phaser.Scene {
         this.scene.run("PreloadAssets");
 
         //keyboard listener.
-        this.input.keyboard.on("keydown", this.onEnter, this);
+        this.input.keyboard.on("keydown", this.onPressEnter, this);
     }
 
-    onEnter(event) {
+    onPressEnter(event) {
         //console.log(event.code);
         if (event.code === "Enter" && this.index === 0) {
             this.titleImg.setVisible(false);

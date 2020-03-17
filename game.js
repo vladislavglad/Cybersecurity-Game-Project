@@ -8,7 +8,7 @@ var config = {
     type: Phaser.AUTO,
     width: 320,
     height: 240,
-    zoom: 2,
+    zoom: 2.5,
     pixelArt: true,
     physics: {
         default: "arcade",
@@ -21,7 +21,7 @@ var config = {
         createContainer: true
     },
     //Array of all Scenes that Phaser sees and will use.
-    scene: [InitialBoot, TitleScreen, PreloadAssets, WorldScene, PlayerUI, PauseScene, BattleScene, BattleUI, DialogScene, BookInteraction]
+    scene: [InitialBoot, TitleScreen, PreloadAssets, WorldScene, PlayerUI, PauseScene, BattleScene, BattleUI, DialogScene, BookInteraction, TempWorld]
 };
 
 /**

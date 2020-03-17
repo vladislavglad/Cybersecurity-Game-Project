@@ -1,6 +1,8 @@
 class PlayerUI extends Phaser.Scene {
     constructor() {
         super("PlayerUI");
+
+        //Flag value for internal state.
         this.index = 0;
     }
 
@@ -8,7 +10,7 @@ class PlayerUI extends Phaser.Scene {
         //hard coded; should be grouped later.
         this.add.sprite(20, 20, "hp-hearts" , 0).setScale(0.06);
         this.add.sprite(40, 20, "hp-hearts" , 0).setScale(0.06);
-        this.heart = this.add.sprite(60, 20, "hp-hearts" , 1).setScale(0.06);
+        this.heart = this.add.sprite(60, 20, "hp-hearts" , 0).setScale(0.06);
 
         this.toggleButton = this.add.image(config.width-23 , 5, "pause-toggle").setOrigin(0,0).setScale(0.2);
         this.toggleButton.setTintFill("0x9e9b8a");

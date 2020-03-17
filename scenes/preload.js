@@ -57,6 +57,8 @@ class PreloadAssets extends Phaser.Scene {
         this.load.image("pause-toggle", "assets/ui/toggles/1.png");
         this.load.image("pause-icon", "assets/ui/icons/pause-icon.png");
         this.load.image("pause-button", "assets/ui/buttons/set2/1.png");
+
+        this.load.image("temp-map", "assets/map/temp-map.png");
     }
 
     create() {      

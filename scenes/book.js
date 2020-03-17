@@ -12,13 +12,15 @@ class BookInteraction extends Phaser.Scene {
 
         //this.element = this.add.dom(config.width/2, config.height/2, "input", "width: 220px; height: 30px; font: 32px Arial");
 
-        this.element = this.add.dom(config.width/2, config.height/2).createFromCache("inputform");
-        this.element.setScale(.5);
-
+        //adding dom element from cache.
+        this.element = this.add.dom(config.width/2, config.height/2).createFromCache("inputform").setScale(.5);
         this.element.addListener("keydown");
         this.element.on("keydown", this.enterText, this);
 
-        //this.input.keyboard.on("keydown", this.onKey, this);
+        //Listen independantly (from this.element) for keyboard input.
+        this.input.keyboard.on("keydown", this.onKey, this);
+
+        this.tryAgain = this.add.text(80, config.height - 90, "Please try again!").setVisible(false);
         this.add.text(20, config.height-20, 'Press "Esc" to exit...')
     }
 
@@ -38,17 +40,14 @@ class BookInteraction extends Phaser.Scene {
                 console.log(inputText);
                 
                 if (inputText.toLowerCase() === "hello") {
-                    //logic to check response goes here.
+                    //IMPORTANT: logic to check response goes here.
                     //this.element.removeListener("keydown");
                     //this.element.setVisible(false);
                     this.scene.switch("WorldScene");
                 } else {
-                    this.add.text(80, config.height - 90, "Please try again!");
+                    this.tryAgain.setVisible(true);
                 } 
             }
-
-        } else if (event.code === "Escape") {
-            this.scene.switch("WorldScene");
         }
     }
 }

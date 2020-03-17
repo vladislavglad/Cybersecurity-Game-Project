@@ -20,10 +20,10 @@ class WorldScene extends Phaser.Scene {
         //Make obstacles availabel for collison detection.
         obstacles.setCollisionByExclusion([-1]);
 
-        //at our player/character.
+        //add our player/character.
         this.player = this.physics.add.sprite(50, 100, "player", 7);
 
-        //0 down, 1 is up, 2 is left, 3 is right.
+        //Character's facing direction: 0 down, 1 is up, 2 is left, 3 is right.
         this.facingDirection = 0;
         
         /**
@@ -45,21 +45,25 @@ class WorldScene extends Phaser.Scene {
         this.cursors = this.input.keyboard.createCursorKeys();
         //this.input.keyboard.on("keydown", this.playerMovementManager, this);
 
+        //camera config.
         this.cameras.main.setBounds(0,0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
         this.cameras.main.setRoundPixels(true);
 
+        //Enemies spawns.
         this.spawns = this.physics.add.group({classType: Phaser.GameObjects.Sprite});
         this.spawns.create(70, 180, "baddie"); 
         this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, null, this);
 
+        //NPC setup.
         this.npc_mage = this.physics.add.sprite(150, 100, "npc_mage", 10); //x = 379, y = 343
         this.npc_mage.flipX = true;
         this.npc_mage.play("idle_mage");
 
-        //plan to create an interactive "ZONE" that will call a DialogScene (instead of NPC's own collision bounds)
+        //TODO: plan to create an interactive "ZONE" that will call a DialogScene (instead of NPC's own collision bounds)
         this.physics.add.overlap(this.player, this.npc_mage, this.onMeetNPC, null, this);
 
+        //Book object setup.
         this.book = this.physics.add.image(160, 240, "book"); //x=150, y=580
         this.book.setScale(0.35);
         this.physics.add.overlap(this.player, this.book, this.onBookPickup, null, this);
@@ -70,12 +74,70 @@ class WorldScene extends Phaser.Scene {
         //listening for an input to toggle audio.
         this.input.keyboard.on("keydown", this.onMute, this);
 
-        //When Scene is "woken up" (reset).
+        //When Scene is "woken up" (resumed).
         this.events.on("wake", this.onWake, this);
 
+        //Run the following scene in concurrently.
         this.scene.run("PlayerUI");
+
+        //NEW: Interactive zone to transition to another world/biom (TESTING CONCEPT).
+        this.transitionZone1 = this.add.zone(50, 0, 160, 10).setOrigin(0,0);
+        this.transitionZone2 = this.add.zone(0, 40, 10, 160).setOrigin(0,0);
+        this.physics.world.enableBody(this.transitionZone1);
+        this.physics.world.enableBody(this.transitionZone2);
+
+        this.physics.add.overlap(this.player, this.transitionZone1, this.transitionNextZone, null, this);
+        this.physics.add.overlap(this.player, this.transitionZone2, this.transitionNextZone, null, this);
     }
 
+    transitionNextZone() {
+        this.scene.switch("TempWorld");
+    }
+
+    //Called when this Scene is resumed.
+    onWake() {
+        this.cursors.left.reset();
+        this.cursors.right.reset();
+        this.cursors.up.reset();
+        this.cursors.down.reset();
+    }
+
+    onMeetEnemy(player, spawn) {
+        //move enemy out of character's way so no overlap logic would happen again.
+        spawn.x = spawn.x + 170;
+
+        //following will be the transition to the BattleScene.
+        this.scene.switch("BattleScene");
+    }
+
+    onMeetNPC() {
+        /**
+         * disable npc's body to not triger overlap funcion 
+         * after returning from the DialogScene back to the WorldScene.
+         */
+        this.npc_mage.disableBody();
+        this.scene.switch("DialogScene");
+    }
+
+    onBookPickup(player, book) {
+        book.destroy();
+        this.scene.switch("BookInteraction");
+    }
+
+    onMute(event) {
+        //logic to toggle audio.
+        if (event.code === "KeyM") {
+            if (this.heroicMusic.isPaused) {
+                this.heroicMusic.resume();
+            } else if (!this.heroicMusic.isPlaying) {
+                this.heroicMusic.play();
+            } else {
+                this.heroicMusic.pause()
+            }
+        }
+    }
+
+    //Game loop (should be called by Phaser 60 times per second).
     update(time, delta) {
         this.playerMovementManager();
     }
@@ -84,6 +146,7 @@ class WorldScene extends Phaser.Scene {
     playerMovementManager() {
         this.player.body.setVelocity(0);
     
+        //First, check if game is paused.
         if (!isGamePaused) {
             //horizonatal movements.
             if (this.cursors.left.isDown) {
@@ -124,48 +187,6 @@ class WorldScene extends Phaser.Scene {
                 this.shootBeam(this.facingDirection);
             }
         }
-    }
-
-    onMute(event) {
-        //logic to toggle audio.
-        if (event.code === "KeyM") {
-            if (this.heroicMusic.isPaused) {
-                this.heroicMusic.resume();
-            } else if (!this.heroicMusic.isPlaying) {
-                this.heroicMusic.play();
-            } else {
-                this.heroicMusic.pause()
-            }
-        }
-    }
-
-    onMeetEnemy(player, spawn) {
-        //move enemy out of character's way so no overlap logic would happen again.
-        spawn.x = spawn.x + 170;
-
-        //following will be the transition to the BattleScene.
-        this.scene.switch("BattleScene");
-    }
-
-    onMeetNPC() {
-        /**
-         * disable npc's body to not triger overlap funcion 
-         * after returning from the DialogScene back to the WorldScene.
-         */
-        this.npc_mage.disableBody();
-        this.scene.switch("DialogScene");
-    }
-
-    onBookPickup(player, book) {
-        book.destroy();
-        this.scene.switch("BookInteraction");
-    }
-
-    onWake() {
-        this.cursors.left.reset();
-        this.cursors.right.reset();
-        this.cursors.up.reset();
-        this.cursors.down.reset();
     }
 
     shootBeam(direction) {
