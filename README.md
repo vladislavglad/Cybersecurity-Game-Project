@@ -5,17 +5,26 @@
 Encryption/decryption educational module is outsourced to Gallal. 
 My main focus now is development of the game world.
 
-**Considering things to be done in the near future:**
-- [X] Title screen.
-- [X] Pause menu (Resume, Options, Quit).
-- [X] UI that runs in parallel with WorldScene (HP bar, items, currency/score).
-- [ ] Player control with WASD (not necessary).
-- [X] Transition between worlds/biomes.
-- [ ] World map; contamination/decontamination.
+**(Week 5-6) Updates:**
+* First prototype of Title screen.
+* New assets preload sequence for better performance (loading times).
+* Player UI: health indicator (or other resources that we will implement).
+* Pause icon and corresponding interface menue.
+* First concept of transition between worlds/biomes.
+* Testing new concepts of collision detection improvements between the player and game objects.
+* Minor tile map updates.
+
+**Considering new things to be done in the next Update:**
+- [ ] Pause menu logic (stop player from moving when this menu is open and do approppriate actions "Resume, Options, Quit).
+- [ ] Title screen animation and other fine cosmetic addjustments to the game.
+- [ ] Update tiled map layout and addjust collisions (player & world).
+- [ ] In game World map and contamination/decontamination concept of our game (very ironic given current state of the world).
+- [ ] Player control with WASD (not necessary, but may be later switched from Options menu).
 - [ ] New Enemies.
 - [ ] Basic enemy AI.
-- [ ] Character invincibility frames (when enemy strikes back).
-- [X] Update tiled map layout (added roads).
+- [ ] Character invincibility frames when hit/collided with an enemy.
+
+**__________________________________________________________________________________________________________________________________**
 
 **(Week 3-4) What has been done:**
 * Bug fixed when exiting Scenes: could not exit a Scene due to overlap of game objects.
