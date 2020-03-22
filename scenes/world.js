@@ -108,6 +108,16 @@ class WorldScene extends Phaser.Scene {
         this.cursors.right.reset();
         this.cursors.up.reset();
         this.cursors.down.reset();
+
+        isGamePaused = false;
+
+        //Resumes the game (progress is "saved") 
+        //Character remains where it was left.
+        this.scene.run("PlayerUI");
+
+        //Completely restarts the game (from the the beginning).
+        //Problem: transitioning to this Scene causes whole gameworld to reset. 
+        //this.scene.restart("PlayerUI");
     }
 
     onMeetEnemy(player, spawn) {

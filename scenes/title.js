@@ -27,6 +27,9 @@ class TitleScreen extends Phaser.Scene {
             this.index = 1;
         } else if (event.code === "Enter" && isFinishedLoading && this.index === 1) {
             this.scene.switch("WorldScene");
+            this.titleInstr.setVisible(false);
+            this.titleImg.setVisible(true);
+            this.index = 0;
         }
     }
 }

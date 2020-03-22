@@ -14,6 +14,8 @@ class PlayerUI extends Phaser.Scene {
 
         this.toggleButton = this.add.image(config.width-23 , 5, "pause-toggle").setOrigin(0,0).setScale(0.2);
         this.toggleButton.setTintFill("0x9e9b8a");
+
+        //Interactions with toggleButton.
         this.toggleButton.setInteractive();
         this.input.on("gameobjectdown", this.onClick, this);
         this.input.on("gameobjectmove", this.onMoveOver, this);
