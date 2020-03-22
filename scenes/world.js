@@ -90,7 +90,9 @@ class WorldScene extends Phaser.Scene {
         this.physics.add.overlap(this.player, this.transitionZone2, this.transitionNextZone, null, this);
     }
 
-    transitionNextZone() {
+    transitionNextZone(player, zone) {
+        zone.x += 1500;
+        zone.y += 1500;
         this.scene.switch("TempWorld");
     }
 
