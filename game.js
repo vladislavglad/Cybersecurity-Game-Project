@@ -29,7 +29,8 @@ var config = {
  * For example: var isGameOver = false;
  * The above will be seen across all JS files.
  */
-let isGamePaused = false;
 let isFinishedLoading = false;
+let isGamePaused = false;
+let isMusicPlaying = false;
 
 let game = new Phaser.Game(config);

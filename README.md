@@ -15,12 +15,15 @@ My main focus now is development of the game world.
 * Minor tile map updates.
 
 **Considering new things to be done in the next Update:**
-- [ ] Pause menu logic (stop player from moving when this menu is open and do approppriate actions "Resume, Options, Quit).
+- [X] Pause menu logic (stop player from moving when this menu is open and do approppriate actions "Resume, Options, Quit).
+- [ ] "Phishing" mechanic implementation (as proposed by Jerfyn).
 - [ ] Title screen animation and other fine cosmetic addjustments to the game.
 - [ ] Update tiled map layout and addjust collisions (player & world).
 - [ ] In game World map and contamination/decontamination concept of our game (very ironic given current state of the world).
+
+* Optional:
 - [ ] Player control with WASD (not necessary, but may be later switched from Options menu).
-- [ ] New Enemies.
+- [ ] New Enemies (loading atlas files in .JSON format).
 - [ ] Basic enemy AI.
 - [ ] Character invincibility frames when hit/collided with an enemy.
 

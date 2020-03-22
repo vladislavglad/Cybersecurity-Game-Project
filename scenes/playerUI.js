@@ -35,7 +35,7 @@ class PlayerUI extends Phaser.Scene {
         //console.log("Button clicked");
      
         //WorldScene is listening (to stop player's animation).
-        this.events.emit("Pause");
+        this.events.emit("pauseGame");
         isGamePaused = true;
 
         if (this.index === 0) {

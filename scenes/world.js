@@ -71,7 +71,7 @@ class WorldScene extends Phaser.Scene {
         this.physics.add.overlap(this.player, this.book, this.onBookPickup, null, this);
 
         //creating audio.
-        this.heroicMusic = this.sound.add("heroic_music");
+        this.mainMusic = this.sound.add("peaceful-music");
 
         //listening for an input to toggle audio.
         this.input.keyboard.on("keydown", this.onMute, this);
@@ -91,9 +91,14 @@ class WorldScene extends Phaser.Scene {
         this.physics.add.overlap(this.player, this.transitionZone1, this.transitionNextZone, null, this);
         this.physics.add.overlap(this.player, this.transitionZone2, this.transitionNextZone, null, this);
 
-        //Listen for Pause menu event from PlayerUI Scene.
+        //Listen for "Pause" event (emmited from PlayerUI Scene).
         this.playerUI = this.scene.get("PlayerUI");
-        this.playerUI.events.on("Pause", () => {this.player.anims.stop()}, this);
+        this.playerUI.events.on("pauseGame", () => {this.player.anims.stop()}, this);
+
+        //Listen for "Options" menu events (emmited from PauseScene).
+        this.pauseScene = this.scene.get("PauseScene");
+        this.pauseScene.events.on("playMusic", this.playMusic, this);
+        this.pauseScene.events.on("muteMusic", this.muteMusic, this);
     }
 
     transitionNextZone(player, zone) {
@@ -145,16 +150,31 @@ class WorldScene extends Phaser.Scene {
     onMute(event) {
         //logic to toggle audio.
         if (event.code === "KeyM") {
-            if (this.heroicMusic.isPaused) {
-                this.heroicMusic.resume();
-            } else if (!this.heroicMusic.isPlaying) {
-                this.heroicMusic.play();
+            if (this.mainMusic.isPaused) {
+                this.mainMusic.resume();
+                isMusicPlaying = true;
+            } else if (!this.mainMusic.isPlaying) {
+                this.mainMusic.play();
+                isMusicPlaying = true;
             } else {
-                this.heroicMusic.pause()
+                this.mainMusic.pause();
+                isMusicPlaying = false;
             }
         }
     }
 
+    playMusic() {
+        if (this.mainMusic.isPaused) {
+            this.mainMusic.resume();
+        } else if (!this.mainMusic.isPlaying) {
+            this.mainMusic.play();
+        }
+    }   
+
+    muteMusic() {
+        this.mainMusic.pause();
+    }
+        
     //Game loop (should be called by Phaser 60 times per second).
     update(time, delta) {
         this.playerMovementManager();

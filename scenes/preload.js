@@ -10,7 +10,6 @@ class PreloadAssets extends Phaser.Scene {
         
         this.load.image("space", "assets/images/space3.png");
         this.load.image("sky", "assets/images/sky.png");
-        //this.load.image("book-bg", "assets/images/book-background.png");
         this.load.image("npc_dialog", "assets/images/mage-dialog.png");
         this.load.image("book", "assets/images/book.png");
 
@@ -44,7 +43,8 @@ class PreloadAssets extends Phaser.Scene {
         });
 
         //loading audio.
-        this.load.audio("heroic_music", "assets/audio/heroism.ogg");
+        this.load.audio("peaceful-music", "assets/audio/ancient-path.ogg");
+        //this.load.audio("heroic-music", "assets/audio/heroism.ogg");
 
         this.load.html("inputform", "assets/text/inputform.html");
 
