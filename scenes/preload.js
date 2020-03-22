@@ -106,8 +106,6 @@ class PreloadAssets extends Phaser.Scene {
             repeat: -1
         });
 
-        //transition to the WorldScene.
-        //this.scene.start("TitleScreen");
         isFinishedLoading = true;
     }
 }

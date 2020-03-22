@@ -30,13 +30,17 @@ class PlayerUI extends Phaser.Scene {
     }
 
     onClick() {
-        console.log("Button clicked");
+        //console.log("Button clicked");
+     
+        //WorldScene is listening (to stop player's animation).
+        this.events.emit("Pause");
+        isGamePaused = true;
 
         if (this.index === 0) {
             //this.worldScene.scene.sleep("PlayerUI");
             this.worldScene.scene.stop("PlayerUI");
             this.worldScene.scene.run("PauseScene");
-            this.index = 1;
+            //this.index = 1;
         } else if (this.index === 1) {
             this.worldScene.scene.sleep("PauseScene");
             this.worldScene.scene.resume("PlayerUI");

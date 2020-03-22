@@ -7,12 +7,16 @@ class WorldScene extends Phaser.Scene {
         //Phaser's Tilemap object.
         let map = this.make.tilemap({key: "map"});
 
-        //Processed Tileset (from an image) Syntax: 
-        //tilemap.addTilesetImage(nameOfFile (noExt), key that you specified when loading in a boot scene); 
-        
-        //Create layers.
-        map.createStaticLayer("grass", map.addTilesetImage("grass-tile", "layer1"), 0,0); //name of your layer in .JSON file.
-        let obstacles = map.createStaticLayer("obstacles", map.addTilesetImage("tileset", "layer2"), 0,0);
+        //Syntax for adding tile sets (as images): 
+        //tilemap.addTilesetImage(nameOfFile (noExt), key that you specified when loading asset in a boot scene); 
+
+        //Adding tileset images.
+        map.addTilesetImage("grass-tile", "layer1");
+        map.addTilesetImage("tileset", "layer2");
+
+        //Creating map layers.
+        map.createStaticLayer("grass", map.getTileset("grass-tile"), 0,0); //name of your layer in .JSON file.
+        let obstacles = map.createStaticLayer("obstacles", map.getTileset("tileset"), 0,0);
 
         //adding new layer (same tileset).
         map.createStaticLayer("road", map.getTileset("tileset"));
@@ -43,7 +47,6 @@ class WorldScene extends Phaser.Scene {
 
         //user input.
         this.cursors = this.input.keyboard.createCursorKeys();
-        //this.input.keyboard.on("keydown", this.playerMovementManager, this);
 
         //camera config.
         this.cameras.main.setBounds(0,0, map.widthInPixels, map.heightInPixels);
@@ -55,11 +58,10 @@ class WorldScene extends Phaser.Scene {
         this.spawns.create(70, 180, "baddie"); 
         this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, null, this);
 
-        //NPC setup.
+        //Adding NPC.
         this.npc_mage = this.physics.add.sprite(150, 100, "npc_mage", 10); //x = 379, y = 343
         this.npc_mage.flipX = true;
         this.npc_mage.play("idle_mage");
-
         //TODO: plan to create an interactive "ZONE" that will call a DialogScene (instead of NPC's own collision bounds)
         this.physics.add.overlap(this.player, this.npc_mage, this.onMeetNPC, null, this);
 
@@ -77,7 +79,7 @@ class WorldScene extends Phaser.Scene {
         //When Scene is "woken up" (resumed).
         this.events.on("wake", this.onWake, this);
 
-        //Run the following scene in concurrently.
+        //Run the following scene concurrently.
         this.scene.run("PlayerUI");
 
         //NEW: Interactive zone to transition to another world/biom (TESTING CONCEPT).
@@ -88,6 +90,10 @@ class WorldScene extends Phaser.Scene {
 
         this.physics.add.overlap(this.player, this.transitionZone1, this.transitionNextZone, null, this);
         this.physics.add.overlap(this.player, this.transitionZone2, this.transitionNextZone, null, this);
+
+        //Listen for Pause menu event from PlayerUI Scene.
+        this.playerUI = this.scene.get("PlayerUI");
+        this.playerUI.events.on("Pause", () => {this.player.anims.stop()}, this);
     }
 
     transitionNextZone(player, zone) {

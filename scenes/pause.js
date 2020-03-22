@@ -36,6 +36,8 @@ class PauseScene extends Phaser.Scene {
     }
 
     onResumeButton() {
+        //Resume the game.
+        isGamePaused = false;
         this.scene.switch("PlayerUI");
     }
 
