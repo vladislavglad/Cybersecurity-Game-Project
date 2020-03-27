@@ -21,7 +21,7 @@ var config = {
         createContainer: true
     },
     //Array of all Scenes that Phaser sees and will use.
-    scene: [InitialBoot, TitleScreen, PreloadAssets, WorldScene, PlayerUI, PauseScene, BattleScene, BattleUI, DialogScene, BookInteraction, TempWorld]
+    scene: [InitialBoot, TitleScreen, PreloadAssets, WorldScene, PlayerUI, PauseScene, GameMap, BattleScene, BattleUI, DialogScene, BookInteraction, TempWorld]
 };
 
 /**
@@ -32,5 +32,6 @@ var config = {
 let isFinishedLoading = false;
 let isGamePaused = false;
 let isMusicPlaying = false;
+let isMapOpen = false;
 
 let game = new Phaser.Game(config);

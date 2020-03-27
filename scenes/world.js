@@ -70,11 +70,12 @@ class WorldScene extends Phaser.Scene {
         this.book.setScale(0.35);
         this.physics.add.overlap(this.player, this.book, this.onBookPickup, null, this);
 
-        //creating audio.
+        //Creating audio.
         this.mainMusic = this.sound.add("peaceful-music");
 
-        //listening for an input to toggle audio.
-        this.input.keyboard.on("keydown", this.onMute, this);
+        //Listening for an input to toggle audio. 
+        //(PROBLEM: Map and Mute both binded to "M")
+        //this.input.keyboard.on("keydown", this.onMute, this);
 
         //When Scene is "woken up" (resumed).
         this.events.on("wake", this.onWake, this);
@@ -99,6 +100,19 @@ class WorldScene extends Phaser.Scene {
         this.pauseScene = this.scene.get("PauseScene");
         this.pauseScene.events.on("playMusic", this.playMusic, this);
         this.pauseScene.events.on("muteMusic", this.muteMusic, this);
+
+        //NEW: in-game map.
+        this.input.keyboard.on("keydown", this.openMap, this);
+    }
+
+    openMap() {
+        if (event.code === "KeyM" && !isMapOpen) {
+            this.scene.run("GameMap");
+            isMapOpen = true;
+        } else if (event.code === "KeyM" && isMapOpen) {
+            this.scene.sleep("GameMap");
+            isMapOpen = false;
+        }
     }
 
     transitionNextZone(player, zone) {

@@ -59,6 +59,7 @@ class PreloadAssets extends Phaser.Scene {
         this.load.image("pause-button", "assets/ui/buttons/set2/1.png");
 
         this.load.image("temp-map", "assets/map/temp-map.png");
+        this.load.image("game-map", "assets/images/game-map.png");
     }
 
     create() {      
@@ -106,6 +107,8 @@ class PreloadAssets extends Phaser.Scene {
             repeat: -1
         });
 
+        //Indicate that everything has been loaded into memory.
         isFinishedLoading = true;
+        this.scene.stop("PreloadAssets");
     }
 }
