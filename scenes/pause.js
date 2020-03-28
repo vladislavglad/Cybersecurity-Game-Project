@@ -98,12 +98,12 @@ class PauseScene extends Phaser.Scene {
     musicConfig() {
         if (!isMusicPlaying) {
             this.txt1.setText("Music: ON");
-            isMusicPlaying = true;
+            //isMusicPlaying = true;
             this.events.emit("playMusic");  //WorldScene is listening.
         } else {
             this.txt1.setText("Music: OFF");
-            isMusicPlaying = false;
-            this.events.emit("muteMusic"); 
+            //isMusicPlaying = false;
+            this.events.emit("muteMusic"); //WorldScene is listening.
         }
     }
 
@@ -121,8 +121,9 @@ class PauseScene extends Phaser.Scene {
     }
 
     onQuitButton() {
+        this.events.emit("muteMusic"); 
         this.scene.sleep();
-        this.scene.get("WorldScene").scene.switch("TitleScreen");;
+        this.scene.get("WorldScene").scene.switch("TitleScreen");
     }
 
     onWake() {

@@ -55,7 +55,7 @@ class WorldScene extends Phaser.Scene {
 
         //Enemies spawns.
         this.spawns = this.physics.add.group({classType: Phaser.GameObjects.Sprite});
-        this.spawns.create(70, 180, "baddie"); 
+        this.spawns.create(170, 180, "baddie"); //70, 180
         this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, null, this);
 
         //Adding NPC.
@@ -103,6 +103,20 @@ class WorldScene extends Phaser.Scene {
 
         //NEW: in-game map.
         this.input.keyboard.on("keydown", this.openMap, this);
+
+        //NEW: "Phishing" rod and zone.
+        this.phishingRod = this.add.image(70, 170, "phishing-rod");
+        this.physics.world.enableBody(this.phishingRod);
+        this.phishingRod.setScale(0.5);
+        this.physics.add.overlap(this.player, this.phishingRod, () => {
+            this.phishingRod.destroy();
+            hasPhishingRod = true;
+        }, null, this);
+
+        this.scene.run("PhishingHints");
+        this.phishingZone = this.add.zone(80, 230, 60, 40);
+        this.physics.world.enableBody(this.phishingZone);
+        this.physics.add.overlap(this.player, this.phishingZone, () => {this.events.emit("startPhishing")}, null, this);
     }
 
     openMap() {
@@ -128,12 +142,12 @@ class WorldScene extends Phaser.Scene {
 
     //Called when this Scene is resumed.
     onWake() {
+        isGamePaused = false;
+
         this.cursors.left.reset();
         this.cursors.right.reset();
         this.cursors.up.reset();
         this.cursors.down.reset();
-
-        isGamePaused = false;
 
         //Resumes the game (progress is "saved") 
         //Character remains where it was left.
@@ -145,6 +159,8 @@ class WorldScene extends Phaser.Scene {
     }
 
     onMeetEnemy(player, spawn) {
+        isGamePaused = true;
+
         //move enemy out of character's way so no overlap logic would happen again.
         spawn.x = spawn.x + 170;
 
@@ -153,6 +169,8 @@ class WorldScene extends Phaser.Scene {
     }
 
     onMeetNPC() {
+        isGamePaused = true;
+
         /**
          * disable npc's body to not triger overlap funcion 
          * after returning from the DialogScene back to the WorldScene.
@@ -162,6 +180,9 @@ class WorldScene extends Phaser.Scene {
     }
 
     onBookPickup(player, book) {
+        //Prevent calling pause menu (with Escape key) when in another scene.
+        isGamePaused = true;
+
         book.destroy();
         this.scene.switch("BookInteraction");
     }
@@ -188,10 +209,12 @@ class WorldScene extends Phaser.Scene {
         } else if (!this.mainMusic.isPlaying) {
             this.mainMusic.play();
         }
+        isMusicPlaying = true;
     }   
 
     muteMusic() {
         this.mainMusic.pause();
+        isMusicPlaying = false;
     }
         
     //Game loop (should be called by Phaser 60 times per second).

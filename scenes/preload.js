@@ -60,6 +60,8 @@ class PreloadAssets extends Phaser.Scene {
 
         this.load.image("temp-map", "assets/map/temp-map.png");
         this.load.image("game-map", "assets/images/game-map.png");
+
+        this.load.image("phishing-rod", "assets/images/phishing-rod.png");
     }
 
     create() {      

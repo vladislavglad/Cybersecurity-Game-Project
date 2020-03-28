@@ -20,8 +20,27 @@ var config = {
     dom: {
         createContainer: true
     },
+    
     //Array of all Scenes that Phaser sees and will use.
-    scene: [InitialBoot, TitleScreen, PreloadAssets, WorldScene, PlayerUI, PauseScene, GameMap, BattleScene, BattleUI, DialogScene, BookInteraction, TempWorld]
+    scene: [
+                InitialBoot, 
+                TitleScreen, 
+                PreloadAssets,
+
+                WorldScene, 
+                PlayerUI, 
+                PauseScene, 
+                GameMap, 
+                TempWorld,
+                
+                PhishingHints, 
+                PhishingModule, 
+                
+                BattleScene, 
+                BattleUI, 
+                DialogScene, 
+                BookInteraction
+            ]
 };
 
 /**
@@ -33,5 +52,6 @@ let isFinishedLoading = false;
 let isGamePaused = false;
 let isMusicPlaying = false;
 let isMapOpen = false;
+let hasPhishingRod = false;
 
 let game = new Phaser.Game(config);
