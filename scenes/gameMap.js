@@ -4,7 +4,9 @@ class GameMap extends Phaser.Scene {
     }
 
     create() {
-        //this.add.text(config.height/2, config.width/2, "Hello from GameMap");
-        this.add.image(config.width/2, config.height/2 + 10, "game-map");
+        this.worldMap = this.add.image(config.width/2, config.height/2 + 10, "game-map");
+
+        //Different "contamination" levels of security. 
+        this.worldMap.setTintFill("0xff4d4d", "0xff6666", "0xff8080", "0xff9999");
     }
 }

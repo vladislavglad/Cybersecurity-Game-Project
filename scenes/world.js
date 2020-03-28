@@ -106,12 +106,17 @@ class WorldScene extends Phaser.Scene {
     }
 
     openMap() {
-        if (event.code === "KeyM" && !isMapOpen) {
+        if (event.code === "KeyM" && !isMapOpen && !isGamePaused) {
+            this.scene.sleep("PlayerUI")
             this.scene.run("GameMap");
             isMapOpen = true;
+            isGamePaused = true;
+            this.player.anims.stop();
         } else if (event.code === "KeyM" && isMapOpen) {
             this.scene.sleep("GameMap");
+            this.scene.run("PlayerUI");
             isMapOpen = false;
+            isGamePaused = false;
         }
     }
 

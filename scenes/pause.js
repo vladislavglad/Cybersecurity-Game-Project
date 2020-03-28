@@ -44,6 +44,9 @@ class PauseScene extends Phaser.Scene {
         //UI events (to highlight buttons).
         this.input.on("gameobjectmove", this.onMoveOver, this);
         this.input.on("gameobjectout", this.onMoveOut, this);
+
+        //Listen for "Escape" key to close pause menu.
+        this.input.keyboard.on("keydown", key => {if (key.code === "Escape" && isGamePaused) this.onResumeButton();}, this);
     }
 
     onResumeButton() {

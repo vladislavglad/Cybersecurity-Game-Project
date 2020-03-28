@@ -25,8 +25,11 @@ class PlayerUI extends Phaser.Scene {
 
         this.worldScene = this.scene.get("WorldScene");
 
-        //testing spritesheet change.
+        //Testing spritesheet change.
         this.time.addEvent({delay: 2000, loop: true, callback: this.changeHeart, callbackScope: this});
+
+        //Listen for "Escape" key to bring pause menu.
+        this.input.keyboard.on("keydown", key => {if (key.code === "Escape" && !isGamePaused) this.onClick();}, this);
 
         //this.events.on("wake", this.onWake, this);
     }
