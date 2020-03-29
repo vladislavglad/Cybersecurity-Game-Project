@@ -55,18 +55,18 @@ class WorldScene extends Phaser.Scene {
 
         //Enemies spawns.
         this.spawns = this.physics.add.group({classType: Phaser.GameObjects.Sprite});
-        this.spawns.create(170, 180, "baddie"); //70, 180
+        this.spawns.create(150, 120, "baddie"); //70, 180
         this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, null, this);
 
         //Adding NPC.
-        this.npc_mage = this.physics.add.sprite(150, 100, "npc_mage", 10); //x = 379, y = 343
+        this.npc_mage = this.physics.add.sprite(150, 60, "npc_mage", 10); //x = 379, y = 343
         this.npc_mage.flipX = true;
         this.npc_mage.play("idle_mage");
         //TODO: plan to create an interactive "ZONE" that will call a DialogScene (instead of NPC's own collision bounds)
         this.physics.add.overlap(this.player, this.npc_mage, this.onMeetNPC, null, this);
 
         //Book object setup.
-        this.book = this.physics.add.image(160, 240, "book"); //x=150, y=580
+        this.book = this.physics.add.image(150, 90, "book"); //x=150, y=580
         this.book.setScale(0.35);
         this.physics.add.overlap(this.player, this.book, this.onBookPickup, null, this);
 
@@ -105,7 +105,7 @@ class WorldScene extends Phaser.Scene {
         this.input.keyboard.on("keydown", this.openMap, this);
 
         //NEW: "Phishing" rod and zone.
-        this.phishingRod = this.add.image(70, 170, "phishing-rod");
+        this.phishingRod = this.add.image(180, 290, "phishing-rod"); //70, 170
         this.physics.world.enableBody(this.phishingRod);
         this.phishingRod.setScale(0.5);
         this.physics.add.overlap(this.player, this.phishingRod, () => {
@@ -162,10 +162,14 @@ class WorldScene extends Phaser.Scene {
         isGamePaused = true;
 
         //move enemy out of character's way so no overlap logic would happen again.
-        spawn.x = spawn.x + 170;
+        spawn.x = spawn.x + 90;
+        spawn.y = spawn.y + 60
 
-        //following will be the transition to the BattleScene.
-        this.scene.switch("BattleScene");
+        //following will be the transition to the BattleScene: this.scene.switch("BattleScene");
+
+        //TEMPORARY PLACEHOLDER.
+        this.scene.get("PlayerUI").scene.sleep();
+        this.scene.switch("GameModule");
     }
 
     onMeetNPC() {
@@ -180,7 +184,7 @@ class WorldScene extends Phaser.Scene {
     }
 
     onBookPickup(player, book) {
-        //Prevent calling pause menu (with Escape key) when in another scene.
+        //Prevent calling pause menu (with "Escape" key) when in another scene.
         isGamePaused = true;
 
         book.destroy();

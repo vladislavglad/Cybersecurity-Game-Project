@@ -34,7 +34,7 @@ var config = {
                 TempWorld,
                 
                 PhishingHints, 
-                PhishingModule, 
+                GameModule, 
                 
                 BattleScene, 
                 BattleUI, 
