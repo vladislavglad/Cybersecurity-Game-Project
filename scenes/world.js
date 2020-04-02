@@ -87,7 +87,7 @@ class WorldScene extends Phaser.Scene {
         this.transitionZone1 = this.add.zone(50, 0, 160, 10).setOrigin(0,0);
         this.transitionZone2 = this.add.zone(0, 40, 10, 160).setOrigin(0,0);
         this.physics.world.enableBody(this.transitionZone1);
-        this.physics.world.enableBody(this.transitionZone2);
+        //this.physics.world.enableBody(this.transitionZone2);
 
         this.physics.add.overlap(this.player, this.transitionZone1, this.transitionNextZone, null, this);
         this.physics.add.overlap(this.player, this.transitionZone2, this.transitionNextZone, null, this);
@@ -116,7 +116,15 @@ class WorldScene extends Phaser.Scene {
         this.scene.run("PhishingHints");
         this.phishingZone = this.add.zone(80, 230, 60, 40);
         this.physics.world.enableBody(this.phishingZone);
-        this.physics.add.overlap(this.player, this.phishingZone, () => {this.events.emit("startPhishing")}, null, this);
+        this.physics.add.overlap(this.player, this.phishingZone, () => {
+            this.events.emit( "startPhishing", [this.player, this.phishingZone] );
+        }, null, this);
+
+        this.scene.get("TempWorld").events.on("exitZone", () => {
+            this.player.x = 110;
+            this.player.y = 40;
+            this.player.anims.play("down");
+        }, this);
     }
 
     openMap() {

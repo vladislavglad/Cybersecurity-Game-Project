@@ -6,23 +6,28 @@ class TempWorld extends Phaser.Scene {
     create() {
         //Testing concept.
         this.add.image(config.width/2, config.height/2, "temp-map").setScale(0.66);
-        this.player = this.physics.add.sprite(40, config.height - 30, "player", 7);
+        this.player = this.physics.add.sprite(40, config.height - 40, "player", 7);
         this.cursors = this.input.keyboard.createCursorKeys();
 
-        this.time.addEvent({delay: 2000, callback: () => {this.scene.switch("WorldScene");}, callbackScope: this});
+        this.exitZone = this.add.zone(40, config.height - 10, 530, 10);
+        this.physics.world.enableBody(this.exitZone);
 
+        this.physics.add.overlap(this.player, this.exitZone, () => {
+            this.events.emit("exitZone");
+            this.scene.switch("WorldScene");
+        }, null, this);
+        
         this.events.on("wake", this.onWake, this);
-
         //TODO: Implement logic and place points of interest below...
     }
 
     createWorld() {
         //Testing concept.
-        this.add.image(config.width/2, config.height/2, "temp-map").setScale(0.66);
-        this.player = this.physics.add.sprite(40, config.height - 30, "player", 7);
-        this.cursors = this.input.keyboard.createCursorKeys();
+        //this.add.image(config.width/2, config.height/2, "temp-map").setScale(0.66);
+        //this.player = this.physics.add.sprite(40, config.height - 30, "player", 7);
+        //this.cursors = this.input.keyboard.createCursorKeys();
 
-        this.time.addEvent({delay: 3000, callback: () => {this.scene.switch("WorldScene");}, callbackScope: this});
+        //this.time.addEvent({delay: 3000, callback: () => {this.scene.switch("WorldScene");}, callbackScope: this});
     }
 
     onWake() {
@@ -30,7 +35,7 @@ class TempWorld extends Phaser.Scene {
         this.cursors.right.reset();
         this.cursors.up.reset();
         this.cursors.down.reset();
-        this.createWorld();
+        //this.createWorld();
     }
 
     update() {
