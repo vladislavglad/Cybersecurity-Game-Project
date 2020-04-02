@@ -1,6 +1,18 @@
 ## CISC 4900 encryption game module.
 **This is a first [prototype](https://vladglad.itch.io/phaser-rpg?secret=6ltnySNslGpibAeh8dyZCC8PotI) of my module made using [Phaser.io](https://phaser.io) HTML5 game framework.**
 
+## Available Scripts (to run the game locally).
+### 1. Prerequisites:
+* Node.js installed on your machine.
+* git clone or download this repository.
+
+### 2. In the project directory, you can run:
+#### `npm install`
+Installs all dependencies necessary, namely http-server.
+
+#### `npm start`
+Starts local server and opens default browser to run the game on localhost.
+
 ### Update:
 Encryption/decryption educational module is outsourced to Gallal. 
 My main focus now is development of the game world.
@@ -21,7 +33,7 @@ My main focus now is development of the game world.
 - [ ] Update tiled map layout and addjust collisions (player & world).
 - [X] In game World map and contamination/decontamination concept of our game (very ironic given current state of the world).
 
-* Optional:
+**Optional:**
 - [ ] Player control with WASD (not necessary, but may be later switched from Options menu).
 - [ ] New Enemies (loading atlas files in .JSON format).
 - [ ] Basic enemy AI.

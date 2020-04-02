@@ -1,0 +1,33 @@
+{
+  "name": "game-project",
+  "version": "1.0.0",
+  "description": "Phaser3 RPG",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run open-browser && npm run start-server",
+    "start-server": "http-server ./ -c-1 -p 8080",
+    "open-browser": "node index.js",
+    "another-start-option": "npm run open-concurrently",
+    "open-concurrently": "concurrently \"npm run start-server\" \"npm run open-browser\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladislavglad/game-project.git"
+  },
+  "keywords": [
+    "Phaser3",
+    "top-down",
+    "2D",
+    "RPG"
+  ],
+  "author": "vladislavglad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vladislavglad/game-project/issues"
+  },
+  "homepage": "https://github.com/vladislavglad/game-project#readme",
+  "dependencies": {
+    "http-server": "^0.12.1",
+    "open": "^7.0.3"
+  }
+}
