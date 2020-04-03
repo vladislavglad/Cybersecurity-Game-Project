@@ -13,6 +13,11 @@ class DialogScene extends Phaser.Scene {
     }
 
     create() {
+        /*
+        This is why you don't have to mute playerUI scene.
+        Since you add image on top of whatever was previously there.
+        (But that scene still runs on the background!)
+        */
         this.add.image(0,0, "sky");
 
         //Draw rectangle and color it.

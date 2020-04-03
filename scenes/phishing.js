@@ -12,9 +12,11 @@ class PhishingHints extends Phaser.Scene {
         this.graphics.fillRect(2, 217, 315, 20);
         this.graphics.setVisible(false);
 
+        //Prompts.
         this.hint1 = this.add.text(config.width/4, config.height - 20, 'Press "P" to Phish.', {color: "yellow"}).setVisible(false);
         this.hint2 = this.add.text(15, config.height - 20, "You need PhishingRod to Phish!").setVisible(false);
 
+        //Listen for when player is near a body of water.
         this.scene.get("WorldScene").events.on("startPhishing", (objects) => {
             //Initializing passed objects (to later check if bounds overlap).
             this.playerObj = objects[0];
@@ -29,6 +31,7 @@ class PhishingHints extends Phaser.Scene {
             }
         }, this);
 
+        //Wait for the asigned key to "Phish"
         this.input.keyboard.on("keydown", key => {
             if (key.code === "KeyP" && hasPhishingRod && !isGamePaused) {
 

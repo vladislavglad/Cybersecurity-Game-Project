@@ -4,6 +4,13 @@ class TempWorld extends Phaser.Scene {
     }
 
     create() {
+        this.createWorld();
+        this.events.on("wake", this.onWake, this);
+
+        //TODO: Implement logic and place points of interest on the map...
+    }
+
+    createWorld() {
         //Testing concept.
         this.add.image(config.width/2, config.height/2, "temp-map").setScale(0.66);
         this.player = this.physics.add.sprite(40, config.height - 40, "player", 7);
@@ -15,18 +22,9 @@ class TempWorld extends Phaser.Scene {
         this.physics.add.overlap(this.player, this.exitZone, () => {
             this.events.emit("exitZone");
             this.scene.switch("WorldScene");
+            this.scene.stop("TempWorld");
         }, null, this);
         
-        this.events.on("wake", this.onWake, this);
-        //TODO: Implement logic and place points of interest below...
-    }
-
-    createWorld() {
-        //Testing concept.
-        //this.add.image(config.width/2, config.height/2, "temp-map").setScale(0.66);
-        //this.player = this.physics.add.sprite(40, config.height - 30, "player", 7);
-        //this.cursors = this.input.keyboard.createCursorKeys();
-
         //this.time.addEvent({delay: 3000, callback: () => {this.scene.switch("WorldScene");}, callbackScope: this});
     }
 

@@ -77,20 +77,8 @@ class WorldScene extends Phaser.Scene {
         //(PROBLEM: Map and Mute both binded to "M")
         //this.input.keyboard.on("keydown", this.onMute, this);
 
-        //When Scene is "woken up" (resumed).
-        this.events.on("wake", this.onWake, this);
-
         //Run the following scene concurrently.
         this.scene.run("PlayerUI");
-
-        //NEW: Interactive zone to transition to another world/biom (TESTING CONCEPT).
-        this.transitionZone1 = this.add.zone(50, 0, 160, 10).setOrigin(0,0);
-        this.transitionZone2 = this.add.zone(0, 40, 10, 160).setOrigin(0,0);
-        this.physics.world.enableBody(this.transitionZone1);
-        //this.physics.world.enableBody(this.transitionZone2);
-
-        this.physics.add.overlap(this.player, this.transitionZone1, this.transitionNextZone, null, this);
-        this.physics.add.overlap(this.player, this.transitionZone2, this.transitionNextZone, null, this);
 
         //Listen for "Pause" event (emmited from PlayerUI Scene).
         this.playerUI = this.scene.get("PlayerUI");
@@ -105,7 +93,7 @@ class WorldScene extends Phaser.Scene {
         this.input.keyboard.on("keydown", this.openMap, this);
 
         //NEW: "Phishing" rod and zone.
-        this.phishingRod = this.add.image(180, 290, "phishing-rod"); //70, 170
+        this.phishingRod = this.add.image(180, 290, "phishing-rod");
         this.physics.world.enableBody(this.phishingRod);
         this.phishingRod.setScale(0.5);
         this.physics.add.overlap(this.player, this.phishingRod, () => {
@@ -113,6 +101,7 @@ class WorldScene extends Phaser.Scene {
             hasPhishingRod = true;
         }, null, this);
 
+        //"PhishingHints" is running in parallel and listening for key input.
         this.scene.run("PhishingHints");
         this.phishingZone = this.add.zone(80, 230, 60, 40);
         this.physics.world.enableBody(this.phishingZone);
@@ -120,11 +109,24 @@ class WorldScene extends Phaser.Scene {
             this.events.emit( "startPhishing", [this.player, this.phishingZone] );
         }, null, this);
 
+        //NEW: Interactive zone to transition to another world/biom (TESTING CONCEPT).
+        this.transitionZone1 = this.add.zone(50, 0, 160, 10).setOrigin(0,0);
+        this.transitionZone2 = this.add.zone(0, 40, 10, 160).setOrigin(0,0);
+        this.physics.world.enableBody(this.transitionZone1);
+        //this.physics.world.enableBody(this.transitionZone2);
+
+        this.physics.add.overlap(this.player, this.transitionZone1, this.transitionNextZone, null, this);
+        this.physics.add.overlap(this.player, this.transitionZone2, this.transitionNextZone, null, this);
+
+        //Listen for transition between zones.
         this.scene.get("TempWorld").events.on("exitZone", () => {
             this.player.x = 110;
             this.player.y = 40;
             this.player.anims.play("down");
         }, this);
+
+        //When WorldScene is "woken up" (resumed).
+        this.events.on("wake", this.onWake, this);
     }
 
     openMap() {
@@ -143,8 +145,8 @@ class WorldScene extends Phaser.Scene {
     }
 
     transitionNextZone(player, zone) {
-        zone.x += 1500;
-        zone.y += 1500;
+        //zone.x += 1500;
+        //zone.y += 1500;
         this.scene.switch("TempWorld");
     }
 
