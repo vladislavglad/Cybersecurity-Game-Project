@@ -32,6 +32,7 @@ var config = {
                 PauseScene, 
                 GameMap, 
                 TempWorld,
+                TavernInside,
                 
                 PhishingHints, 
                 GameModule, 

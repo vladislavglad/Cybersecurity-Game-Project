@@ -66,7 +66,7 @@ class WorldScene extends Phaser.Scene {
         this.physics.add.overlap(this.player, this.npc_mage, this.onMeetNPC, null, this);
 
         //Book object setup.
-        this.book = this.physics.add.image(150, 90, "book"); //x=150, y=580
+        this.book = this.physics.add.image(150, 90, "book");
         this.book.setScale(0.35);
         this.physics.add.overlap(this.player, this.book, this.onBookPickup, null, this);
 
@@ -90,7 +90,7 @@ class WorldScene extends Phaser.Scene {
         this.pauseScene.events.on("muteMusic", this.muteMusic, this);
 
         //NEW: in-game map.
-        this.input.keyboard.on("keydown", this.openMap, this);
+        this.input.keyboard.on("keydown", this.getPlayerCoordinates, this);
 
         //NEW: "Phishing" rod and zone.
         this.phishingRod = this.add.image(180, 290, "phishing-rod");
@@ -109,24 +109,50 @@ class WorldScene extends Phaser.Scene {
             this.events.emit( "startPhishing", [this.player, this.phishingZone] );
         }, null, this);
 
-        //NEW: Interactive zone to transition to another world/biom (TESTING CONCEPT).
-        this.transitionZone1 = this.add.zone(50, 0, 160, 10).setOrigin(0,0);
-        this.transitionZone2 = this.add.zone(0, 40, 10, 160).setOrigin(0,0);
+        //NEW: Interactive zone to transition to another world/biom.
+        this.transitionZone1 = this.add.zone(130, 10, 160, 10).setOrigin(0.5, 0.5);
+        this.transitionZone2 = this.add.zone(463, 360, 120, 10).setOrigin(0.5,0.5); 
         this.physics.world.enableBody(this.transitionZone1);
-        //this.physics.world.enableBody(this.transitionZone2);
+        this.physics.world.enableBody(this.transitionZone2);
 
         this.physics.add.overlap(this.player, this.transitionZone1, this.transitionNextZone, null, this);
         this.physics.add.overlap(this.player, this.transitionZone2, this.transitionNextZone, null, this);
 
         //Listen for transition between zones.
+        this.onExitZone();
+
+        //When WorldScene is "woken up" (resumed).
+        this.events.on("wake", this.onWake, this);
+    }
+
+    transitionNextZone(player, zone) {
+        if (zone === this.transitionZone1) {
+            this.scene.switch("TempWorld");
+        } else if (zone === this.transitionZone2) {
+            this.scene.switch("TavernInside");
+        }
+    }
+
+    onExitZone() {
         this.scene.get("TempWorld").events.on("exitZone", () => {
             this.player.x = 110;
             this.player.y = 40;
             this.player.anims.play("down");
         }, this);
 
-        //When WorldScene is "woken up" (resumed).
-        this.events.on("wake", this.onWake, this);
+        this.scene.get("TavernInside").events.on("exitZone", () => {
+            this.player.x = 463;
+            this.player.y = 375;
+            this.player.anims.play("down");
+        }, this);
+    }
+
+    getPlayerCoordinates() {
+        let center = this.player.getCenter();
+        console.log("x: " + Math.round(center.x) + " y: " + Math.round(center.y));
+        
+        //Also check GameMap input.
+        this.openMap();
     }
 
     openMap() {
@@ -142,12 +168,6 @@ class WorldScene extends Phaser.Scene {
             isMapOpen = false;
             isGamePaused = false;
         }
-    }
-
-    transitionNextZone(player, zone) {
-        //zone.x += 1500;
-        //zone.y += 1500;
-        this.scene.switch("TempWorld");
     }
 
     //Called when this Scene is resumed.

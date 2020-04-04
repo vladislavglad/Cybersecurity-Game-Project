@@ -15,6 +15,7 @@ class PreloadAssets extends Phaser.Scene {
 
         //preload map in JSON.
         this.load.tilemapTiledJSON("map", "assets/map/myMap.json");
+        this.load.tilemapTiledJSON("tavern", "assets/map/tavern.json");
 
         //player spritesheet.
         this.load.spritesheet("player", "assets/spritesheets/player.png", {

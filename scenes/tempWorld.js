@@ -16,7 +16,7 @@ class TempWorld extends Phaser.Scene {
         this.player = this.physics.add.sprite(40, config.height - 40, "player", 7);
         this.cursors = this.input.keyboard.createCursorKeys();
 
-        this.exitZone = this.add.zone(40, config.height - 10, 530, 10);
+        this.exitZone = this.add.zone(config.width/2, config.height - 10, 330, 10).setOrigin(0.5, 0.5);
         this.physics.world.enableBody(this.exitZone);
 
         this.physics.add.overlap(this.player, this.exitZone, () => {
