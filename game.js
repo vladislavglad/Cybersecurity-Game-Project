@@ -54,5 +54,6 @@ let isGamePaused = false;
 let isMusicPlaying = false;
 let isMapOpen = false;
 let hasPhishingRod = false;
+let useDefaultKeys = true;
 
 let game = new Phaser.Game(config);

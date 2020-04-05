@@ -45,9 +45,9 @@ class WorldScene extends Phaser.Scene {
         //colider for player and obstacles.
         this.physics.add.collider(this.player, obstacles);
 
-        //user input.
-        this.cursors = this.input.keyboard.createCursorKeys();
-
+        //User input to move character (based on preference: arrows or wasd).
+        this.cursors = this.createInputKeys(useDefaultKeys);
+        
         //camera config.
         this.cameras.main.setBounds(0,0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
@@ -89,9 +89,6 @@ class WorldScene extends Phaser.Scene {
         this.pauseScene.events.on("playMusic", this.playMusic, this);
         this.pauseScene.events.on("muteMusic", this.muteMusic, this);
 
-        //NEW: in-game map.
-        this.input.keyboard.on("keydown", this.getPlayerCoordinates, this);
-
         //NEW: "Phishing" rod and zone.
         this.phishingRod = this.add.image(180, 290, "phishing-rod");
         this.physics.world.enableBody(this.phishingRod);
@@ -123,6 +120,23 @@ class WorldScene extends Phaser.Scene {
 
         //When WorldScene is "woken up" (resumed).
         this.events.on("wake", this.onWake, this);
+
+        //Listen for any key press.
+        this.input.keyboard.on("keydown", this.onKeyDown, this);
+    }
+
+    createInputKeys(useDefaultKeys) {
+        if (useDefaultKeys === true) 
+            return this.input.keyboard.createCursorKeys();
+        else {
+            return this.input.keyboard.addKeys({
+                up: Phaser.Input.Keyboard.KeyCodes.W,
+                down: Phaser.Input.Keyboard.KeyCodes.S,
+                left: Phaser.Input.Keyboard.KeyCodes.A,
+                right: Phaser.Input.Keyboard.KeyCodes.D,
+                space: Phaser.Input.Keyboard.KeyCodes.SPACE
+            });
+        }
     }
 
     transitionNextZone(player, zone) {
@@ -147,22 +161,34 @@ class WorldScene extends Phaser.Scene {
         }, this);
     }
 
-    getPlayerCoordinates() {
+    onKeyDown(key) {
+        //console.log(key.code);
+
+        //Track player coordinates.
         let center = this.player.getCenter();
         console.log("x: " + Math.round(center.x) + " y: " + Math.round(center.y));
+
+        //Change input type (arrows or wasd).
+        if (key.code === "KeyQ") {
+            if (useDefaultKeys === true) 
+                useDefaultKeys = false;
+            else
+                useDefaultKeys = true;
+            this.cursors = this.createInputKeys(useDefaultKeys);
+        }
         
-        //Also check GameMap input.
-        this.openMap();
+        //Also check for "M" key for GameMap to open.
+        this.openMap(key);
     }
 
-    openMap() {
-        if (event.code === "KeyM" && !isMapOpen && !isGamePaused) {
+    openMap(key) {
+        if (key.code === "KeyM" && !isMapOpen && !isGamePaused) {
             this.scene.sleep("PlayerUI")
             this.scene.run("GameMap");
             isMapOpen = true;
             isGamePaused = true;
             this.player.anims.stop();
-        } else if (event.code === "KeyM" && isMapOpen) {
+        } else if (key.code === "KeyM" && isMapOpen) {
             this.scene.sleep("GameMap");
             this.scene.run("PlayerUI");
             isMapOpen = false;
@@ -221,9 +247,9 @@ class WorldScene extends Phaser.Scene {
         this.scene.switch("BookInteraction");
     }
 
-    onMute(event) {
+    onMute(key) {
         //logic to toggle audio.
-        if (event.code === "KeyM") {
+        if (key.code === "KeyM") {
             if (this.mainMusic.isPaused) {
                 this.mainMusic.resume();
                 isMusicPlaying = true;

@@ -34,7 +34,7 @@ My main focus now is development of the game world.
 - [X] In game World map and contamination/decontamination concept of our game (very ironic given current state of the world).
 
 **Optional:**
-- [ ] Player control with WASD (not necessary, but may be later switched from Options menu).
+- [X] Player control with WASD (not necessary, but may be later switched from Options menu).
 - [ ] New Enemies (loading atlas files in .JSON format).
 - [ ] Basic enemy AI.
 - [ ] Character invincibility frames when hit/collided with an enemy.
