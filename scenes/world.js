@@ -88,6 +88,7 @@ class WorldScene extends Phaser.Scene {
         this.pauseScene = this.scene.get("PauseScene");
         this.pauseScene.events.on("playMusic", this.playMusic, this);
         this.pauseScene.events.on("muteMusic", this.muteMusic, this);
+        this.pauseScene.events.on("controlsSwitch", () => {this.cursors = this.createInputKeys(useDefaultKeys);}, this);
 
         //NEW: "Phishing" rod and zone.
         this.phishingRod = this.add.image(180, 290, "phishing-rod");

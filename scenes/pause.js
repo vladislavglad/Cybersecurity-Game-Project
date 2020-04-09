@@ -82,19 +82,45 @@ class PauseScene extends Phaser.Scene {
             this.txt1.setText("Music: OFF");
         }
 
-        //BACK Button.
-        this.btn2 = this.add.image(config.width/3 - 7, config.height/2 + 45, "pause-button").setScale(0.5).setOrigin(0,0).setTintFill("0x9e9b8a");
-        this.btn2.setInteractive().on("pointerdown", this.bringBackOptions, this);
+        //CONTROLS Button.
+        this.btn2 = this.add.image(config.width/3 - 7, config.height/2, "pause-button").setScale(0.5).setOrigin(0,0).setTintFill("0x9e9b8a");
+        this.btn2.setInteractive().on("pointerdown", this.controlsConfig, this);
 
-        this.txt2 = this.add.text(config.width/3 - 7 + 25, config.height/2 + 45, "Back", {
+        this.txt2 = this.add.text(config.width/3 -2, config.height/2, "PLACE HOLDER", {
+            font: "14px Arial",
+            fill: "Black"
+        });
+
+        if (useDefaultKeys) {
+            this.txt2.setText("Controls: \n     Arrows"); 
+        } else {
+            this.txt2.setText("Controls: \n     WASD");
+        }
+
+        //BACK Button.
+        this.btn3 = this.add.image(config.width/3 - 7, config.height/2 + 45, "pause-button").setScale(0.5).setOrigin(0,0).setTintFill("0x9e9b8a");
+        this.btn3.setInteractive().on("pointerdown", this.bringBackOptions, this);
+
+        this.txt3 = this.add.text(config.width/3 - 7 + 25, config.height/2 + 45, "Back", {
             font: "25px Arial",
             fill: "Black"
         });
 
         //second collection of UI elements.
-        this.elmentsArr2 = [this.btn1, this.txt1, this.btn2, this.txt2];
+        this.elmentsArr2 = [this.btn1, this.txt1, this.btn2, this.txt2, this.btn3, this.txt3];
     }
 
+    controlsConfig() {
+        if (useDefaultKeys) {
+            this.txt2.setText("Controls: \n     WASD");
+            useDefaultKeys = false;
+        } else {
+            this.txt2.setText("Controls: \n     Arrows");
+            useDefaultKeys = true;
+        }
+        this.events.emit("controlsSwitch");
+    }
+    
     musicConfig() {
         if (!isMusicPlaying) {
             this.txt1.setText("Music: ON");
