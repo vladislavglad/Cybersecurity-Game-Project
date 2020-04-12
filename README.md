@@ -13,9 +13,21 @@ Installs all dependencies necessary, namely http-server.
 #### `npm start`
 Starts local server and opens default browser to run the game on localhost.
 
-### Update:
-Encryption/decryption educational module is outsourced to Gallal. 
-My main focus now is development of the game world.
+## **TODO:**
+* Enemy AI that chases after the player (to trigger one of 5 modules).
+* Modularize the game - Create reusable parts and use JS's export/import statements to not write the code twice to controll player character.
+* Context switch controller (a “scheduler” of our game modules so to speak) - one .js file that controls which game module is up now. My plan: we need to wrap each of our modules in separate <div> on a single HTML file and let JS control visibility of the divs with something like: 
+  
+```javascript
+document.getElementById("myDiv").style.display = "none";
+```
+
+ ### **- OR -** 
+ 
+```javascript
+document.getElementById("myDiv").style.visibility = "hidden";
+```
+* Cosmetic adjustments to the game world/zones: textures and tilemaps (secondary priority).
 
 **(Week 5-6) Updates:**
 * First prototype of Title screen.
