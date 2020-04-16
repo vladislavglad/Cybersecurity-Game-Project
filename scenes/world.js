@@ -47,6 +47,7 @@ class WorldScene extends Phaser.Scene {
 
         //User input to move character (based on preference: arrows or wasd).
         this.cursors = this.createInputKeys(useDefaultKeys);
+        this.movementManager = new MovementManager(this.player, this.cursors);
         
         //camera config.
         this.cameras.main.setBounds(0,0, map.widthInPixels, map.heightInPixels);
@@ -88,7 +89,9 @@ class WorldScene extends Phaser.Scene {
         this.pauseScene = this.scene.get("PauseScene");
         this.pauseScene.events.on("playMusic", this.playMusic, this);
         this.pauseScene.events.on("muteMusic", this.muteMusic, this);
-        this.pauseScene.events.on("controlsSwitch", () => {this.cursors = this.createInputKeys(useDefaultKeys);}, this);
+        this.pauseScene.events.on("controlsSwitch", () => {
+            this.movementManager.cursors = this.createInputKeys(useDefaultKeys);
+        }, this);
 
         //NEW: "Phishing" rod and zone.
         this.phishingRod = this.add.image(180, 290, "phishing-rod");
@@ -175,7 +178,7 @@ class WorldScene extends Phaser.Scene {
                 useDefaultKeys = false;
             else
                 useDefaultKeys = true;
-            this.cursors = this.createInputKeys(useDefaultKeys);
+            this.movementManager.cursors = this.createInputKeys(useDefaultKeys);
         }
         
         //Also check for "M" key for GameMap to open.
@@ -280,11 +283,12 @@ class WorldScene extends Phaser.Scene {
         
     //Game loop (should be called by Phaser 60 times per second).
     update(time, delta) {
-        this.playerMovementManager();
+        //Using the reusable module.
+        this.movementManager.playerMovementManager();
     }
 
-    //key codes: KeyW, KeyS, KeyA, KeyD. 
-    playerMovementManager() {
+    //Character movement.
+    localMovementManager() {
         this.player.body.setVelocity(0);
     
         //First, check if game is paused.

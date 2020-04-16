@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <style>html, body {margin: 0; padding: 0;}</style>
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Phaser RPG</title>
 
+    <!-- Load Phaser3 engine -->
     <script src="//cdn.jsdelivr.net/npm/phaser@3.22.0/dist/phaser.min.js"></script>
-    <!-- <script src="phaser.min.js"></script> -->
 
+    <!-- Utility classes for reusability -->
+    <script src="utility-modules/MovementManager.js"></script>
     <script src="units/Unit.js"></script>
     <script src="menu/Menu.js"></script>
 
+    <!-- Preload sequence -->
     <script src="scenes/boot.js"></script>
     <script src="scenes/title.js"></script>
     <script src="scenes/preload.js"></script>
 
+    <!-- Game setup and scripts -->
     <script src="scenes/world.js"></script>
     <script src="scenes/tempWorld.js"></script>
     <script src="scenes/tavern.js"></script>

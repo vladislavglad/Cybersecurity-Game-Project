@@ -19,9 +19,11 @@ class TavernInside extends Phaser.Scene {
         let walls = map.createStaticLayer("layer2", tileset, 40, 0);
         walls.setCollisionByExclusion([-1]);
 
-        this.player = this.physics.add.sprite(config.width/2, config.height - 40, "player", 7);
-        this.player.play("up");
+        this.player = this.physics.add.sprite(config.width/2, config.height - 40, "player", 4);
         this.physics.add.collider(this.player, walls);
+
+        this.cursors = this.input.keyboard.createCursorKeys();
+        this.movementManager = new MovementManager(this.player, this.cursors);
 
         //Npc setup.
         this.physics.add.staticSprite(64, 157, "npc", 10).flipX = true;
@@ -52,7 +54,6 @@ class TavernInside extends Phaser.Scene {
             this.scene.stop("TavernInside");
         }, null, this);
         
-        this.cursors = this.input.keyboard.createCursorKeys();
         this.input.keyboard.on("keydown", this.getPlayerCoordinates, this);
     }
 
@@ -74,47 +75,6 @@ class TavernInside extends Phaser.Scene {
     }
 
     update() {
-        this.playerMovementManager();
-    }
-
-    playerMovementManager() {
-        this.player.body.setVelocity(0);
-    
-        //First, check if game is paused.
-        if (!isGamePaused) {
-            //horizonatal movements.
-            if (this.cursors.left.isDown) {
-                this.player.body.setVelocityX(-80);
-                this.facingDirection = 2;
-            } else if (this.cursors.right.isDown) {
-                this.player.body.setVelocityX(80);
-                this.facingDirection = 3;
-            }
-
-            //vertical movements.
-            if (this.cursors.up.isDown) {
-                this.player.body.setVelocityY(-80);
-                this.facingDirection = 1;
-            } else if (this.cursors.down.isDown) {
-                this.player.body.setVelocityY(80);
-                this.facingDirection = 0;
-            }
-
-            //animations for movements.
-            if (this.cursors.left.isDown) {
-                this.player.flipX = false;
-                this.player.anims.play('left', true);
-            } else if (this.cursors.right.isDown) {
-                this.player.flipX = true;
-                this.player.anims.play('left', true);
-            } else if (this.cursors.up.isDown) {
-                this.player.anims.play('up', true);
-            } else if (this.cursors.down.isDown) {
-                this.player.anims.play('down', true);
-            } else {
-                //stops any animation from playing.
-                this.player.anims.stop();
-            }
-        }
+        this.movementManager.playerMovementManager();
     }
 }
