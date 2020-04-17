@@ -1,9 +1,40 @@
 class MovementManager {
-    constructor(player, cursors) {
+    constructor(player, keyboard) {
         this.player = player;
-        this.cursors = cursors;
+        this.keyboard = keyboard;
+        this.cursors = this.createInputKeys(useDefaultKeys);
     }
     
+    createInputKeys(useDefaultKeys) {
+        if (useDefaultKeys === true) 
+            return this.keyboard.createCursorKeys();
+        else {
+            return this.keyboard.addKeys({
+                up: Phaser.Input.Keyboard.KeyCodes.W,
+                down: Phaser.Input.Keyboard.KeyCodes.S,
+                left: Phaser.Input.Keyboard.KeyCodes.A,
+                right: Phaser.Input.Keyboard.KeyCodes.D,
+                space: Phaser.Input.Keyboard.KeyCodes.SPACE
+            });
+        }
+    }
+
+    resetCursors() {
+        this.cursors.left.reset();
+        this.cursors.right.reset();
+        this.cursors.up.reset();
+        this.cursors.down.reset();
+    }
+
+    setCursors(cursors) {
+        this.resetCursors();
+        this.cursors = cursors;
+    }
+
+    switchCursors() {
+        this.setCursors(this.createInputKeys(useDefaultKeys));
+    }
+
     playerMovementManager() {
         this.player.body.setVelocity(0);
     

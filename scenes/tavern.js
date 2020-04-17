@@ -20,10 +20,8 @@ class TavernInside extends Phaser.Scene {
         walls.setCollisionByExclusion([-1]);
 
         this.player = this.physics.add.sprite(config.width/2, config.height - 40, "player", 4);
+        this.movementManager = new MovementManager(this.player, this.input.keyboard);
         this.physics.add.collider(this.player, walls);
-
-        this.cursors = this.input.keyboard.createCursorKeys();
-        this.movementManager = new MovementManager(this.player, this.cursors);
 
         //Npc setup.
         this.physics.add.staticSprite(64, 157, "npc", 10).flipX = true;
@@ -67,10 +65,7 @@ class TavernInside extends Phaser.Scene {
     }
 
     onWake() {
-        this.cursors.left.reset();
-        this.cursors.right.reset();
-        this.cursors.up.reset();
-        this.cursors.down.reset();
+        this.movementManager.resetCursors();
         //this.createWorld();
     }
 

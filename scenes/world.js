@@ -45,10 +45,9 @@ class WorldScene extends Phaser.Scene {
         //colider for player and obstacles.
         this.physics.add.collider(this.player, obstacles);
 
-        //User input to move character (based on preference: arrows or wasd).
-        this.cursors = this.createInputKeys(useDefaultKeys);
-        this.movementManager = new MovementManager(this.player, this.cursors);
-        
+        //User movement manager (based on preference: arrows or wasd).
+        this.movementManager = new MovementManager(this.player, this.input.keyboard);
+
         //camera config.
         this.cameras.main.setBounds(0,0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
@@ -90,7 +89,7 @@ class WorldScene extends Phaser.Scene {
         this.pauseScene.events.on("playMusic", this.playMusic, this);
         this.pauseScene.events.on("muteMusic", this.muteMusic, this);
         this.pauseScene.events.on("controlsSwitch", () => {
-            this.movementManager.cursors = this.createInputKeys(useDefaultKeys);
+            this.movementManager.switchCursors();
         }, this);
 
         //NEW: "Phishing" rod and zone.
@@ -129,7 +128,7 @@ class WorldScene extends Phaser.Scene {
         this.input.keyboard.on("keydown", this.onKeyDown, this);
     }
 
-    createInputKeys(useDefaultKeys) {
+    createInputKeys_local(useDefaultKeys) {
         if (useDefaultKeys === true) 
             return this.input.keyboard.createCursorKeys();
         else {
@@ -149,6 +148,7 @@ class WorldScene extends Phaser.Scene {
         } else if (zone === this.transitionZone2) {
             this.scene.switch("TavernInside");
         }
+        this.movementManager.resetCursors();
     }
 
     onExitZone() {
@@ -178,7 +178,7 @@ class WorldScene extends Phaser.Scene {
                 useDefaultKeys = false;
             else
                 useDefaultKeys = true;
-            this.movementManager.cursors = this.createInputKeys(useDefaultKeys);
+            this.movementManager.switchCursors();
         }
         
         //Also check for "M" key for GameMap to open.
@@ -203,11 +203,7 @@ class WorldScene extends Phaser.Scene {
     //Called when this Scene is resumed.
     onWake() {
         isGamePaused = false;
-
-        this.cursors.left.reset();
-        this.cursors.right.reset();
-        this.cursors.up.reset();
-        this.cursors.down.reset();
+        this.movementManager.resetCursors();
 
         //Resumes the game (progress is "saved") 
         //Character remains where it was left.
@@ -288,7 +284,7 @@ class WorldScene extends Phaser.Scene {
     }
 
     //Character movement.
-    localMovementManager() {
+    MovementManager_local() {
         this.player.body.setVelocity(0);
     
         //First, check if game is paused.
