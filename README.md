@@ -1,6 +1,19 @@
 ## CISC 4900 encryption game module.
 **This is a first [prototype](https://vladglad.itch.io/phaser-rpg?secret=6ltnySNslGpibAeh8dyZCC8PotI) of my module made using [Phaser.io](https://phaser.io) HTML5 game framework.**
 
+**(Week 7-10) Updates:** 
+* My repo is (and has been) public - all commits/updates could be seen directly.
+* In-game menu that lets pause the game, change options such as music and controls, and exit the game to the title screen.
+* Title screen and some animation; transition to the game.
+* In-game map of the world that is dynamically (at random) changes colors to indicate “cyber-threat” severity.
+* Transition between game zones and universal character controls -> either arrows or “wasd”
+* New “Tavern” game zone with new way to interact with npc: overhead text.
+* Introduced a way to integrate a “Phishing” module.
+* Lots of tweaks and fixes.
+* Checkout and run the game locally in just **two** terminal commands (see the following section).
+
+___
+
 ## Available Scripts (to run the game locally).
 ### 1. Prerequisites:
 * Node.js installed on your machine.
@@ -13,10 +26,12 @@ Installs all dependencies necessary, namely http-server.
 #### `npm start`
 Starts local server and opens default browser to run the game on localhost.
 
-## **TODO:**
+___
+
+## **What I am currently working on:**
 * Enemy AI that chases after the player (to trigger one of 5 modules).
 * Modularize the game - Create reusable parts and use JS's export/import statements to not write the code twice to controll player character.
-* Context switch controller (a “scheduler” of our game modules so to speak) - one .js file that controls which game module is up now. My plan: we need to wrap each of our modules in separate <div> on a single HTML file and let JS control visibility of the divs with something like: 
+* Context switch controller (a “scheduler” of our game modules so to speak) - one .js file that controls which game module is up now. My plan: we need to **wrap** each of our modules in separate `<div>` on a single HTML file and let JS control visibility of the divs with something like: 
   
 ```javascript
 document.getElementById("myDiv").style.display = "none";
@@ -28,6 +43,14 @@ document.getElementById("myDiv").style.display = "none";
 document.getElementById("myDiv").style.visibility = "hidden";
 ```
 * Cosmetic adjustments to the game world/zones: textures and tilemaps (secondary priority).
+
+### Points for integration (of the game modules):
+* Common resource and the corresponding indicator.
+* Severity map.
+
+**Requirement:** all the modules should be wrapped in a single `<div>` tag and placed in a common HTML file. One scheduler JS file would be responsible for bringing up the content to the player. 
+
+___
 
 **(Week 5-6) Updates:**
 * First prototype of Title screen.
@@ -48,10 +71,10 @@ document.getElementById("myDiv").style.visibility = "hidden";
 **Optional:**
 - [X] Player control with WASD (not necessary, but may be later switched from Options menu).
 - [ ] New Enemies (loading atlas files in .JSON format).
-- [ ] Basic enemy AI.
+- [X] Basic enemy AI.
 - [ ] Character invincibility frames when hit/collided with an enemy.
 
-**__________________________________________________________________________________________________________________________________**
+___
 
 **(Week 3-4) What has been done:**
 * Bug fixed when exiting Scenes: could not exit a Scene due to overlap of game objects.
@@ -70,7 +93,7 @@ document.getElementById("myDiv").style.visibility = "hidden";
 * **Heavily** time consuming (complexity).
 * We are limited on time: when to integrate and polish.
 
-**__________________________________________________________________________________________________________________________________**
+___
 
 **(Week 1-2) Things that had been done:**
 * Learned the basics of Phaser3: Loading resources - images spritesheets, creating animation, using "Arcade" physics, scene managemnet, update logic.
