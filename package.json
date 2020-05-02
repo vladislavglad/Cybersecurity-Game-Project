@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run open-browser && npm run start-server",
     "start-server": "http-server ./ -c-1 -p 8080",
-    "open-browser": "node index.js",
+    "open-browser": "node ./scripts/index.js",
     "another-start-option": "npm run open-concurrently",
     "open-concurrently": "concurrently \"npm run start-server\" \"npm run open-browser\""
   },
@@ -29,5 +29,8 @@
   "dependencies": {
     "http-server": "^0.12.1",
     "open": "^7.0.3"
+  },
+  "devDependencies": {
+    "phaser": "^3.22.0"
   }
 }

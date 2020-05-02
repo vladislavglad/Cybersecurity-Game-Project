@@ -20,7 +20,7 @@ class TavernInside extends Phaser.Scene {
         walls.setCollisionByExclusion([-1]);
 
         this.player = this.physics.add.sprite(config.width/2, config.height - 40, "player", 4);
-        this.movementManager = new MovementManager(this.player, this.input.keyboard);
+        this.movementManager = new MovementManager(this);
         this.physics.add.collider(this.player, walls);
 
         //Npc setup.

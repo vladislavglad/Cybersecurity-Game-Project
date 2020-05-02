@@ -55,5 +55,7 @@ let isMusicPlaying = false;
 let isMapOpen = false;
 let hasPhishingRod = false;
 let useDefaultKeys = true;
+let globalEnemyContainer = null;
+let currentContentID = null;
 
 let game = new Phaser.Game(config);

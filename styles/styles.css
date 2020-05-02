@@ -1,0 +1,9 @@
+html, body {
+    margin: 0; 
+    padding: 0;
+}
+div.gameModule {
+    display: none;
+    width: 800px;
+    height: 600px;
+}

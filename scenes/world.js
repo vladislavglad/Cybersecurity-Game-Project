@@ -1,6 +1,10 @@
 class WorldScene extends Phaser.Scene {
     constructor() {
         super("WorldScene");
+
+        //Have to initialize these to be able to use MovementManager class.
+        this.player = null;
+        this.enemies = null;
     }
 
     create() {
@@ -46,7 +50,7 @@ class WorldScene extends Phaser.Scene {
         this.physics.add.collider(this.player, obstacles);
 
         //User movement manager (based on preference: arrows or wasd).
-        this.movementManager = new MovementManager(this.player, this.input.keyboard);
+        this.movementManager = new MovementManager(this);
 
         //camera config.
         this.cameras.main.setBounds(0,0, map.widthInPixels, map.heightInPixels);

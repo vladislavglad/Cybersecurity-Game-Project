@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <style>html, body {margin: 0; padding: 0;}</style>
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Phaser RPG</title>
 
     <!-- Load Phaser3 engine -->
@@ -10,6 +10,7 @@
 
     <!-- Utility classes for reusability -->
     <script src="utility-modules/MovementManager.js"></script>
+    <script src="utility-modules/EnemyObject.js"></script>
     <script src="units/Unit.js"></script>
     <script src="menu/Menu.js"></script>
 
@@ -34,10 +35,28 @@
 
     <!-- Configs of the game are here -->
     <script src="game.js"></script>
+
+    <!-- Content Scheduler/Switcher -->
+    <script defer src="scripts/contentSwitcher.js"></script>
+
+    <!-- Outside scripts follow. -->
+    <script defer src="scripts/other.js"></script>
 </head>
 <body>
-    <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
-        <div id="gameContainer"></div>
+    <!-- Whole game world (made in Phaser3) -->
+    <div id="gameContainer"></div>
+
+    <!-- Other "game" modules (made in any framework)-->
+    <div class="gameModule" id="myDiv1" style="background-color:lightblue">
+        <div style="font-size: 60px;">Something cool!</div><br>
+        <span>
+            <button style="font-size: xx-large;" onclick="switchWithCondition(true)">Correct</button>
+            <button style="font-size: xx-large;" onclick="switchWithCondition(false)">Wrong</button>
+        </span>
     </div>
+
+    <!-- Another div that is manipulated through a separate file (other.js) -->
+    <div class="gameModule" id="myDiv2" style="background-color:lightgreen">
+
 </body>
 </html>

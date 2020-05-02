@@ -14,7 +14,7 @@ class TempWorld extends Phaser.Scene {
         //Testing concept.
         this.add.image(config.width/2, config.height/2, "temp-map").setScale(0.66);
         this.player = this.physics.add.sprite(40, config.height - 40, "player", 4);
-        this.movementManager = new MovementManager(this.player, this.input.keyboard);
+        this.movementManager = new MovementManager(this);
 
         this.physics.world.bounds.width = config.width;
         this.physics.world.bounds.height = config.height;
