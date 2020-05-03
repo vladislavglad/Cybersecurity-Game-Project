@@ -28,6 +28,7 @@ function switchBack() {
     }
     WORLD_CONTAINER.style.display = "block";
     currentContentID = null;
+    isGamePaused = false;
 }
 
 function switchWithCondition(completed) {

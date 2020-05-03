@@ -58,9 +58,16 @@ class WorldScene extends Phaser.Scene {
         this.cameras.main.setRoundPixels(true);
 
         //Enemies spawns.
-        this.spawns = this.physics.add.group({classType: Phaser.GameObjects.Sprite});
-        this.spawns.create(150, 120, "baddie"); //70, 180
-        this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, null, this);
+        // this.spawns = this.physics.add.group({classType: Phaser.GameObjects.Sprite});
+        // this.spawns.create(150, 120, "baddie"); //70, 180
+
+        let enemy = new EnemyObject(this, 150, 120, "baddie", 3, 0);
+        let enemy2 = new EnemyObject(this, 449, 497, "baddie", 3, 1);
+        this.enemies = [enemy, enemy2];
+
+        this.movementManager.initiateEnemy();
+
+        this.physics.add.overlap(this.player, this.enemies, this.onMeetEnemy, null, this);
 
         //Adding NPC.
         this.npc_mage = this.physics.add.sprite(150, 60, "npc_mage", 10); //x = 379, y = 343
@@ -86,7 +93,7 @@ class WorldScene extends Phaser.Scene {
 
         //Listen for "Pause" event (emmited from PlayerUI Scene).
         this.playerUI = this.scene.get("PlayerUI");
-        this.playerUI.events.on("pauseGame", () => {this.player.anims.stop()}, this);
+        this.playerUI.events.on("pauseGame", () => {this.movementManager.stopAllMovement();}, this);
 
         //Listen for "Options" menu events (emmited from PauseScene).
         this.pauseScene = this.scene.get("PauseScene");
@@ -195,7 +202,7 @@ class WorldScene extends Phaser.Scene {
             this.scene.run("GameMap");
             isMapOpen = true;
             isGamePaused = true;
-            this.player.anims.stop();
+            this.movementManager.stopAllMovement();
         } else if (key.code === "KeyM" && isMapOpen) {
             this.scene.sleep("GameMap");
             this.scene.run("PlayerUI");
@@ -218,18 +225,21 @@ class WorldScene extends Phaser.Scene {
         //this.scene.restart("PlayerUI");
     }
 
-    onMeetEnemy(player, spawn) {
+    onMeetEnemy(player, enemy) {
         isGamePaused = true;
+        //this.cameras.main.shake(300);
 
-        //move enemy out of character's way so no overlap logic would happen again.
-        spawn.x = spawn.x + 90;
-        spawn.y = spawn.y + 60
+        //IMPORTANT: allows the game world to know what is being presented.
+        currentContentID = enemy.moduleID;
 
-        //following will be the transition to the BattleScene: this.scene.switch("BattleScene");
-
-        //TEMPORARY PLACEHOLDER.
-        this.scene.get("PlayerUI").scene.sleep();
-        this.scene.switch("GameModule");
+        if (enemy.moduleID === 0)
+            switchTo("myDiv1"); //called from within scheduler.js
+        else if (enemy.moduleID === 1)
+            switchTo("myDiv2");
+        
+        enemy.active = false;
+        enemy.setVisible(false);
+        enemy.disableBody();
     }
 
     onMeetNPC() {

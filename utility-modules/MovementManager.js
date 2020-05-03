@@ -21,7 +21,7 @@ class MovementManager {
         }
     }
 
-    //Also creates a global reference.
+    //Also creates a global reference to enemy container.
     createLocalEnemyReference() {
         if (this.scene.enemies != null) {
             this.enemies = this.scene.enemies;
@@ -103,6 +103,122 @@ class MovementManager {
 
         } else 
             this.createLocalPlayerReference();
+    }
+
+    initiateEnemy() {
+        this.enemyMovementManager();
+    }
+
+    enemyMovementManager() {
+        this.scene.time.addEvent({
+            delay: 500,
+            callback: this.moveEnemies,
+            callbackScope: this,
+            repeat: Infinity,
+            startAt: 2000,
+        });
+    }
+
+    moveEnemies() {
+        if (this.localEnemyReferenceCreated && this.localEnemyReferenceCreated) {
+
+            this.enemies.forEach(enemy => {
+                if (enemy.active) {
+                    if (this.shouldChase(enemy) && !isGamePaused)
+                        this.moveEnemy(enemy); 
+                    else 
+                        enemy.setVelocity(0,0);
+                } else
+                    this.reactivateEntity(enemy);
+            });
+
+        } else {
+            this.createLocalPlayerReference();
+            this.createLocalEnemyReference();
+        }
+    }
+
+    moveEnemy(enemy) { 
+        let diffX = enemy.x - this.player.x;
+        let diffY = enemy.y - this.player.y;
+
+        //Move X
+        if (diffX < 0) {
+            enemy.scaleX = 1;
+            enemy.setVelocityX(ENEMY_SPEED);
+            enemy.flipX = false;
+        } else {
+            enemy.scaleX = 1;
+            enemy.setVelocityX(-ENEMY_SPEED);
+            enemy.flipX = true;
+        }
+        //Move Y
+        if (diffY < 0) {
+            enemy.scaleY = 1;
+            enemy.setVelocityY(ENEMY_SPEED);
+        } else {
+            enemy.scaleY = 1;
+            enemy.setVelocityY(-ENEMY_SPEED);
+        }
+    }
+
+    stopAllMovement() {
+        this.stopPlayerAnims();
+        this.stopEnemies();
+    }
+
+    stopPlayerAnims() {
+        this.player.anims.stop();
+    }
+
+    stopEnemies() {
+        if (this.localEnemyReferenceCreated) {
+
+            this.enemies.forEach(enemy => {
+                if (enemy.active)
+                    enemy.setVelocity(0,0);
+            });
+
+        } else
+            return;
+    }
+
+    shouldChase(enemy) {
+        let currentDistance = this.getDistanceToPlayer(enemy);
+        //console.log(currentDistance);
+
+        if (currentDistance < AGGRO_RADIUS) {
+            //console.log("Should Chase");
+            return true;
+        } else 
+            return false;
+    }
+
+    getDistanceToPlayer(entity) {
+        //Current central coordinates: x and y.
+        let playerPosition = this.player.getCenter();
+        let entityPosition = entity.getCenter();
+
+        //Get distance between the two entities.
+        return entityPosition.distance(playerPosition);
+    }
+
+    reactivateEntity(entity) {
+        if (this.shouldReactivate(entity)) {
+            entity.active = true;
+            entity.setVisible(true);
+            entity.enableBody();
+        } else return;
+    }
+
+    shouldReactivate(entity) {
+        if (entity.defeated) return false;
+
+        let currentDistance = this.getDistanceToPlayer(entity);
+
+        if (currentDistance > REACTIVATION_RADIUS) {
+            return true;
+        } else return false;
     }
 
 }
