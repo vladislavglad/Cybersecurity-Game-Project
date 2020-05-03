@@ -34,4 +34,7 @@ function switchBack() {
 function switchWithCondition(completed) {
     globalEnemyContainer[currentContentID].defeated = completed;
     switchBack();
+
+    if (!completed)
+        heartsCounter--;
 }

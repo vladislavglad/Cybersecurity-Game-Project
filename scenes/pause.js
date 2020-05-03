@@ -150,6 +150,7 @@ class PauseScene extends Phaser.Scene {
         this.events.emit("muteMusic"); 
         this.scene.sleep();
         this.scene.get("WorldScene").scene.switch("TitleScreen");
+        heartsCounter = 3;
     }
 
     onWake() {

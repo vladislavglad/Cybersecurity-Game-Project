@@ -1,4 +1,4 @@
-document.getElementById("myDiv2").innerHTML = 
+document.getElementById("module1").innerHTML = 
 '<div style="font-size: 60px;">Something else</div><br>' + 
 '<span>' +
     '<button style="font-size: xx-large;" onclick="switchWithCondition(true)">Correct</button>' +

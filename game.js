@@ -57,5 +57,6 @@ let hasPhishingRod = false;
 let useDefaultKeys = true;
 let globalEnemyContainer = null;
 let currentContentID = null;
+let heartsCounter = 3;
 
 let game = new Phaser.Game(config);

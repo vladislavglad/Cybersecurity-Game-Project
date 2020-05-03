@@ -232,10 +232,7 @@ class WorldScene extends Phaser.Scene {
         //IMPORTANT: allows the game world to know what is being presented.
         currentContentID = enemy.moduleID;
 
-        if (enemy.moduleID === 0)
-            switchTo("myDiv1"); //called from within scheduler.js
-        else if (enemy.moduleID === 1)
-            switchTo("myDiv2");
+        switchTo(`module${currentContentID}`); //called from within scheduler.js
         
         enemy.active = false;
         enemy.setVisible(false);
