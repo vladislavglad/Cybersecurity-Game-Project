@@ -22,19 +22,27 @@ function switchTo(divID) {
     document.getElementById(divID).style.display = "block";
 }
 
-function switchBack() {
-    for (let i = 0; i< GAME_MODULES.length; i++) {
-        GAME_MODULES[i].style.display = "none";
-    }
+function switchBack(arg = null) {
+    //Hide all other divs either by Id or ClassName.
+    if (arg === null) {
+        for (let i = 0; i< GAME_MODULES.length; i++) {
+            GAME_MODULES[i].style.display = "none";
+        }
+    } else
+        document.getElementById(`${arg}`).style.display = "none";
+
     WORLD_CONTAINER.style.display = "block";
     currentContentID = null;
     isGamePaused = false;
 }
 
-function switchWithCondition(completed) {
+function switchWithCondition(completed, arg = null) {
     globalEnemyContainer[currentContentID].defeated = completed;
-    switchBack();
+    switchBack(arg);
 
+    //Take away "hearts" if failed, otherwise lower contamination level.
     if (!completed)
         heartsCounter--;
+    else 
+        contaminationLevel--;
 }

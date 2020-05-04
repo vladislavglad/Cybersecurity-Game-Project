@@ -61,7 +61,7 @@ class WorldScene extends Phaser.Scene {
         // this.spawns = this.physics.add.group({classType: Phaser.GameObjects.Sprite});
         // this.spawns.create(150, 120, "baddie"); //70, 180
 
-        let enemy = new EnemyObject(this, 150, 120, "baddie", 3, 0);
+        let enemy = new EnemyObject(this, 223, 415, "baddie", 3, 0);
         let enemy2 = new EnemyObject(this, 449, 497, "baddie", 3, 1);
         this.enemies = [enemy, enemy2];
 
@@ -255,7 +255,9 @@ class WorldScene extends Phaser.Scene {
         isGamePaused = true;
 
         book.destroy();
-        this.scene.switch("BookInteraction");
+        //this.scene.switch("BookInteraction");
+
+        switchTo("educate0");
     }
 
     onMute(key) {
