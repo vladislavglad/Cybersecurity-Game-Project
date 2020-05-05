@@ -69,15 +69,18 @@ class WorldScene extends Phaser.Scene {
 
         this.physics.add.overlap(this.player, this.enemies, this.onMeetEnemy, null, this);
 
+        //Items for the testing/debug purposes.
+        //this.createEntities();
+
         //Adding NPC.
-        this.npc_mage = this.physics.add.sprite(150, 60, "npc_mage", 10); //x = 379, y = 343
+        this.npc_mage = this.physics.add.sprite(216, 229, "npc_mage", 10); //x = 379, y = 343
         this.npc_mage.flipX = true;
         this.npc_mage.play("idle_mage");
         //TODO: plan to create an interactive "ZONE" that will call a DialogScene (instead of NPC's own collision bounds)
         this.physics.add.overlap(this.player, this.npc_mage, this.onMeetNPC, null, this);
 
         //Book object setup.
-        this.book = this.physics.add.image(150, 90, "book");
+        this.book = this.physics.add.image(150, 90, "book"); //39, 393
         this.book.setScale(0.35);
         this.physics.add.overlap(this.player, this.book, this.onBookPickup, null, this);
 
@@ -139,6 +142,39 @@ class WorldScene extends Phaser.Scene {
         this.input.keyboard.on("keydown", this.onKeyDown, this);
     }
 
+    createEntities() {
+        this.teachings = [];
+        this.modules = [];
+
+        for (let i = 0; i< 5; i++) {
+            let instruction = new InstructionObject(this, 50 + 30 * i, 57, "book", i).setScale(0.35);
+            this.teachings.push(instruction);
+
+            let mod = new EnemyObject(this, 50 + 30 * i, 155, "baddie", 3, i, false);
+            this.modules.push(mod);
+        } 
+
+        this.physics.add.overlap(this.player, this.teachings, this.instructionsOverlap, null, this);
+        this.physics.add.overlap(this.player, this.modules, this.modulesOverlap, null, this);
+    }
+
+    instructionsOverlap(player, instr) {
+        return;
+    }
+
+    modulesOverlap(player, module) {
+        isGamePaused = true;
+
+        //IMPORTANT: allows the game world to know what is being presented.
+        currentContentID = module.moduleID;
+
+        switchTo(`mod${currentContentID}`); //called from within scheduler.js
+        
+        module.active = false;
+        module.setVisible(false);
+        module.disableBody();
+    }
+
     createInputKeys_local(useDefaultKeys) {
         if (useDefaultKeys === true) 
             return this.input.keyboard.createCursorKeys();
@@ -181,7 +217,7 @@ class WorldScene extends Phaser.Scene {
 
         //Track player coordinates.
         let center = this.player.getCenter();
-        console.log("x: " + Math.round(center.x) + " y: " + Math.round(center.y));
+        //console.log("x: " + Math.round(center.x) + " y: " + Math.round(center.y));
 
         //Change input type (arrows or wasd).
         if (key.code === "KeyQ") {
@@ -257,7 +293,7 @@ class WorldScene extends Phaser.Scene {
         book.destroy();
         //this.scene.switch("BookInteraction");
 
-        switchTo("educate0");
+        switchTo(`instruction0`);
     }
 
     onMute(key) {

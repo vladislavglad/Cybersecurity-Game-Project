@@ -11,6 +11,7 @@
     <!-- Utility classes for reusability -->
     <script src="utility-modules/MovementManager.js"></script>
     <script src="utility-modules/EnemyObject.js"></script>
+    <script src="utility-modules/InstructionObject.js"></script>
     <script src="units/Unit.js"></script>
     <script src="menu/Menu.js"></script>
 
@@ -41,12 +42,17 @@
 
     <!-- Outside scripts follow. -->
     <script defer src="scripts/other.js"></script>
+
+
+    <!------------ YOUR SCRIPTS GO HERE. ------------>
+
 </head>
 <body>
     <!-- Whole game world (made in Phaser3) -->
     <div id="gameContainer"></div>
+    <div id="testing"></div>
 
-    <div class="gameModule" id="educate0" style="background-color: lightgoldenrodyellow">
+    <div class="gameModule" id="instruction0" style="background-color: lightgoldenrodyellow">
         <div style="font-size: 60px;">Learning part goes here!</div><br>
         <span>
             <button style="font-size: xx-large;" onclick="switchBack()">OK</button>
@@ -63,7 +69,10 @@
     </div>
 
     <!-- Another div that is manipulated through a separate file (other.js) -->
-    <div class="gameModule" id="module1" style="background-color:lightgreen">
+    <div class="gameModule" id="module1" style="background-color:lightgreen"></div>
+
+
+    <!------------ YOUR DIVS GO HERE. ------------>
 
 </body>
 </html>
