@@ -1,16 +1,66 @@
-## CISC 4900 encryption game module.
+## CISC 4900 game world.
 **This is a first [prototype](https://vladglad.itch.io/phaser-rpg?secret=6ltnySNslGpibAeh8dyZCC8PotI) of my module made using [Phaser.io](https://phaser.io) HTML5 game framework.**
 
-**(Week 7-10) Updates:** 
-* My repo is (and has been) public - all commits/updates could be seen directly.
-* In-game menu that lets pause the game, change options such as music and controls, and exit the game to the title screen.
-* Title screen and some animation; transition to the game.
-* In-game map of the world that is dynamically (at random) changes colors to indicate “cyber-threat” severity.
-* Transition between game zones and universal character controls -> either arrows or “wasd”
-* New “Tavern” game zone with new way to interact with npc: overhead text.
-* Introduced a way to integrate a “Phishing” module.
-* Lots of tweaks and fixes.
-* Checkout and run the game locally in just **two** terminal commands (see the following section).
+___
+
+## How to integrate (bring every modules together):
+* First off we are truly short on time and to integrate I do not need to know the internal workings of your modules neither do you have to know anything about my game world.
+* I made a content switcher API in the effort to ease the process of integration and to let you interface/interact with the game. So, I need your help with this! Here are the steps:
+1. Fork this repository to your local machine.
+2. Make sure you can run the game locally (see "Available Scripts" section).
+3. In the index.html file place all your `<script>` after my scripts; same goes for `<div>`
+   * Example:
+    ```html
+    <head>
+      <!-- MY SCRIPTS -->
+      <script src="scenes/boot.js"></script>
+      ...
+      <script defer src="scripts/contentSwitcher.js"></script>
+      <script defer src="scripts/other.js"></script>
+
+
+      <!-- YOUR SCRIPTS -->
+      <script src="scripts/module1.js"></script>
+      ...
+
+    </head>
+    <body>
+      <!-- MY DIV -->
+      <div id="gameContainer"></div>
+
+
+      <!-- YOUR DIVS-->
+      <div class="gameModule" id="module1"></div>
+      ...
+    </body>
+    ```
+   * Note: `<div>` should be of `class="gameModule"` since they all should be formated the same way (width and height in pixels) if we are to publish the game on [itch.io](https://itch.io/). (I used `width: 800px;` and `height: 600px;` throughout).
+   
+4. In your evaluation section (exit logic upon **full completion** of your module) use my content switcher API (global `contentSwitcher.js` file with several methods; only two methods are of interest to you).
+   * Example: 
+   ```javascript
+   yourCode();
+   ...
+   
+   
+   /**
+    * When done with education/learning part; 
+    * Just hides your div and displays the game world.
+    * @param arg - optional arg for your div's ID to hide it afterwards (if not in class="gameModule").
+    */
+   switchBack(arg);
+   
+   /**
+    * When done with evaluation part; 
+    * Same as before but also informs if completion of the module was successful or not.
+    * @param completed - boolean value: true for successful completion, false otherwise.
+    * @param arg - optional arg (same as before).
+    */
+   switchWithCondition(completed, arg);
+   ```
+   * Note: Every module would be loaded in and on the stand-by, hiden form the player's view; Upon encountering enemy switching will take place -> the game world will be hiden and one of the modules will show up. When exiting with `switchWithCondition(boolean)` an enemy representing your module would behave differently - success means enemy forever disappears, failure enemy is temporary disabled and will later be reactivated to let players try again.
+5. Whenever you got it to work locally, issue a new pull request (This will notify and allow me to merge your local commits/changes to the master branch). 
+6. Success. You've done it. Nice work!
 
 ___
 
@@ -28,27 +78,25 @@ Starts local server and opens default browser to run the game on localhost.
 
 ___
 
-## **What I am currently working on:**
-* Enemy AI that chases after the player (to trigger one of 5 modules).
-* Modularize the game - Create reusable parts and use JS's export/import statements to not write the code twice to controll player character.
-* Context switch controller (a “scheduler” of our game modules so to speak) - one .js file that controls which game module is up now. My plan: we need to **wrap** each of our modules in separate `<div>` on a single HTML file and let JS control visibility of the divs with something like: 
-  
-```javascript
-document.getElementById("myDiv").style.display = "none";
-```
+**(Week 11-12) Brief updates:**
+* Enemy AI that chases after the player.
+* Each enemy is identified by their `moduleID` which triggers an appropriate module (out of 5 possible). 
+* Modularization of some components (such as MovementManager) to reuse them in other Phaser3 Scenes.
+* Content switcher API - one .js file that allows to interface with the game world and control which game module (represented as `<div>` is presented to the player.
+* Upon completion of a game module, successful or otherwise, resource indicator and map of contamination change; hearts get taken away, map gets gradually "cleaner."
 
- ### **- OR -** 
- 
-```javascript
-document.getElementById("myDiv").style.visibility = "hidden";
-```
-* Cosmetic adjustments to the game world/zones: textures and tilemaps (secondary priority).
+___
 
-### Points for integration (of the game modules):
-* Common resource and the corresponding indicator.
-* Severity map.
-
-**Requirement:** all the modules should be wrapped in a single `<div>` tag and placed in a common HTML file. One scheduler JS file would be responsible for bringing up the content to the player. 
+**(Week 7-10) Updates:** 
+* My repo is (and has been) public - all commits/updates could be seen directly.
+* In-game menu that lets pause the game, change options such as music and controls, and exit the game to the title screen.
+* Title screen and some animation; transition to the game.
+* In-game map of the world that is dynamically (at random) changes colors to indicate “cyber-threat” severity.
+* Transition between game zones and universal character controls -> either arrows or “wasd”
+* New “Tavern” game zone with new way to interact with npc: overhead text.
+* Introduced a way to integrate a “Phishing” module.
+* Lots of tweaks and fixes.
+* Checkout and run the game locally in just **two** terminal commands (see "Available Scripts" section).
 
 ___
 
