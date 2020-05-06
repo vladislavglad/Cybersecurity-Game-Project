@@ -65,8 +65,20 @@ class PlayerUI extends Phaser.Scene {
         this.hearts.forEach(heart => {
                 heart.setTexture("hp-hearts", 0);
             });
-        } else if (heartsCounter >= 0)
-            this.hearts[heartsCounter].setTexture("hp-hearts", 1);
+        } else if (heartsCounter === 2) {
+            this.hearts[0].setTexture("hp-hearts", 0);
+            this.hearts[1].setTexture("hp-hearts", 0);
+            this.hearts[2].setTexture("hp-hearts", 1);
+
+        } else if (heartsCounter === 1) {
+            this.hearts[0].setTexture("hp-hearts", 0);
+            this.hearts[1].setTexture("hp-hearts", 1);
+            this.hearts[2].setTexture("hp-hearts", 1);
+        } else {
+            this.hearts.forEach(heart => {
+                heart.setTexture("hp-hearts", 1);
+            });
+        }
     }
 
     onWake() {
