@@ -30,11 +30,12 @@ ___
 
 
       <!-- YOUR DIVS-->
-      <div class="gameModule" id="module1"></div>
+      <div class="gameModule" id="module0"></div>
       ...
     </body>
     ```
-   * Note: `<div>` should be of `class="gameModule"` since they all should be formated the same way (width and height in pixels) if we are to publish the game on [itch.io](https://itch.io/). (I used `width: 800px;` and `height: 600px;` throughout).
+   * Side Note #1: The game invokes "teaching" parts with something like `switchTo("instruction0");` and "evaluation" parts with `switchTo("module0");` where the passed argument is div's element id. So, in order for the game to invoke your module, you must use these predefined divs by their id or override them altogether.
+   * Side Note #2: `<div>` should be of `class="gameModule"` since they all should be formated the same way (width and height in pixels) if we are to publish the game on [itch.io](https://itch.io/). (I used `width: 800px;` and `height: 600px;` throughout).
    
 4. In your evaluation section (exit logic upon **full completion** of your module) use my content switcher API (global `contentSwitcher.js` file with several methods; only two methods are of interest to you).
    * Example: 

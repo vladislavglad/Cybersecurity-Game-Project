@@ -61,7 +61,7 @@ class WorldScene extends Phaser.Scene {
         // this.spawns = this.physics.add.group({classType: Phaser.GameObjects.Sprite});
         // this.spawns.create(150, 120, "baddie"); //70, 180
 
-        let enemy = new EnemyObject(this, 223, 415, "baddie", 3, 0);
+        let enemy = new EnemyObject(this, 174, 240, "baddie", 3, 0); // 223 415
         let enemy2 = new EnemyObject(this, 449, 497, "baddie", 3, 1);
         this.enemies = [enemy, enemy2];
 
@@ -73,14 +73,14 @@ class WorldScene extends Phaser.Scene {
         //this.createEntities();
 
         //Adding NPC.
-        this.npc_mage = this.physics.add.sprite(216, 229, "npc_mage", 10); //x = 379, y = 343
+        this.npc_mage = this.physics.add.sprite(377, 348, "npc_mage", 10); //x = 379, y = 343
         this.npc_mage.flipX = true;
         this.npc_mage.play("idle_mage");
         //TODO: plan to create an interactive "ZONE" that will call a DialogScene (instead of NPC's own collision bounds)
         this.physics.add.overlap(this.player, this.npc_mage, this.onMeetNPC, null, this);
 
         //Book object setup.
-        this.book = this.physics.add.image(150, 90, "book"); //39, 393
+        this.book = this.physics.add.image(150, 100, "book"); //39, 393
         this.book.setScale(0.35);
         this.physics.add.overlap(this.player, this.book, this.onBookPickup, null, this);
 
@@ -107,7 +107,7 @@ class WorldScene extends Phaser.Scene {
         }, this);
 
         //NEW: "Phishing" rod and zone.
-        this.phishingRod = this.add.image(180, 290, "phishing-rod");
+        this.phishingRod = this.add.image(36, 392, "phishing-rod");
         this.physics.world.enableBody(this.phishingRod);
         this.phishingRod.setScale(0.5);
         this.physics.add.overlap(this.player, this.phishingRod, () => {
@@ -217,7 +217,7 @@ class WorldScene extends Phaser.Scene {
 
         //Track player coordinates.
         let center = this.player.getCenter();
-        //console.log("x: " + Math.round(center.x) + " y: " + Math.round(center.y));
+        console.log("x: " + Math.round(center.x) + " y: " + Math.round(center.y));
 
         //Change input type (arrows or wasd).
         if (key.code === "KeyQ") {
