@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Phaser RPG</title>
+
+    <!-- Load Phaser3 engine -->
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.22.0/dist/phaser.min.js"></script>
+
+    <!-- Utility classes for reusability -->
+    <script src="utility-modules/MovementManager.js"></script>
+    <script src="utility-modules/EnemyObject.js"></script>
+    <script src="utility-modules/InstructionObject.js"></script>
+    <script src="units/Unit.js"></script>
+    <script src="menu/Menu.js"></script>
+
+    <!-- Preload sequence -->
+    <script src="scenes/boot.js"></script>
+    <script src="scenes/title.js"></script>
+    <script src="scenes/preload.js"></script>
+
+    <!-- Game setup and scripts -->
+    <script src="scenes/world.js"></script>
+    <script src="scenes/tempWorld.js"></script>
+    <script src="scenes/tavern.js"></script>
+    <script src="scenes/playerUI.js"></script>
+    <script src="scenes/pause.js"></script>
+    <script src="scenes/gameMap.js"></script>
+    <script src="scenes/phishing.js"></script>
+
+    <script src="scenes/battle.js"></script>
+    <script src="scenes/battleUI.js"></script>
+    <script src="scenes/dialog.js"></script>
+    <script src="scenes/book.js"></script>
+
+    <!-- Configs of the game are here -->
+    <script src="game.js"></script>
+
+    <!-- Content Scheduler/Switcher -->
+    <script defer src="scripts/contentSwitcher.js"></script>
+
+    <!-- Outside scripts follow. -->
+    <script defer src="scripts/other.js"></script>
+     
+
+    <!------------ YOUR SCRIPTS GO HERE. ------------>
+    <script defer src="passWordproject.js"></script>
+      <script src="hsimp.min.js"></script>
+    <script defer
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+   <script defer
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+   <script defer type="text/javascript"src="passWordproject.js"></script>
+   <script defer  src="hsimp.min.js"></script>
+    
+    <script defer src="/app.js"></script>
+        <script>
+            
+        </script>
+
+ <body>
+    <!-- Whole game world (made in Phaser3) -->
+    <div id="gameContainer"></div>
+    
+    <!-- Example of an outside "game module" that is manipulated through a separate file -->
+    <div class="gameModule" id="module1" style="background-color:lightgreen"></div>
+    <!-- And so forth... -->
+
+
+    <!------------ YOUR DIVS GO HERE. ----------------->
+    <!-- Use these by id or override them altogether -->
+   <!-- <div class="gameModule" id="instruction0">-->
+       <div class="gameModule" id="instruction0">
+       <link rel="stylesheet" href= "passWordproject.css">
+      <body>
+      <h2 id="topic"><bold>Learn  how to create a Password </bold></h2>
+      <h1> With hackers becoming more and more cunning in their methods and attempt to steal your data, it is </h1>  
+      <h1> more,important than ever to use “secure passwords” that make it difficult for crackers to break.</h1>
+      <br>
+       <h1> Not only that,it is imperative that you use a range of different secure passwords for different sites. This</h1> <h1>is because in  the event of one of your passwords is compromised, the others will remain safe.</h1>
+      <img src="hacker.png">
+      <h1>           Passwords are everywhere and here are some short rules to remember when creating a password  </h1>
+      <br>
+      <h1><li>       The password should be 8 or more characters long</li></h1>
+      <h1><li>       Longer passwords are better than shorter passwords</li></h1>
+      <h1><li>       Alternate upper and lowercase letters</li></h1>
+      <h1><li>       Use symbols like # in your password.</li></h1>
+      <h1><li>       Passwords should not be made up of dictionnary words names or dates</li></h1>
+ 
+
+   
+      <img  id="lock" src="password.png"height=50px width=50px> 
+      <br>
+      <input  id="password-box" type="password"> 
+
+         
+        <br>
+        <div id="password-time" class="hsimp-time"></div>
+        <ul id="password-checks" class="hsimp-checks"></ul><br>
+     <h1>Practice in the input feild  what you think is a secure password and then click the test your knowledge to</h1><h1> play  the password guessing  game  </h1>
+     <br>
+     <br>
+
+     <button id='myButton' onclick="switchBack()">Back</button>
+     <button  id="myButton" bold onclick="window.location.href = 'passWordproject.html';" >Test Your Knowledge</button>
+      <br>
+      </body>
+       </div>
+  
+
+    
+   
+    <!-- <button id="myButton"  bold onclick="window.location.href = 'passWordproject.html';" >Start</button>-->
+      <div class="gameModule" id="module0"> 
+            <link rel="stylesheet" type="text/css"href='psword.css'>
+        <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <title>Password Game</title>
+        <!--<link rel="stylesheet" href="hsimp.css">-->
+
+    <body> 
+      <!--<div  id =special class="container">
+            <img id="img1" src="question-sign.png"  height="10" width="42"alt="question-sign">
+        <script>rotateAnimation("img1",20);</script>-->
+        
+       <style>  
+            .questions{
+                color:white;
+            }
+           
+            input {
+                margin-left:100px;
+                font-family: sans-serif;
+                font-size: 1em;
+                font-weight: 300;
+              
+                border-radius: 3px;
+                padding: 0.25em 10px;
+                line-height: 1.5em;
+            }
+
+            label::after {
+                content: ":";
+            }
+
+            div {
+                margin-bottom: 10px;
+            }
+            h1{
+              text-indent: 100px;
+              color:white;
+            -webkit-text-stroke: 1px blue;
+            }
+            .text2{
+            font-size: 40px;
+            color: #6ab04c;
+            font-weight: bold;
+            
+             }
+
+            .hsimp-time {
+               text-indent:200px; 
+                margin-left:200px;
+                display: inline;
+                font-size: 30px;
+               font-weight : bold;
+              
+            }
+
+            .hsimp-checks li {
+                 margin-left:100px;
+                list-style: none;
+                 font-size: 25px;
+                font-style: bold;
+              
+            }
+
+            .hsimp-checks h2 {
+                 margin-left:100px;
+                font-size: 25px;
+                margin-bottom: 0;
+               
+            }
+
+            .hsimp-checks p {
+                 margin-left:100px;
+                margin-top: 0;
+                font-size: 25px;
+                font-style: bold;
+             
+            }
+             
+            }
+        </style>
+        <audio controls autoplay loop="loop" hidden="true">  
+        <source src="bensound-straight.mp3" type="audio/mpeg">  
+         
+    </audio>  
+       <!-- </div>-->
+     <div>       <span class="text1">Password</span>
+         <span class="text2">Challenge</span></div>
+
+             
+        <div id="boxed">
+        <h1>Which password above do you think will take the least amount of time to crack?</h1>   
+        <h1> A good password should not have repeat characters .The password should have a non numeric </h1>
+        <h1> character.Longer passwords are better than shorter passwords.</h1>
+        </div>
+          <br>  
+          <br>  
+        <h1>Enter your answer in the box below</h1>
+        <br>
+        <div id ="stripe2">
+          <span id="message2"></span>
+          <!--<span id="message1"></span>-->
+           
+          <!--<span id="message"> </span> -->
+             <div id="message"></div>
+      
+            <br>
+         <span class="typingEffect" id=colorDisplay> RBG</span> 
+         <br>
+         <br>
+    <span id="btns">
+    <button id="click" onclick="newvalues()">Start</button>  
+    <button id="click" onclick="refreshPage()">Restart</button>
+     <button id ="click" onclick="newvalues()">Easy</button>
+     <button  id="click"  onclick="myFunction()"> Hard</button> </span> 
+       <br>
+       <br> 
+       <h1>The Current list of passwords   </h1>
+      <div id=container class=myclass>
+   
+  <div class="questions"name="Name1"></div>
+  <div class="questions"name="Name2"></div>
+  <div class="questions"name="Name3"></div>
+  <div class="questions"name="Name4"></div>
+  <div class="questions"name="Name5"></div>
+  <div class="questions"name="Name6"></div>
+  <div class="questions"name="Name7"></div>
+    <div class="questions"name="Name8"></div>
+   
+  
+ 
+
+    </div>
+         <div id="message1"></div>
+         
+        <span id="message4"></span>
+   
+    <br>
+      <input id="password-box" type="hidden" value="hidden">
+    <br>
+      
+    <div id="password-time" class="hsimp-time"></div><br>
+        <ul id="password-checks" class="hsimp-checks"></ul>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+   
+  <button id="myButton"  bold onclick="window.location.href = 'passWordprojectteach.html';" >Go Back</button>
+ 
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+       
+        <link rel="stylesheet" type="text/css" href="passWordproject.css">
+ 
+      
+           
+  <style >
+
+         
+
+
+ 
+ </body>
+
+
+
+
+
+     
+    </div>
+</body>
+</html>
