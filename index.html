@@ -34,6 +34,8 @@
     <script src="scenes/dialog.js"></script>
     <script src="scenes/book.js"></script>
 
+    <script src="scenes/teachinglevelscript.js"></script>
+
     <!-- Configs of the game are here -->
     <script src="game.js"></script>
 
@@ -45,6 +47,12 @@
 
 
     <!------------ YOUR SCRIPTS GO HERE. ------------>
+
+    <!-- Malware Teaching Level Scripts and Scenes -->
+    <!-- <script src="/scenes/teachinglevelscript.js"></script> -->
+    
+    <!-- Malware Testing Level Script -->
+    <script defer src="scripts/hangman.js"></script>
 
 </head>
 <body>
@@ -58,8 +66,38 @@
 
     <!------------ YOUR DIVS GO HERE. ----------------->
     <!-- Use these by id or override them altogether -->
+
     <div class="gameModule" id="instruction0"></div>
-    <div class="gameModule" id="module0"></div>
+
+    <!-- Malware Evaluation Module -->
+    <div class="gameModule" id="module0" style="background-image: url('assets/images/hangmanimages/background.jpg'); font-family: Tahoma, Helvetica, Arial, Lucida Grande, sans-serif;
+    color: whitesmoke; height: 100%; text-align: center; font-size: 40px;">
+        <div class="malware">
+            <!-- Score: <span id ="score"></span> -->
+          </div>
+          <div class="container">
+            <h2>Use the letters to guess the form of malware:</h2>
+            <img src="assets/images/hangmanimages/livesicon.png" style="width:20px;height:20px;"> <span id='lives'></span> of 5
+            <p>Hint: </p>
+            <div id="hint">
+        
+            </div>
+          </div>
+          <div class="main">
+            <div class="spotlight">
+              <p id="wordSpotlight">The word to be guessed goes here</p>
+            </div>
+            <div id="keyboard">
+        
+            </div>
+          </div>
+        
+          <div class="controllers">
+            <button class="butn" id="previous" onClick="previousWord()">Previous</button>
+            <!-- <button class="butn" onClick="reset()">Reset</button> -->
+            <button class="butn" id="next" onClick="nextWord()">Next Word</button>
+          </div>
+    </div>
 
 </body>
 </html>
