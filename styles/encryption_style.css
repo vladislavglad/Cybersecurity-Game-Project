@@ -1,0 +1,126 @@
+/* CSS files add styling rules to your content */
+a {
+  text-decoration: none;
+}
+
+.top {
+  border: 1px solid black;
+  background-image: url("/assets/images/Encryption_padlock.jpg");
+  background-repeat: repeat;
+  font-size: 48px;
+  color: transparent;
+  width: 100%;
+}
+
+audio { 
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+bottom {
+  background-color: lightgreen;
+  color: black;
+  front-style: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 5px 24px;
+  position: fixed;
+}
+
+div{
+  margin: auto;
+}
+
+body {
+  background-image: url("/assets/images/Encryption_Background.jpg");
+  background-repeat: repeat;
+  font-family: sans-serif;
+  margin: 2em;
+}
+
+h1 {
+  font-style: bold;
+  font-style: italic;
+  text-align: center;
+  color: green;
+  font-size: 48px;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  font-style: bold;
+  font-style: italic;
+  color: green;
+  font-size: 36px;
+}
+
+p {
+  font-family: sans-serif;
+  font-size: 24px;
+  text-align: left;
+}
+
+p1 {
+  font-family: sans-serif;
+  font-size: 12px;
+  text-align: left;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+button {
+  display: inline-block;
+  background-color: lightgreen;
+  color: black;
+  front-style: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 5px 24px;
+  box-shadow: 0 3px #999;
+}
+
+.collapsible {
+  background-color: darkgray;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: lightgreen;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: lightgray;
+}
+
+.form{
+  font-size: 24px;
+}

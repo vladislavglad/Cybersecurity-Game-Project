@@ -45,7 +45,7 @@
 
 
     <!------------ YOUR SCRIPTS GO HERE. ------------>
-
+    <script defer src="scripts/script.js"></script>
 </head>
 <body>
     <!-- Whole game world (made in Phaser3) -->
@@ -58,8 +58,223 @@
 
     <!------------ YOUR DIVS GO HERE. ----------------->
     <!-- Use these by id or override them altogether -->
-    <div class="gameModule" id="instruction0"></div>
-    <div class="gameModule" id="module0"></div>
+    <div class="gameModule" id="instruction0">
+
+
+        <link rel="stylesheet" href="/styles/encryption_style.css">
+    
+        <h1>What is Encryption?</h1>
+
+        <p>
+        <b><i>Encryption</i></b
+        >, by definition, is "the process of converting information or data into a
+        code, especially to prevent unauthorized access".
+        </p>
+
+        <h1>What is Decryption?</h1>
+
+        <p>
+        <b><i>Decryption</i></b
+        >, by definition, is the opposite of encryption, which is the conversion
+        of encrypted data back into its original form.
+        </p>
+
+        <button id="info">Why do we use encryption?</button>
+
+        <textarea
+        cols="50"
+        rows="10"
+        id="reason"
+        placeholder="Click here to learn why and how we use encryption..."
+        ></textarea>
+
+        <br />
+        <!-- Caesar information -->
+        <button type="button" class="collapsible">Caesar Example</button>
+        <div class="content">
+        <br />
+        <b><i>Caesar</i></b> encryption is one of the earliest and simplest of
+        encryption methods. The recipient is given the cipher and uses the key to
+        decrypt the message, which is usually a "left-shift" of 3. For example,
+        the letter "D" would be decrypted as "A", and you would encrypt "B" as
+        "E". For example, if the plaintext were <br />"HELLO", the resulting
+        message would be:<br />"KHOOR"<br />
+        <!-- Caesar exercises 
+        <button><a href="caesar1.html">Easy</a></button>
+        <button><a href="caesar2.html">Medium</a></button>
+        <button><a href="caesar3.html">Hard</a></button>  -->
+        </div>
+
+        <!-- Rotational information -->
+
+        <button type="button" class="collapsible">Rotational Example</button>
+        <div class="content">
+        <br />
+
+        <b><i>Rotational</i></b> cryptography is a bit similar to Caesar. It
+        involves a key that simply translates the plaintext into another based on
+        the numbers given. For example, if the plaintext were <br />"HELLO", with
+        the keys <br />
+        "2 2 4 4 2", the resulting message would be: <br />"JGPPQ"<br />
+
+        <!-- Rotation exercises
+        <button><a href="rotation1.html">Easy</a></button>
+        <button><a href="rotation2.html">Medium</a></button>
+        <button><a href="rotation3.html">Hard</a></button>   -->
+        </div>
+
+        <button type="button" class="collapsible">Pigpen Example</button>
+        <div class="content">
+        <br />
+        <!-- Pigpen information -->
+
+        <b><i>Pigpen</i></b> encryption is a bit more complicated than the
+        previous two. It involves a system of grids, dots, and in some cases,
+        <i>x</i>'s. In order to decypher the message, one must find the letter
+        corresponding to the letter in the given grid, using the dots to determine
+        which grid to look at, and the shape of the symbol to figure out which
+        letter to choose. For example, if we were given the symbols:<br />
+        <img
+            src="/assets/images/Pigpen_Ex.png"
+        />
+        <br />using the key below:<br />
+        <img
+            src="/assets/images/Pigpen_Full.jpg"
+        />
+        <br />We can see that the encrypted message says "HELLO"<br />
+
+        <!-- Pigpen exercises 
+        <button><a href="pigpen1.html">Easy</a></button>
+        <button><a href="pigpen2.html">Medium</a></button>
+        <button><a href="pigpen3.html">Hard</a></button>  -->     
+        </div>
+        <button onclick="switchBack()">Got it!</button>
+    </div>
+
+
+    <div class="gameModule" id="module0"> <!--Caesar questions-->
+
+        <h1>Decrypt this code! Easy</h1>
+        <p>
+          Encrypted word: <b><i>ZKHHO</i></b>
+        </p>
+        <img
+          src="https://cdn.glitch.com/ccb12f7e-689e-4705-a498-b1d6edbf2218%2FCaesar_wheel.jpg?v=1584548996080"
+        />
+        <br />
+        <p1>(Write your answer in all caps or lowercase)</p1>
+        
+        <input type="text" id="c1" placeholder="Your answer..." />
+        <button onclick="c1completed()">Submit</button>
+        
+        <!-- Caesar Medium -->
+        <h1>Medium</h1>
+        <p>
+        Encrypted word: <b><i>LQIRUPDWLRQ</i></b>
+        </p>
+
+        <br />
+        <p1>(Write your answer in all caps or lowercase)</p1>
+        
+        <input type="text" id="c2" placeholder="Your answer..." />
+        <button onclick="c2completed()">Submit</button>
+
+        <!-- Caesar Hard -->
+        <h1>Hard</h1>
+        <p>
+          Encrypted word: <b><i>MXOLXV FDHVDU</i></b>
+        </p>
+        <p1>(Write your answer in all caps or lowercase)</p1>        
+        <input type="text" id="c3" placeholder="Your answer..." />
+        <button onclick="c3completed()">Submit</button>
+
+    </div>
+
+<!-- End of Caesar -->
+
+    <div class="gameModule" id="module1"> <!-- For rotational -->
+        
+    <!-- Easy Rotational -->
+        <h1>Decrypt this code! Rotational Easy</h1>
+    
+        <textarea cols="20" rows="3" id="rotationq1">
+    text: TBDDH               key:  36114
+        </textarea>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+
+          <input type="text" id="r1" placeholder="Your answer..." />
+          <button onclick="r1completed()">Submit</button>
+    
+    <!-- Medium Rotational -->
+        <h1>Medium</h1>
+
+        <textarea cols="20" rows="3" id="rotationq2">
+    text: AHBNWKRDJH               key:  4614252556
+        </textarea>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+       
+        <input type="text" id="r2" placeholder="Your answer..." />
+        <button onclick="r2completed()">Submit</button>
+
+    <!-- Hard Rotational -->
+        <h1>Hard</h1>
+
+        <textarea cols="20" rows="3" id="rotationq3">
+    text: AHBNWKRDJH               key:  4614252556
+        </textarea>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+     
+        <input type="text" id="r3" placeholder="Your answer..." />
+        <button onclick="r3completed()">Submit</button>
+ 
+    </div>  
+
+<!-- End of Rotational -->
+
+    <div class="gameModule" id="module2"> <!-- For pigpen -->
+        <h1>Decrypt this code! Pigpen Easy</h1>
+        <p>
+          <img
+            src="/assets/images/Pigpen1.png"
+          />
+          <img
+            src="/assets/images/Pigpen_Full.jpg"
+          />
+        </p>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+        <form id="pigpen1" onsubmit="return p1completed()">
+          <input type="text" id="p1" placeholder="Your answer..." />
+          <button onclick="p1completed()">Submit</button>
+        </form>
+
+
+        <h1>Medium</h1>
+        <p>
+          <img
+            src="/assets/images/Pigpen2.png"
+          />
+         
+        </p>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+        <form id="pigpen2" onsubmit="return p2completed()">
+          <input type="text" id="p2" placeholder="Your answer..." />
+          <button onclick="p2completed()">Submit</button>
+        </form>
+
+
+        <h1>Hard</h1>
+        <p>
+          <img
+            src="/assets/images/Pigpen3.png"
+          />
+
+        </p>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+
+          <input type="text" id="p3" placeholder="Your answer..." />
+          <button onclick="p3completed()">Submit</button>
+
+    </div>
 
 </body>
 </html>
