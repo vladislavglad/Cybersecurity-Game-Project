@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    
+    </head>
+    <body>
+    <p id="hack"></p>
+    </body>
+    <script>
+    var ty=0;
+var txtW = 'HACK DETECTED! HACK DETECTED!';
+var speed = 50;
+    function typeAnim() {
+
+    //Animation for typing
+    
+    if (ty < txtW.length) {
+        document.getElementById("hack").innerHTML += txtW.charAt(ty);
+        ty++;
+        setTimeout(typeAnim,speed);
+    }
+}
+        typeAnim();
+    </script>
+</html>

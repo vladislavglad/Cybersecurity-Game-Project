@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html>
+    <div id = "Email16">
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Phishing Costco 1</title>
+        <meta name="description" content="Gameplay">
+        <link rel="stylesheet" href="EmailStyle.css">
+          
+    </head>
+    <body>
+
+    <div id="Success Part">    
+        <!--Success Prompt-->
+        <div id="successPrompt" class="successPrompt">
+            <div class="successContent">
+            
+                <img src="Checkmark.png">   <p class="successTitle">Success!</p>
+            
+        
+                
+                
+        <!--Success Close-->
+                <button onclick="randPage()">Continue</button>
+         
+            </div>
+        </div>
+        
+         <div id="successFrom" class="successFrom">
+            <div class="successContent">
+                
+                <img src="Checkmark.png">   <p class="successTitle">Success!</p>
+                
+                <br>
+                <p>Email sources that have random numbers and letters or an odd name (Congratulations Sara), it is highly likely that these emails are from bots. This email most likely works from a template and mass sends the emails to various inboxes. Good work!</p>
+                
+            
+        
+                
+                
+        <!--Success Close-->
+                <button onclick = "randPage()"><p>Continue to next email</p></button> <button class = "backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <!--<button><a href = "Email2.html">Continue to next email</a></button>
+                
+                <button onclick="randPage()">Continue</button>
+                -->
+            </div>
+        </div>
+        
+        <div id="successTo" class="successTo">
+            <div class="successContent">
+            
+                <p></p>
+            
+        
+                
+                
+        <!--Success Close-->
+                <button onclick="randPage()">Continue</button>
+         
+            </div>
+        </div>
+        
+        <div id="successSubject" class="successSubject">
+            <div class="successContent">
+            
+                <img src="Checkmark.png">   <p class="successTitle">Success!</p>
+                <br>
+                <p>This subject is trying to tempt the reader with a possible prize by saying congratulations, causing some readers to open it just to see what they won. Due to this, this can be considered suspicious for phishing. </p>
+            
+        
+                
+                
+        <!--Success Close-->
+                
+                <button onclick = "randPage()"><p>Continue to next email</p></button> <button class = "backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <!--<button><a href = "Email2.html">Continue to next email</p></button>
+                
+                <button onclick="randPage()">Continue</button>
+                -->
+         
+            </div>
+        </div>
+        
+        <div id="successDear" class="successDear">
+            <div class="successContent">
+            
+                <img src="Checkmark.png">   <p class="successTitle">Success!</p>
+                <br>
+                <p>A vague greeting such as "Dear Chase OnlineSM Customer" may be a big indicator of phishing, especially if it came from a big company such as a bank. Most of these big companies would address the reader by their first and last name. Good work noticing this!</p>
+            
+        
+                
+                
+        <!--Success Close-->
+                <button onclick = "randPage()"><p>Continue to next email</p></button> <button class = "backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <!--
+                <button onclick="randPage()">Continue</button>
+                -->
+         
+            </div>
+        </div>
+        
+        <div id="successBody" class="successBody">
+            <div class="successContent">
+            
+                <img src="Checkmark.png">   <p class="successTitle">Success!</p>
+                <br>
+                <p></p>
+        
+                
+                
+        <!--Success Close-->
+                <button onclick = "randPage()"><p>Continue to next email</p></button> <button class = "backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <!--
+                <button onclick="randPage()">Continue</button>
+                -->
+         
+            </div>
+        </div>
+        
+        <div id="successLink" class="successLink">
+            <div class="successContent">
+            
+             <p>Hovering over this link shows that the link leads to a very untrustworthy site. It is a bit unreadable what the site leads to. It uses the Bitly URL shortener to diguise the site that it is actually going to. God work finding this!</p>
+                <br>
+                
+            
+        
+                
+                
+        <!--Success Close-->
+                
+                <button onclick = "randPage()"><p>Continue to next email</p></button> <button class = "backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <!--
+                <button onclick="randPage()">Continue</button>
+                -->
+         
+            </div>
+        </div>
+        
+                <div id="successAttach" class="successAttach">
+            <div class="successContent">
+            
+                <img src="Checkmark.png">   <p class="successTitle">Success!</p>
+            
+        
+                
+                
+        <!--Success Close-->
+                <button onclick="randPage()">Continue</button>
+         
+            </div>
+        </div>
+        
+                <div id="successNothing" class="successNothing">
+            <div class="successContent">
+            
+                <img src="Checkmark.png">   <p class="successTitle">Success!</p>
+                <br>
+                <p>Not every email is a phishing email. Sometimes, there may be some false flags about the email that would be misinterpreted by the reader. </p>
+            
+        
+                
+                
+        <!--Success Close-->
+                <button onclick="randPage()">Continue</button>
+         
+            </div>
+        </div>
+        
+
+        
+</div>
+     <div id="Failing Part">  
+        <!--Failure Prompt-->
+        <div id="failurePrompt" class="failurePrompt">
+            <div class="failureContent">
+                <img src="FishEx.png">
+                <p id="hack" class="hack">Wrong...</p>
+                
+                
+                
+        <!--Failure Close-->
+                <button onclick="closeFPrompt()">Continue</button>
+            </div>
+        </div>
+         
+         <div id="failureFrom" class="failureFrom">
+            <div class="failureContent">
+                <img src="FishEx.png">
+                <p id="hack" class="hack">Wrong...</p>
+                <p>Often enough, one of the simplest ways to see if the email was a phishing attempt is to check whether it is from a reliable source. Any discrepencies can indicate that it is a phishing attempt. In this case, the sender was from a reliable source. </p>
+                
+                
+        <!--Failure Close-->
+                <button onclick="closeFPrompt()">Continue</button>
+            </div>
+        </div>
+         <div id="failureTo" class="failureTo">
+            <div class="failureContent">
+                <img src="FishEx.png">
+                <p id="hack" class="hack">Wrong...</p>
+                <p>At the moment, there is no way to detect whether the "To" section of an email can be used for phishing, as it is directed towards a specific email. Therefore, this choice would always be incorrect. </p>
+                
+                
+        <!--Failure Close-->
+                <button onclick="closeFPrompt()">Continue</button>
+            </div>
+        </div>
+         <div id="failureSubject" class="failureSubject">
+            <div class="failureContent">
+                <img src="FishEx.png">
+                <p id="hack" class="hack">Wrong...</p>
+                <p>While a "transaction confirmation" may seem a bit suspicious, some companies do inform the customer when a transaction seems suspicious. In this case, the subject was not the reason why this email can be considered a phishing attempt.</p>
+                
+                
+        <!--Failure Close-->
+                <button onclick="closeFPrompt()">Continue</button>
+            </div>
+        </div>
+         
+         <div id="failureDear" class="failureDear">
+            <div class="failureContent">
+                <img src="FishEx.png">
+                <p id="hack" class="hack">Wrong...</p>
+                <p>Normally, a phishing attempt will have a very generic name here, such as Customer. Most companies would either use the full name of the reader or no name at all. In this case, it was not an indicator of a phishing attempt.</p>
+                
+                
+        <!--Failure Close-->
+                <button onclick="closeFPrompt()">Continue</button>
+            </div>
+        </div>
+         <div id="failureBody" class="failureBody">
+            <div class="failureContent">
+                <img src="FishEx.png">
+                <p id="hack" class="hack">Wrong...</p>
+                <p>This specifically isn't what makes it a phishing email, as there are some buisnesses that do send surveys through newsletters with a reward at the end of it to entice customers to actually take the survey. Due to this, this is not a suspicious part of the email.  </p>
+                
+                
+        <!--Failure Close-->
+                <button onclick="closeFPrompt()">Continue</button>
+            </div>
+        </div>
+         <div id="failureLink" class="failureLink">
+            <div class="failureContent">
+                <img src="FishEx.png">
+                <p id="hack" class="hack">Wrong...</p>
+                <p>Links are often used to steal information from potential victims. Phishers would try to recreate a form on a site that is meant to steal information. Hovering over the link to check where the hyperlink leads without clicking on it can show whether or not it is going to a reliable site. In this case, this is a reliable site.</p>
+                
+                
+        <!--Failure Close-->
+                <button onclick="closeFPrompt()">Continue</button>
+            </div>
+        </div>
+         <div id="failureAttach" class="failureAttach">
+            <div class="failureContent">
+                <img src="FishEx.png">
+                <p id="hack" class="hack">Wrong...</p>
+                <p>Never open an attachment UNLESS it is from a reliable source. Attachments that are carelessly opened can  not only lead to information from the targeted employee to be stolen but also viruses and other methods of information stealing being put onto the computer. </p>
+                
+                
+        <!--Failure Close-->
+                <button onclick="closeFPrompt()">Continue</button>
+            </div>
+        </div>
+         <div id="failureNothing" class="failureNothing">
+            <div class="failureContent">
+                <img src="FishEx.png">
+                <p id="hack" class="hack">Wrong...</p>
+                <p>There may have been something that was missed while checking this email. Comb through it again to find out what it may have been!</p>
+                
+        <!--Failure Close-->
+                <button onclick="closeFPrompt()">Continue</button>
+            </div>
+        </div>
+    </div> 
+        
+ <!--Attachment confirmation prompt-->       
+ <div class="atConfirm" id="atConfirm">
+    <div class="atConfirmContent" id="atConfirmContent">
+        <p>Please select one of the options below</p>
+        <br>
+        <button onclick="failureA()">I want to open this</button>
+        <button onclick="successA()">I think this attachment is an example of phishing</button>
+        <button onclick="closePrompt()">Go Back</button>
+        </div>
+        </div>  
+        
+        
+        <!--Main-->
+            <div class="main">
+            
+                <div class="emailtop">
+                    <div id="from"  onclick="successF()" >
+                    <p>From: Congratulations Sara@bwklucsjeh.us</p>
+                    </div>
+                    
+                    <div id="to" onclick="failureT()">
+                    <p>To: Protag47@email.com</p>
+                    </div>
+                    
+                    <div id="subject" onclick = "successS()">
+                    <p>Subject: Congratulations Costco Customer</p>
+                    </div>
+                </div>
+                <div class="emailbody" id="emailbody">
+                    <p class="dear" id="dear" onclick = "failureD()"></p>
+                    
+<p class="topbody" id="topbody" onclick = "failureB()">Congrats! You've been selected to participate in our monthly Costco Customer Promotion!</p>
+
+                    
+<p class="midbody" id="midbody" onclick = "failureB()">Take this 30-second survey about Costco and we'll offer you exclusive rewards over $50! </p>
+                    
+<p class="bottombody" id="bottombody" onclick = "successB()"></p>
+                    
+<div class="links" id="links" onclick = "successL()">
+                    
+<p class="linksH">Click here to get started</p>
+                    
+ <span class="hoverLink" id="hoverLink">bit.ly/dhaiwhia23ihuah.php?duhaiahye72</span> 
+                    </div> 
+                    
+
+                    
+
+                 
+            
+                    
+        
+                </div>
+                <br>
+                <br>
+                <div class = "typer" id="typer" >
+                <p id="hacked"></p>
+                </div>
+                
+                
+            </div>
+        <div id="NothingButton" class="NothingButton" >
+            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            
+        </div>
+    
+    <div id="audiofiles">
+    <audio id ="audioSuccess" src="Success.wav"></audio>
+    <audio id ="audioFailure" src="Fail.wav"></audio>
+    </div>
+        
+        
+<script src="Emailscripts.js"></script>
+<script src="game.js"></script>
+    </body>
+    </div>
+</html>

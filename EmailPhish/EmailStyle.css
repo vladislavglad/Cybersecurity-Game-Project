@@ -1,0 +1,818 @@
+/*Stylesheet for Emails
+By Jerfyn Rosario*/
+/*Used for Index page testing - no need for this in full game*/
+.grad1 {
+    background-image: linear-gradient(70deg, blue, lightblue);
+}
+.startPage {
+    background-color: cornsilk;
+    
+    padding: 0px 10px;
+    text-align: center;
+    
+}
+
+/*Used for Index page testing - no need for this in full game*/
+.startPage button {
+    margin-left:450px;
+    text-align: center;
+    background-color: orange;
+    border: 2px solid black;
+    color:black;
+    padding: 10px 20px;
+    display:block;
+    width: 25%;
+    cursor: pointer;   
+}
+
+body {
+    /*background-image: 'linear-gradient(-30deg, blue, aqua)';*/
+    background-image: url(MailBG9.jpg);
+}
+/*Where the email from, to, subject, and body is located*/
+.main{
+    background-color: whitesmoke;
+    padding: 5px 10px;
+    width: 50%;
+    margin: auto;
+    border: 5px inset lightblue;
+}
+.main p:hover{
+    background-color: yellow;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+/*Hover over highlights for ahref elements*/
+a:hover {
+    background-color: yellow;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+/*Hover over highlights for pre elements*/
+pre:hover{
+    background-color: yellow;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+
+
+/*Hover over highlights for elements with the link class*/
+.links:hover{
+    background-color: yellow;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+/*To make the false links class look like hyperlinks (Prevents the purple outline and easier to open prompts this way)*/
+.links {
+    position: relative;
+    
+    text-decoration-color: blue;
+    color: blue;
+}
+
+/*These are floating texts on the hyperlinks that will stay hidden until it is hovered over*/
+.links .hoverLink {
+    visibility: hidden;
+    width: 200px;
+    background-color: floralwhite;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left:-200px;
+    overflow: hidden;
+    
+}
+
+/*Shows the floating url of where links will lead*/
+.links:hover .hoverLink {
+    visibility: visible;
+}
+
+.hack{
+    font-weight: 800;
+    font-size: 30px;
+    font-style: italic;
+}
+
+.emailtop {
+    border-style: inset;
+    padding: 5px;
+    border-color: gainsboro;
+    
+}
+
+/*The button styling that are located inside the prompts*/
+.promptButton{
+    margin: auto;
+    text-align: center;
+    background-color: orange;
+    border: 2px solid black;
+    color:black;
+    padding: 10px 20px;
+    display:block;
+    width: 25%;
+    cursor: pointer;
+}
+
+
+
+
+.atConfirmContent button {
+    margin: auto;
+    text-align: center;
+    background-color: orange;
+    border: 2px solid black;
+    color:black;
+    font-weight: bolder;
+    padding: 10px 20px;
+    display:block;
+    width: 25%;
+    cursor: pointer;
+}
+
+
+/*Details for the "attachments" in the email*/
+.emailAttach button {
+    background-color: lightgray;
+    border: 2px black;
+    font-size: 13px;
+    font-weight: 500;
+    color:black;
+    font-weight: bolder;
+    padding: 10px 20px;
+    display:block;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    
+}
+
+.emailAttach button:hover {
+    background-color: dimgray;
+    color: white;
+    font-weight: bolder;
+    
+}
+
+/*Button that appears inside the email*/
+.innerButton {
+    margin: auto;
+    text-align: center;
+    background-color: aliceblue;
+    border: 2px solid lightblue;
+    color:black;
+    padding: 10px 20px;
+    width: 25%;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 13px;
+    font-weight: 500;
+    display: block; 
+    
+}
+
+.innerButton:hover{
+    background-color: aqua;
+    font-weight: bolder;
+    
+}
+
+/*Submit button class styling*/
+.SubmitButton button{
+    margin: auto;
+    text-align: center;
+    background-color: orange;
+    border: 2px solid black;
+    color:black;
+    padding: 10px 20px;
+    display:block;
+    width: 50%;
+    cursor: pointer;
+}
+
+/*Nothing button class styling*/
+.NothingButton button {
+    margin:auto;
+    text-align: center;
+    background-color: aquamarine;
+    border: 2px solid black;
+    color:black;
+    font-weight: bolder;
+    padding: 10px 20px;
+    display:block;
+    width: 25%;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    font-weight: 500;
+    border-radius: 6px;
+}
+
+
+.NothingButton button:hover {
+    background-color: darkcyan;
+    color: white;
+    font-weight: bolder;
+    transform: skewX(-10deg);
+
+}
+/*Highlight*/
+
+.highlight {
+    background-color: yellow;
+}
+
+.removehighlight {
+    background-color: none;
+}
+
+/*Prompt styling for the Attachment Confirmed prompt*/
+.atConfirm {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+    /*animation: slide 1s;*/
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+    
+}
+
+/*Content for the prompt*/
+.atConfirmContent {
+  background-color: floralwhite;
+  margin: auto;
+  padding: 20px;
+    font-size: 19px;
+  border: 5px ridge #888;
+  width: 80%;
+  text-align: center;
+    animation: fadeIn .7s;
+
+}
+
+.atConfirmContent button {
+    margin:auto;
+    text-align: center;
+    background-color: lightcyan;
+    border: 2px solid black;
+    color:black;
+    font-weight: bolder;
+    padding: 10px 20px;
+    display:block;
+    width: 25%;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 6px;
+    
+    
+}
+.atConfirmContent button:hover {
+    background-color: cyan;
+     transform: skewX(-10deg);
+    background
+}
+
+/*Content for the prompt*/
+.buConfirmContent {
+  background-color: floralwhite;
+  margin: auto;
+  padding: 20px;
+    font-size: 19px;
+  border: 5px ridge #888;
+  width: 80%;
+  text-align: center;
+    animation: fadeIn .7s;
+
+}
+
+.buConfirmContent button {
+    margin:auto;
+    text-align: center;
+    background-color: lightcyan;
+    border: 2px solid black;
+    color:black;
+    font-weight: bolder;
+    padding: 10px 20px;
+    display:block;
+    width: 25%;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 6px;
+    
+    
+}
+.buConfirmContent button:hover {
+    background-color: cyan;
+     transform: skewX(-10deg);
+    background
+}
+/*Animations*/
+@keyframes slide {
+    from {height: 0px;}
+    to {height: 400px;}
+}
+
+@keyframes fadeIn{
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(-1deg); }
+  20% { transform: translate(-5px, 0px) rotate(3deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  60% { transform: translate(-5px, 1px) rotate(0deg); }
+  80% { transform: translate(-1px, -1px) rotate(2deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/*Prompt styling for the Button Confirmed prompt*/
+.buConfirm {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+    transition-duration: 1s;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+/*Content for the prompt*/
+.buConfirmContent {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  text-align: center;
+}
+
+/*The internal content of Success Prompts*/
+.successContent {
+    
+  background-color: palegreen;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  text-align: center;
+    animation: fadeIn .2s;
+}
+
+.successContent button {
+    margin: auto;
+    text-align: center;
+    background-color: cornflowerblue;
+    border: 2px solid black;
+    color:black;
+    font-weight: bolder;
+    padding: 10px 20px;
+    display:block;
+    width: 25%;
+    cursor: pointer;
+    transition-duration: 1s;
+    border-radius: 10px;
+    
+}
+.backToMail button{
+    margin: auto;
+    text-align: center;
+    background-color: cornflowerblue;
+    border: 2px solid black;
+    color:black;
+    font-weight: bolder;
+    padding: 10px 20px;
+    display:block;
+    width: 25%;
+    cursor: pointer;
+    transition-duration: 1s;
+    border-radius: 10px;
+    
+}
+
+.backToMail button:hover{
+    border-bottom-left-radius: 120px;
+    border-top-left-radius: 120px;
+    border-left-width: thick;
+    background-color: aquamarine;
+    
+}
+
+.successContent button:hover{
+    border-bottom-right-radius: 120px;
+    border-top-right-radius: 120px;
+    border-right-width: thick;
+    background-color: aqua;
+    
+}
+
+
+.successTitle{
+    font-weight: 800;
+    font-size: 30px;
+    font-style: italic;
+   
+}
+
+/*Success Prompt Styling*/
+.successPrompt {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+
+
+.successFrom {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+   animation: fadeIn .2s;
+
+}
+
+.successTo {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+    animation: fadeIn .2s;
+}
+
+.successSubject {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+  animation: fadeIn .2s;
+}
+
+.successDear {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+  animation: fadeIn .2s;
+}
+
+.successBody {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+    text-align: center;
+  animation: fadeIn .2s;
+}
+
+.successLink {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+  animation: fadeIn .2s;
+}
+
+.successAttach {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+  animation: fadeIn .2s;
+}
+
+.successNothing {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  animation: fadeIn .2s;
+}
+
+.successExtraButton {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  animation: fadeIn .2s;
+}
+
+
+/*The internal contents of Failure Prompts*/
+.failureContent {
+  background-color: lightcoral;
+  margin: auto;
+  padding: 20px;
+  border: 3px ridge red;
+  width: 80%;
+  text-align: center;
+}
+
+
+.failureContent button {
+    margin: auto;
+    text-align: center;
+    background-color: red;
+    border: 2px solid black;
+    color:black;
+    font-weight: bolder;
+    padding: 10px 20px;
+    display:block;
+    width: 25%;
+    cursor: pointer;
+    transition-duration: .7s;
+    transform: skewX(-4deg);
+}
+
+.failureContent button:hover{
+    background-color: maroon;
+    color: white;
+    border-top-right-radius: 200px;
+    border-bottom-left-radius: 200px;
+}
+
+/*Failure prompt styling for each prompt*/
+.failurePrompt {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+    animation: shake;
+    animation-duration: 0.3s;
+}
+
+.failureFrom {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+    animation: shake;
+    animation-duration: 0.3s;
+}
+
+.failureTo {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+    animation: shake;
+    animation-duration: 0.3s;
+}
+
+.failureSubject {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+    animation: shake;
+    animation-duration: 0.3s;
+}
+
+.failureDear {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+    animation: shake;
+    animation-duration: 0.3s;
+}
+
+.failureBody {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+    animation: shake;
+    animation-duration: 0.3s;
+}
+
+.failureLink {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+    animation: shake;
+    animation-duration: 0.3s;
+}
+
+.failureAttach {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+    animation: shake;
+    animation-duration: 0.3s;
+}
+
+.failureNothing {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+    animation: shake;
+    animation-duration: 0.3s;
+}
+
+.failureExtraButton {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+    animation: shake;
+    animation-duration: 0.3s;
+}
+
+
+
+/*Close Prompt*/
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*Feature test*/
+.RTWButton button {
+    margin-left: 200px;
+    text-align: center;
+    background-color: orange;
+    border: 2px solid black;
+    color:black;
+    padding: 10px 20px;
+    display:block;
+    width: 25%;
+    cursor: pointer;
+}
