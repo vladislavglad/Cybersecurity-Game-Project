@@ -39,6 +39,10 @@ body {
   margin: 2em;
 }
 
+textarea{
+margin: auto;
+
+}
 h1 {
   font-style: bold;
   font-style: italic;

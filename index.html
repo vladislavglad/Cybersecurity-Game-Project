@@ -94,33 +94,22 @@
         <div class="content">
         <br />
         <b><i>Caesar</i></b> encryption is one of the earliest and simplest of
-        encryption methods. The recipient is given the cipher and uses the key to
-        decrypt the message, which is usually a "left-shift" of 3. For example,
-        the letter "D" would be decrypted as "A", and you would encrypt "B" as
-        "E". For example, if the plaintext were <br />"HELLO", the resulting
-        message would be:<br />"KHOOR"<br />
+        encryption methods.  The writer of the message and the recipient together 
+        devise a numeric "key" value between 1 and 25, which is then used to encrypt 
+        through shifting forward that many letters in the alphabet. <br> <br>
+        For example,
+        If the key value is 4 and the message is "A," the encrypted version 
+        of the message would be "E." <br> <br>
+        When the recipient receives the message, 
+        s/he decrypts it by shifting the same number of letters backwards in the alphabet. 
+        "E" shifted backwards 4 spaces would then return the decrypted message of "A."  <br> <br>
+        As another example, if the plaintext was "HELLO" and the key value was 3, the resulting 
+        encrypted message would be: "KHOOR"; to decrypt, you'd move back 3 spaces and recover the 
+        message "HELLO."
         <!-- Caesar exercises 
         <button><a href="caesar1.html">Easy</a></button>
         <button><a href="caesar2.html">Medium</a></button>
         <button><a href="caesar3.html">Hard</a></button>  -->
-        </div>
-
-        <!-- Rotational information -->
-
-        <button type="button" class="collapsible">Rotational Example</button>
-        <div class="content">
-        <br />
-
-        <b><i>Rotational</i></b> cryptography is a bit similar to Caesar. It
-        involves a key that simply translates the plaintext into another based on
-        the numbers given. For example, if the plaintext were <br />"HELLO", with
-        the keys <br />
-        "2 2 4 4 2", the resulting message would be: <br />"JGPPQ"<br />
-
-        <!-- Rotation exercises
-        <button><a href="rotation1.html">Easy</a></button>
-        <button><a href="rotation2.html">Medium</a></button>
-        <button><a href="rotation3.html">Hard</a></button>   -->
         </div>
 
         <button type="button" class="collapsible">Pigpen Example</button>
@@ -148,104 +137,107 @@
         <button><a href="pigpen2.html">Medium</a></button>
         <button><a href="pigpen3.html">Hard</a></button>  -->     
         </div>
+
+        <!-- One-time Pads/Rotational information -->
+
+        <button type="button" class="collapsible">Rotational Example</button>
+        <div class="content">
+        <br />
+
+        <b><i>One-time pads</i></b> work like Caesar ciphers, except that you generate a key 
+        for each letter in the message. <br> <br>
+        For example, if your message is HELLO and the keys is 1-6-3-4-2, 
+        the resulting encryption would be IKOPQ. Decryption works analogously,
+        by shifting backwards in the alphabet instead of forwards. <br> <br> 
+        Under perfect use, one-time pads are information-theoretically secure; that is, completely uncrackable, 
+        because the encrypted text reveals nothing about the message.  <br> <br>
+        For example, an encrypted message "AA" could have been the message <br> 
+        AT (with keys 0-7) or IN (keys 18-13) or BY (keys 25-2) 
+        ... or, in fact, any two-letter word at all! Note that double letters (as the Ls in HELLO) are encrypted using different key 
+        values and so offer no extra information and that there is no simple way to try out all possible values to determine a likely one. <br> <br>
+        
+        The downside is that one-time pads are hard to use perfectly.  Perfect use requires the creation of a new set of key 
+        values for each letter in the message; the key values can never be reused; the key values are entirely randomly generated; 
+        and the key values remain a complete secret.  Breaches in any of these conditions weakens the security of the one-time pad.
+        
+
+        <!-- Rotation exercises
+        <button><a href="rotation1.html">Easy</a></button>
+        <button><a href="rotation2.html">Medium</a></button>
+        <button><a href="rotation3.html">Hard</a></button>   -->
+        </div>
+
         <button onclick="switchBack()">Got it!</button>
     </div>
 
 
     <div class="gameModule" id="module0"> <!--Caesar questions-->
 
-        <h1>Decrypt this code! Easy</h1>
-        <p>
-          Encrypted word: <b><i>ZKHHO</i></b>
-        </p>
-        <img
-          src="https://cdn.glitch.com/ccb12f7e-689e-4705-a498-b1d6edbf2218%2FCaesar_wheel.jpg?v=1584548996080"
-        />
         <br />
+        <h1>Decrypt this code! Caesar Easy</h1>
+
+        <textarea cols="20" rows="3" id="caesarq1">text: TEBBI                     key:  3
+        </textarea>
+
+        <br>
         <p1>(Write your answer in all caps or lowercase)</p1>
         
         <input type="text" id="c1" placeholder="Your answer..." />
         <button onclick="c1completed()">Submit</button>
+        <p id="c1Ans"></p>
         
-        <!-- Caesar Medium -->
+    <!-- Caesar Medium -->
         <h1>Medium</h1>
-        <p>
-        Encrypted word: <b><i>LQIRUPDWLRQ</i></b>
-        </p>
 
-        <br />
+        <textarea cols="20" rows="3" id="caesarq2">text: EJBKNIIWPEKJ                 key:  4
+        </textarea>
+
+        <br>
         <p1>(Write your answer in all caps or lowercase)</p1>
         
         <input type="text" id="c2" placeholder="Your answer..." />
         <button onclick="c2completed()">Submit</button>
+        <p id="c2Ans"></p>
 
-        <!-- Caesar Hard -->
+    <!-- Caesar Hard -->
         <h1>Hard</h1>
-        <p>
-          Encrypted word: <b><i>MXOLXV FDHVDU</i></b>
-        </p>
+
+        <textarea cols="20" rows="3" id="caesarq3">text: CNFBNM VTXLTK                key:  7
+        </textarea>
+        
+        <br>
         <p1>(Write your answer in all caps or lowercase)</p1>        
         <input type="text" id="c3" placeholder="Your answer..." />
         <button onclick="c3completed()">Submit</button>
-
-    </div>
-
-<!-- End of Caesar -->
-
-    <div class="gameModule" id="module1"> <!-- For rotational -->
-        
-    <!-- Easy Rotational -->
-        <h1>Decrypt this code! Rotational Easy</h1>
+        <p id="c3Ans"></p>
+        <br>
+        <br>
     
-        <textarea cols="20" rows="3" id="rotationq1">
-    text: TBDDH               key:  36114
-        </textarea>
-        <p1>(Write your answer in all caps or lowercase)</p1>
-
-          <input type="text" id="r1" placeholder="Your answer..." />
-          <button onclick="r1completed()">Submit</button>
     
-    <!-- Medium Rotational -->
-        <h1>Medium</h1>
 
-        <textarea cols="20" rows="3" id="rotationq2">
-    text: AHBNWKRDJH               key:  4614252556
-        </textarea>
-        <p1>(Write your answer in all caps or lowercase)</p1>
-       
-        <input type="text" id="r2" placeholder="Your answer..." />
-        <button onclick="r2completed()">Submit</button>
+    <!-- End of Caesar -->
 
-    <!-- Hard Rotational -->
-        <h1>Hard</h1>
 
-        <textarea cols="20" rows="3" id="rotationq3">
-    text: AHBNWKRDJH               key:  4614252556
-        </textarea>
-        <p1>(Write your answer in all caps or lowercase)</p1>
-     
-        <input type="text" id="r3" placeholder="Your answer..." />
-        <button onclick="r3completed()">Submit</button>
- 
-    </div>  
-
-<!-- End of Rotational -->
-
-    <div class="gameModule" id="module2"> <!-- For pigpen -->
+    <!-- For pigpen -->
+    
         <h1>Decrypt this code! Pigpen Easy</h1>
         <p>
+
+          <img
+          src="/assets/images/Pigpen_Full.jpg"
+        />
+        <br> <br>
+        
           <img
             src="/assets/images/Pigpen1.png"
           />
-          <img
-            src="/assets/images/Pigpen_Full.jpg"
-          />
+
         </p>
         <p1>(Write your answer in all caps or lowercase)</p1>
-        <form id="pigpen1" onsubmit="return p1completed()">
-          <input type="text" id="p1" placeholder="Your answer..." />
-          <button onclick="p1completed()">Submit</button>
-        </form>
+        
+        <input type="text" id="p1" placeholder="Your answer..." />
+        <button onclick="p1completed()">Submit</button>
+        <p id="p1Ans"></p>
 
 
         <h1>Medium</h1>
@@ -256,10 +248,10 @@
          
         </p>
         <p1>(Write your answer in all caps or lowercase)</p1>
-        <form id="pigpen2" onsubmit="return p2completed()">
+        
           <input type="text" id="p2" placeholder="Your answer..." />
           <button onclick="p2completed()">Submit</button>
-        </form>
+          <p id="p2Ans"></p>
 
 
         <h1>Hard</h1>
@@ -273,8 +265,53 @@
 
           <input type="text" id="p3" placeholder="Your answer..." />
           <button onclick="p3completed()">Submit</button>
+          <p id="p3Ans"></p>
+    <!-- End of Pigpen -->
 
-    </div>
+    <!-- Easy Rotational -->
+      
+        <h1>Decrypt this code! One-time Pad Easy</h1>
+    
+        <textarea cols="20" rows="3" id="rotationq1">text: TBDDH                     key:  36114
+        </textarea>
+
+        <br>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+
+          <input type="text" id="r1" placeholder="Your answer..." />
+          <button onclick="r1completed()">Submit</button>
+          <p id="r1Ans"></p>
+    
+    <!-- Medium Rotational -->
+        <h1>Medium</h1>
+
+        <textarea cols="20" rows="3" id="rotationq2">text: OAANHH                    key:  427174
+        </textarea>
+
+        <br>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+       
+        <input type="text" id="r2" placeholder="Your answer..." />
+        <button onclick="r2completed()">Submit</button>
+        <p id="r2Ans"></p>
+
+    <!-- Hard Rotational -->
+        <h1>Hard</h1>
+
+        <textarea cols="20" rows="3" id="rotationq3">text: AHBNWKRDJH               key:  4614252556
+        </textarea>
+        
+        <br>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+     
+        <input type="text" id="r3" placeholder="Your answer..." />
+        <button onclick="r3completed()">Submit</button>
+        <p id="r3Ans"></p>
+   
+    <!-- End of Rotational -->
+        
+      
+</div>
 
 </body>
 </html>

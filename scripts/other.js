@@ -12,19 +12,12 @@
     '<button style="font-size: xx-large;" onclick="switchWithCondition(true)">Correct</button>' +
     '<button style="font-size: xx-large;" onclick="switchWithCondition(false)">Wrong</button>' +
 '</span>'; */
-/*
+
 document.getElementById("module1").innerHTML = 
 '<div style="font-size: 50px;">Evaluation part goes here!</div><br>' +
 '<h1>Override this! Place your own div with id="module1" so your own evaluation module is invoked.</h1>' +
 '<span>' +
     '<button style="font-size: xx-large;" onclick="switchWithCondition(true)">Correct</button>' +
     '<button style="font-size: xx-large;" onclick="switchWithCondition(false)">Wrong</button>' +
-'</span>'; */
-
-document.getElementById("module2").innerHTML = 
-'<div style="font-size: 50px;">Evaluation part goes here!</div><br>' +
-'<h1>Override this! Place your own div with id="module2" so your own evaluation module is invoked.</h1>' +
-'<span>' +
-    '<button style="font-size: xx-large;" onclick="switchWithCondition(true)">Correct</button>' +
-    '<button style="font-size: xx-large;" onclick="switchWithCondition(false)">Wrong</button>' +
 '</span>'; 
+
