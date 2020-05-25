@@ -79,11 +79,26 @@ class WorldScene extends Phaser.Scene {
         //TODO: plan to create an interactive "ZONE" that will call a DialogScene (instead of NPC's own collision bounds)
         this.physics.add.overlap(this.player, this.npc_mage, this.onMeetNPC, null, this);
 
-        //Book object setup.
+        //General Book object setup.
         this.book = this.physics.add.image(150, 100, "book"); //39, 393
         this.book.setScale(0.35);
+
+        //IMPORTANT: This processes Kanaan's instructions module.
         this.physics.add.overlap(this.player, this.book, this.onBookPickup, null, this);
 
+
+        /* IMPORTANT: This creates and porcesses Gallal's instructions module.
+        (Temporary workaround) */
+        this.book2 = this.physics.add.image(233, 441, "book").setScale(0.35);
+        this.physics.add.overlap(this.player, this.book2, (player, book) => {
+            
+            isGamePaused = true;
+            book.destroy();
+            switchTo(`instruction1`);
+
+        }, null, this);
+
+     
         //Creating audio.
         this.mainMusic = this.sound.add("peaceful-music");
 
