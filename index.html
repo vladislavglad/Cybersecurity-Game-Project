@@ -51,25 +51,27 @@
     <!-- Malware Teaching Level Scripts and Scenes -->
     <!-- <script src="/scenes/teachinglevelscript.js"></script> -->
     
-    <!-- Malware Testing Level Script -->
+    <!-- Kanaan's Malware Testing Level Script -->
     <script defer src="scripts/hangman.js"></script>
 
+    <!-- Gallal's module scripts -->
+    <script defer src="scripts/encryption_script.js"></script>
 </head>
 <body>
     <!-- Whole game world (made in Phaser3) -->
     <div id="gameContainer"></div>
 
     <!-- Example of an outside "game module" that is manipulated through a separate file -->
-    <div class="gameModule" id="module1" style="background-color:lightgreen"></div>
+    <!-- <div class="gameModule" id="module1" style="background-color:lightgreen"></div> -->
     <!-- And so forth... -->
 
 
     <!------------ YOUR DIVS GO HERE. ----------------->
-    <!-- Use these by id or override them altogether -->
 
+    <!-- Kanaan's instructions module -->
     <div class="gameModule" id="instruction0"></div>
 
-    <!-- Malware Evaluation Module -->
+    <!-- Kanaan's Malware Evaluation Module -->
     <div class="gameModule" id="module0" style="background-image: url('assets/images/hangmanimages/background.jpg'); font-family: Tahoma, Helvetica, Arial, Lucida Grande, sans-serif;
     color: whitesmoke; height: 100%; text-align: center; font-size: 40px;">
         <div class="malware">
@@ -98,6 +100,263 @@
             <button class="butn" id="next" onClick="nextWord()">Next Word</button>
           </div>
     </div>
+    <!-- End of Kanaan's module -->
+
+    <!-- Gallal's instruction module -->
+    <div class="gameModule" id="instruction1">
+
+
+        <link rel="stylesheet" href="/styles/encryption_style.css">
+    
+        <h1>What is Encryption?</h1>
+
+        <p>
+        <b><i>Encryption</i></b
+        >, by definition, is "the process of converting information or data into a
+        code, especially to prevent unauthorized access".
+        </p>
+
+        <h1>What is Decryption?</h1>
+
+        <p>
+        <b><i>Decryption</i></b
+        >, by definition, is the opposite of encryption, which is the conversion
+        of encrypted data back into its original form.
+        </p>
+
+        <button id="info">Why do we use encryption?</button>
+
+        <textarea
+        cols="50"
+        rows="10"
+        id="reason"
+        placeholder="Click here to learn why and how we use encryption..."
+        ></textarea>
+
+        <br />
+        <!-- Caesar information -->
+        <button type="button" class="collapsible">Caesar</button>
+        <div class="content">
+        <br />
+        <b><i>Caesar</i></b> encryption is one of the earliest and simplest of
+        encryption methods.  The writer of the message and the recipient together 
+        devise a numeric "key" value between 1 and 25, which is then used to encrypt 
+        through shifting forward that many letters in the alphabet. <br> <br>
+        For example,
+        If the key value is 4 and the message is "A," the encrypted version 
+        of the message would be "E." <br> <br>
+        When the recipient receives the message, 
+        s/he decrypts it by shifting the same number of letters backwards in the alphabet. 
+        "E" shifted backwards 4 spaces would then return the decrypted message of "A."  <br> <br>
+        As another example, if the plaintext was "HELLO" and the key value was 3, the resulting 
+        encrypted message would be: "KHOOR"; to decrypt, you'd move back 3 spaces and recover the 
+        message "HELLO."
+        <!-- Caesar exercises 
+        <button><a href="caesar1.html">Easy</a></button>
+        <button><a href="caesar2.html">Medium</a></button>
+        <button><a href="caesar3.html">Hard</a></button>  -->
+        </div>
+
+        <button type="button" class="collapsible">Pigpen</button>
+        <div class="content">
+        <br />
+        <!-- Pigpen information -->
+
+        <b><i>Pigpen</i></b> encryption is a bit more complicated than the
+        previous two. It involves a system of grids, dots, and in some cases,
+        <i>x</i>'s. In order to decypher the message, one must find the letter
+        corresponding to the letter in the given grid, using the dots to determine
+        which grid to look at, and the shape of the symbol to figure out which
+        letter to choose. For example, if we were given the symbols:<br />
+        <img
+            src="/assets/images/Pigpen_Ex.png"
+        />
+        <br />using the key below:<br />
+        <img
+            src="/assets/images/Pigpen_Full.jpg"
+        />
+        <br />We can see that the encrypted message says "HELLO"<br />
+
+        <!-- Pigpen exercises 
+        <button><a href="pigpen1.html">Easy</a></button>
+        <button><a href="pigpen2.html">Medium</a></button>
+        <button><a href="pigpen3.html">Hard</a></button>  -->     
+        </div>
+
+        <!-- One-time Pads/Rotational information -->
+
+        <button type="button" class="collapsible">One-Time Pads</button>
+        <div class="content">
+        <br />
+
+        <b><i>One-time pads</i></b> work like Caesar ciphers, except that you generate a key 
+        for each letter in the message. <br> <br>
+        For example, if your message is HELLO and the keys are 1-6-3-4-2, 
+        the resulting encryption would be IKOPQ. Decryption works analogously,
+        by shifting backwards in the alphabet instead of forwards. <br> <br> 
+        Under perfect use, one-time pads are information-theoretically secure; that is, completely uncrackable, 
+        because the encrypted text reveals nothing about the message.  <br> <br>
+        For example, an encrypted message "AA" could have been the message <br> 
+        AT (with keys 0-7) or IN (keys 18-13) or BY (keys 25-2) 
+        ... or, in fact, any two-letter word at all! Note that double letters (as the Ls in HELLO) are encrypted using different key 
+        values and so offer no extra information and that there is no simple way to try out all possible values to determine a likely one. <br> <br>
+        
+        The downside is that one-time pads are hard to use perfectly.  Perfect use requires the creation of a new set of key 
+        values for each letter in the message; the key values can never be reused; the key values are entirely randomly generated; 
+        and the key values remain a complete secret.  Breaches in any of these conditions weakens the security of the one-time pad.
+        
+
+        <!-- Rotation exercises
+        <button><a href="rotation1.html">Easy</a></button>
+        <button><a href="rotation2.html">Medium</a></button>
+        <button><a href="rotation3.html">Hard</a></button>   -->
+        </div>
+
+        <button onclick="switchBack()">Got it!</button>
+    </div>
+
+    <!-- Gallal's game module -->
+    <div class="gameModule" id="module1"> <!--Caesar questions-->
+
+        <br />
+        <h1>Decrypt this code! Caesar Easy</h1>
+
+        <textarea cols="20" rows="3" id="caesarq1">text: ZKHHO                     key:  3
+        </textarea>
+
+        <br>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+        
+        <input type="text" id="c1" placeholder="Your answer..." />
+        <button onclick="c1completed()">Submit</button>
+        <p id="c1Ans"></p>
+        
+    <!-- Caesar Medium -->
+        <h1>Medium</h1>
+
+        <textarea cols="20" rows="3" id="caesarq2">text: MRJSVQEXMSR                 key:  4
+        </textarea>
+
+        <br>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+        
+        <input type="text" id="c2" placeholder="Your answer..." />
+        <button onclick="c2completed()">Submit</button>
+        <p id="c2Ans"></p>
+
+    <!-- Caesar Hard -->
+        <h1>Hard</h1>
+
+        <textarea cols="20" rows="3" id="caesarq3">text: QBSPBZ JHLZHY                key:  7
+        </textarea>
+        
+        <br>
+        <p1>(Write your answer in all caps or lowercase)</p1>        
+        <input type="text" id="c3" placeholder="Your answer..." />
+        <button onclick="c3completed()">Submit</button>
+        <p id="c3Ans"></p>
+        <br>
+        <br>
+    
+    
+
+    <!-- End of Caesar -->
+
+
+    <!-- For pigpen -->
+    
+        <h1>Decrypt this code! Pigpen Easy</h1>
+        <p>
+
+          <img
+          src="/assets/images/Pigpen_Full.jpg"
+        />
+        <br> <br>
+
+          <img
+            src="/assets/images/Pigpen1.png"
+          />
+
+        </p>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+        
+        <input type="text" id="p1" placeholder="Your answer..." />
+        <button onclick="p1completed()">Submit</button>
+        <p id="p1Ans"></p>
+
+
+        <h1>Medium</h1>
+        <p>
+          <img
+            src="/assets/images/Pigpen2.png"
+          />
+         
+        </p>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+        
+          <input type="text" id="p2" placeholder="Your answer..." />
+          <button onclick="p2completed()">Submit</button>
+          <p id="p2Ans"></p>
+
+
+        <h1>Hard</h1>
+        <p>
+          <img
+            src="/assets/images/Pigpen3.png"
+          />
+
+        </p>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+
+          <input type="text" id="p3" placeholder="Your answer..." />
+          <button onclick="p3completed()">Submit</button>
+          <p id="p3Ans"></p>
+    <!-- End of Pigpen -->
+
+    <!-- Easy Rotational -->
+      
+        <h1>Decrypt this code! One-time Pad Easy</h1>
+    
+        <textarea cols="20" rows="3" id="rotationq1">text: ZNFGP                     key:  36124
+        </textarea>
+
+        <br>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+
+          <input type="text" id="r1" placeholder="Your answer..." />
+          <button onclick="r1completed()">Submit</button>
+          <p id="r1Ans"></p>
+    
+    <!-- Medium Rotational -->
+        <h1>Medium</h1>
+
+        <textarea cols="20" rows="3" id="rotationq2">text: WEOPVP                    key:  427174
+        </textarea>
+
+        <br>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+       
+        <input type="text" id="r2" placeholder="Your answer..." />
+        <button onclick="r2completed()">Submit</button>
+        <p id="r2Ans"></p>
+
+    <!-- Hard Rotational -->
+        <h1>Hard</h1>
+
+        <textarea cols="20" rows="3" id="rotationq3">text: ITDVAUVNTT               key:  4614252556
+        </textarea>
+        
+        <br>
+        <p1>(Write your answer in all caps or lowercase)</p1>
+     
+        <input type="text" id="r3" placeholder="Your answer..." />
+        <button onclick="r3completed()">Submit</button>
+        <p id="r3Ans"></p>
+   
+    <!-- End of Rotational -->
+            
+</div>
+<!-- End of Gallal's module -->
 
 </body>
 </html>
