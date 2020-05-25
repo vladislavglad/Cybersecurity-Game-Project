@@ -1,0 +1,28 @@
+body
+{
+	background-image: url("../game_bg.jpg");
+ 	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+audio
+{
+	bottom: 0; 
+	position: fixed; 
+	right: 0; 
+	width: 20%;
+}
+
+#gameCanvas
+{
+	display: block; 
+	width: 100%; 
+	text-align: center;
+	border-color: white;
+	border-width: thick;
+
+}
+
+
+

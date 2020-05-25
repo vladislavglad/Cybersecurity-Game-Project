@@ -14,9 +14,17 @@ document.getElementById("instruction0").innerHTML =
 // '</span>';
 
 document.getElementById("module1").innerHTML = 
-'<div style="font-size: 50px;">Evaluation part goes here!</div><br>' +
+/*'<div style="font-size: 50px;">Evaluation part goes here!</div><br>' +
 '<h1>Override this! Place your own div with id="module1" so your own evaluation module is invoked.</h1>' +
 '<span>' +
     '<button style="font-size: xx-large;" onclick="switchWithCondition(true)">Correct</button>' +
     '<button style="font-size: xx-large;" onclick="switchWithCondition(false)">Wrong</button>' +
-'</span>';
+'</span>';*/
+
+//' <a href="Data_Backup_Module/index.html">Click to Play</a>';
+
+
+'<object type="text/html" data="Data_Backup_Module/index.html"  style="width:130%; height:95%; "></object>' +
+
+    '<button style="font-size: xx-large;  margin-left: 9em;  padding-right: 16px; padding-left: 16px; border-radius: 12px; background-color: #008CBA;" onclick="switchWithCondition(true)">Pass</button>' +
+    '<button style="font-size: xx-large;  margin-left: 9em;  padding-right: 16px; padding-left: 16px; border-radius: 12px; background-color: #008CBA;" onclick="switchWithCondition(false)">Fail</button>';

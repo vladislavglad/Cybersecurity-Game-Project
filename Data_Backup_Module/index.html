@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Home Page</title>
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+
+	<!-- Require for use some css of bootstrap4-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	
+</head>
+
+<body>
+ 	
+	<div class="container-fluid p-0">
+		
+		<div class="banner" class="col">
+
+			<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-around">
+
+				<a class="navbar-brand">
+			 		<button type="submit" id="start_button" onclick="startTimer()"><img src="./image/start_button.png" alt="start" id="left_image"></button>
+  				</a>
+
+  				<span class="navbar-text"> Cybersecurity Lesson </span>
+
+  				<a class="navbar-brand">
+			 		<img src="./image/time.png" alt="timer_img" >
+			 		<span class="navbar-text" id="timer"> Time: 60</span>
+
+  				</a>
+
+			</nav>
+			
+		</div>
+
+
+		<div class="center" class="col" id="main">
+
+			<img src="./image/Front_1.jpg" alt="Data_Backup_Image" class="img-fluid">
+			
+			<p id="title">Data Backup</p>
+
+			<a href="./phaser3_game/game.html"><img src="./image/play_button.png" alt="play" id="start_img"></a>
+
+			<a href="#info_table"><img src="./image/next_arrow.png" alt="next_arrow" id="next_arrow"></a>
+			
+		</div>
+
+
+
+		<div class="infomation" class="col">
+
+			<table class="table table-hover table-bordered" id="info_table" >
+
+   				<thead class="thead-dark" align="center">
+     				<tr>
+        				<th width="25%" >Type of Backup</th>
+        				<th width="37.5%" >Advantages</th>
+        				<th width="37.5%" >Disadvantages</th>
+      				</tr>
+    			</thead>
+
+    			<tbody >
+      				<tr>
+       					<td id="topic">Internal/External Storage <br><br><img src="./image/internal_storage.png" alt="internal storage">
+        				<td>
+							<li>
+								Quick access to data without requiring a strong internet connection
+							</li>
+							<li>
+								Low cost storage units that can be purchased in large quantities to store additional data
+							</li>
+							<li>
+								Installation is easy and can be managed without external assistance
+							</li>
+        				</td>
+        				<td>
+        					<li>
+        						Security issues that data is easy to be steal by theft especailly when it is sensitive data which may lead to serious consequences
+        					</li>
+							<li>
+								Easy to get damaged as it remains in the same location. It may be destroyed by physical accidents or disasters, and then the data would not be able to be restored after the disaster
+							</li>
+        				</td>
+      				</tr>
+
+      				<tr>
+       					<td id="topic">Cloud Storage <br><br><img src="./image/cloud_storage.png" alt="cloud storage"></td>
+        				<td>
+        					<li>
+        						It offers unlimited storage capacity either for a flat or usage-based fee
+        					</li>
+        					<li>
+        						Typically, there are multiple copies of data, stored on multiple servers at different locations. Therefore, if one server stops working or one location suffers damage, data can be restored from another location 
+        					</li>
+        					<li>
+                                It doesn't depend on which device you are using, the data stores on the "cloud". You can access it in anywhere
+        					</li>
+        					<li>
+        						Data is encrypted by the backup server program before it is stored at a remote server, and is protected from physical causes of data loss
+        					</li>
+        				</td>
+        				<td>
+        					<li>
+        						Speed for users' retrieval capacity depends upon the speed and efficiency of users' Internet connection. If the user doesn't have Internet access, internet, retrieving the backup data is impossible      						
+        					</li>
+        					<li>
+        						Typically, cloud storage companies only offer a small amount of storage space for free
+        					</li>
+        					<li>
+        						Users must rely on the external company for the security of their data and cannot take control of it themselves
+        					</li>
+        					<li>
+        						Companies aren't obliged to keep these services around forever
+        					</li>
+        				</td>
+      				</tr>
+
+					<tr>
+       					<td id="topic">Printer Storage <br><br><img src="./image/printer_storage.png" alt="printer storage"></td>
+        				<td>
+							<li>
+								A backup that won’t be affected by hardware outages or tech issues
+							</li>
+							<li>
+								Nearly impossible for hackers to access the data
+							</li>
+        				</td>
+        				<td>
+        					<li>
+        						Impossible for certain file types and impractical for data that will be used by software programs and as a result, must be stored digitally. 
+        					</li>
+        					<li>
+        						User have to manage it certain amount of time to delete or replace the data in the printer's memory. Especially for sensitive data because it is usually unnoticed which is awkward
+        					</li>
+        					<li>
+        						Less practical for longer documents 
+        					</li>
+        					<li>
+        						Not great for the small room or crowded place because it occupies space, requires the device and carrying around heavy machinery
+        					</li>
+        				</td>
+      				</tr>
+					
+					
+					<tr>
+       					<td id="topic">USB Storage <br><br><img src="./image/USB_storage.png" alt="USB storage"></td>
+        				<td>
+        					<li>
+        						Extremely portable and can be used to retrieve data from almost any large devices.
+        					</li>
+        					<li>
+        						It offers the cheapest price for storing data among all the type of data backups.
+        					</li>
+        					<li>
+        						It can easily be used to transfer data to other sources.
+        					</li>
+        				</td>
+        				<td>
+        					<li>
+        						The portability means that they are small devices and easy to lose or have stolen
+        					</li>
+        					<li>
+        						USB drives do not last forever; there are a limited number of read and write cycles 
+        					</li>
+        					<li>
+        						The cheap storage medium doesn't offer very large backup space for large files
+        					</li>
+        					
+        					<a href="#main">
+      							<img src="./image/back_arrow.png" alt="next_arrow" id="back_arrow">
+      						</a>
+        					
+        				</td>
+      				</tr>
+
+      				
+
+ 
+    			</tbody>
+
+ 			</table>
+
+		
+		</div>
+
+		<div class="end" class="col">
+
+			<footer>
+
+				<table class="table table-dark">
+
+					<td>
+						<div class="footer-copyright text-center py-3">© 2020 Copyright: 
+							<a href="index.html"> DexiangZhang_HomePage</a>
+  						</div>
+					</td>
+					
+ 				</table>
+
+			</footer>
+
+		</div>
+
+	</div>
+	
+	
+	<script src="./JavaScript/index.js"></script>
+
+</body>
+</html>
