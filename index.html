@@ -72,7 +72,7 @@
     </head>
         <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -283,7 +283,7 @@ Copyright 2020</p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="successN(this)">Click here whenever there is nothing suspicious about an email</button>
+            <button onclick="successN()">Click here whenever there is nothing suspicious about an email</button>
             <br>
             <!--
             <button id="NothingButton" class="NothingButton"><a href="Email1.html">Click here to test your knowledge</a></button>
@@ -329,7 +329,7 @@ Copyright 2020</p>
                 
                 
         <!--Success Close-->
-                <button onclick="switchDivss('Email',Email)">Continue</button>
+                <button onclick="switchDivs('Email',Email)">Continue</button>
          
             </div>
         </div>
@@ -347,7 +347,7 @@ Copyright 2020</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivss('module0', 'Email2')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton"  onclick = "switchDivs('module0', 'Email2')"onclick = "closeSPrompt()" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--<button><a href = "Email2.html">Continue to next email</a></button>
                 
                 <button onclick="randPage()">Continue</button>
@@ -381,7 +381,7 @@ Copyright 2020</p>
                 
         <!--Success Close-->
                 
-                <button class="promptButton" onclick = "switchDivs('module0','Email2')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('module0','Email2')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--<button><a href = "Email2.html">Continue to next email</p></button>
                 
                 <button onclick="randPage()">Continue</button>
@@ -401,7 +401,7 @@ Copyright 2020</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('module0', 'Email2')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('module0', 'Email2')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -420,7 +420,7 @@ Copyright 2020</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('module0', 'Email2')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('module0', 'Email2')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -440,7 +440,7 @@ Copyright 2020</p>
                 
         <!--Success Close-->
                 
-                <button class="promptButton" onclick = "switchDivs('module0', 'Email2')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('module0', 'Email2')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -491,7 +491,7 @@ Copyright 2020</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          
@@ -503,7 +503,7 @@ Copyright 2020</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div class="failureTo">
@@ -514,7 +514,7 @@ Copyright 2020</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div class="failureSubject">
@@ -645,7 +645,7 @@ your Debit Card in the following transaction:</p>
                 
             </div>
         <div class="NothingButton" >
-            <button onclick="failureN(this)">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -704,7 +704,7 @@ your Debit Card in the following transaction:</p>
                 
         <!--Success Close-->
                 
-                <button class="promptButton" onclick = "switchDivs('Email2','Email3')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email2','Email3')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 
                 
                 <!--<button><a href = "Email3.html">Continue to next email</a></button>
@@ -740,7 +740,7 @@ your Debit Card in the following transaction:</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email2','Email3')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email2','Email3')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -776,7 +776,7 @@ your Debit Card in the following transaction:</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email2','Email3')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email2','Email3')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -808,7 +808,7 @@ your Debit Card in the following transaction:</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick ="switchDivs('Email2','Email3')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick ="switchDivs('Email2','Email3')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -826,7 +826,7 @@ your Debit Card in the following transaction:</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick ="switchDivs('Email2','Email3')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick ="switchDivs('Email2','Email3')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -846,7 +846,7 @@ your Debit Card in the following transaction:</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          
@@ -858,7 +858,7 @@ your Debit Card in the following transaction:</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureTo" class="failureTo">
@@ -869,7 +869,7 @@ your Debit Card in the following transaction:</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureSubject" class="failureSubject">
@@ -880,7 +880,7 @@ your Debit Card in the following transaction:</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          
@@ -892,7 +892,7 @@ your Debit Card in the following transaction:</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureBody" class="failureBody">
@@ -903,7 +903,7 @@ your Debit Card in the following transaction:</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureLink" class="failureLink">
@@ -914,7 +914,7 @@ your Debit Card in the following transaction:</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureAttach" class="failureAttach">
@@ -925,7 +925,7 @@ your Debit Card in the following transaction:</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureNothing" class="failureNothing">
@@ -935,7 +935,7 @@ your Debit Card in the following transaction:</p>
                 <p>There may have been something that was missed while checking this email. Keep investigating to find out what it may have been!</p>
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
     </div> 
@@ -1004,7 +1004,7 @@ Pennsylvania Bank</p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -1030,7 +1030,7 @@ Pennsylvania Bank</p>
     <body>
         
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -1061,7 +1061,7 @@ Pennsylvania Bank</p>
         <!--Success Close-->
                
                 
-                <button class="promptButton" onclick="switchDivs('Email3','Email4')">Continue</button>
+                <button class="promptButton" onclick="switchDivs('Email3','Email4')" onclick = "closeSPrompt()">Continue</button><button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 
          
             </div>
@@ -1092,7 +1092,7 @@ Pennsylvania Bank</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email3','Email4')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email3','Email4')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1110,7 +1110,7 @@ Pennsylvania Bank</p>
                 
                 
         <!--Success Close-->
-                 <button class="promptButton" onclick = "switchDivs('Email3','Email4')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                 <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email3','Email4')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1129,7 +1129,7 @@ Pennsylvania Bank</p>
                 
                 
         <!--Success Close-->
-                 <button class="promptButton" onclick = "switchDivs('Email3','Email4')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                 <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email3','Email4')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1161,7 +1161,7 @@ Pennsylvania Bank</p>
                 
                 
         <!--Success Close-->
-                 <button class="promptButton" onclick = "switchDivs('Email3','Email4')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                 <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email3','Email4')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1180,7 +1180,7 @@ Pennsylvania Bank</p>
                 
                 
         <!--Success Close-->
-                 <button class="promptButton" onclick ="switchDivs('Email3','Email4')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                 <button class="promptButton" onclick="switchWithCondition(true)" onclick ="switchDivs('Email3','Email4')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1201,7 +1201,7 @@ Pennsylvania Bank</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          
@@ -1213,7 +1213,7 @@ Pennsylvania Bank</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureTo" class="failureTo">
@@ -1224,7 +1224,7 @@ Pennsylvania Bank</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureSubject" class="failureSubject">
@@ -1235,7 +1235,7 @@ Pennsylvania Bank</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          
@@ -1247,7 +1247,7 @@ Pennsylvania Bank</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureBody" class="failureBody">
@@ -1258,7 +1258,7 @@ Pennsylvania Bank</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureLink" class="failureLink">
@@ -1269,7 +1269,7 @@ Pennsylvania Bank</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureAttach" class="failureAttach">
@@ -1280,7 +1280,7 @@ Pennsylvania Bank</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureNothing" class="failureNothing">
@@ -1290,7 +1290,7 @@ Pennsylvania Bank</p>
                 <p>There may have been something that was missed while checking this email. Keep investigating to find out what it may have been!</p>
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
     </div> 
@@ -1349,7 +1349,7 @@ PROTAG47, was successfully changed</p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="successN()">There is nothing suspicious about this email</button>
+            <button onclick="successN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -1374,7 +1374,7 @@ PROTAG47, was successfully changed</p>
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -1403,7 +1403,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Success Close-->
-                 <button class="promptButton" onclick = "switchDivs('Email4','Email5')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                 <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email4','Email5')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1436,7 +1436,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Success Close-->
-                 <button class="promptButton" onclick = "switchDivs('Email3','Email4')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                 <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email4','Email5')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1455,7 +1455,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email3','Email4')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email4','Email5')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1474,7 +1474,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Success Close-->
-                 <button class="promptButton" onclick ="switchDivs('Email3','Email4')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                 <button class="promptButton" onclick="switchWithCondition(true)" onclick ="switchDivs('Email4','Email5')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1507,7 +1507,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email3','Email4')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email4','Email5')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1526,7 +1526,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email3','Email4')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email4','Email5')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1559,7 +1559,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureTo" class="failureTo">
@@ -1570,7 +1570,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureSubject" class="failureSubject">
@@ -1581,7 +1581,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          
@@ -1593,7 +1593,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureBody" class="failureBody">
@@ -1604,7 +1604,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureLink" class="failureLink">
@@ -1615,7 +1615,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureAttach" class="failureAttach">
@@ -1626,7 +1626,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureNothing" class="failureNothing">
@@ -1636,7 +1636,7 @@ PROTAG47, was successfully changed</p>
                 <p>This email was very vague in many places. Whenever an email is too vague, leaving you with questions that you are tempted to ask, it is possible that it may be a phishing attempt. Try checking certain areas of this email to see how they are used for phishing. </p>
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
     </div> 
@@ -1698,7 +1698,7 @@ PROTAG47, was successfully changed</p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -1724,7 +1724,7 @@ PROTAG47, was successfully changed</p>
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -1753,7 +1753,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick ="switchDivs('Email5','Email6')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick ="switchDivs('Email5','Email6')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1805,7 +1805,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email5','Email6')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email5','Email6')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1824,7 +1824,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email5','Email6')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email5','Email6')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1857,7 +1857,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email5','Email6')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email5','Email6')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1876,7 +1876,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick ="switchDivs('Email5','Email6')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick ="switchDivs('Email5','Email6')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1895,7 +1895,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email5','Email6')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email5','Email6')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -1916,7 +1916,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          
@@ -1928,7 +1928,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureTo" class="failureTo">
@@ -1939,7 +1939,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureSubject" class="failureSubject">
@@ -1950,7 +1950,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          
@@ -1962,7 +1962,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureBody" class="failureBody">
@@ -1973,7 +1973,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureLink" class="failureLink">
@@ -1984,7 +1984,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureAttach" class="failureAttach">
@@ -1995,7 +1995,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureNothing" class="failureNothing">
@@ -2005,7 +2005,7 @@ PROTAG47, was successfully changed</p>
                 <p>There may have been something that was missed while checking this email. Keep investigating to find out what it may have been!</p>
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
              
              <div id="failureExtraButton" class="failureExtraButton">
@@ -2020,7 +2020,7 @@ PROTAG47, was successfully changed</p>
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
          
             </div>
         </div>
@@ -2104,7 +2104,7 @@ Do you want to unsubscribe?
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -2129,7 +2129,7 @@ Do you want to unsubscribe?
     </head>
     <body>
         
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -2158,7 +2158,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick ="switchDivs('Email6','Email7')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="closeSPrompt()" onclick ="switchDivs('Email6','Email7')" ><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -2191,7 +2191,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Success Close-->
-               <button class="promptButton" onclick = "switchDivs('Email6','Email7')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+               <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email6','Email7')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -2210,7 +2210,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email6','Email7')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email6','Email7')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -2229,7 +2229,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email6','Email7')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email6','Email7')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -2262,7 +2262,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick ="switchDivs('Email6','Email7')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick ="switchDivs('Email6','Email7')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -2281,7 +2281,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email6','Email7')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email6','Email7')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -2300,7 +2300,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email6','Email7')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email6','Email7')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -2319,7 +2319,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          
@@ -2331,7 +2331,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureTo" class="failureTo">
@@ -2342,7 +2342,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureSubject" class="failureSubject">
@@ -2353,7 +2353,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          
@@ -2365,7 +2365,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureBody" class="failureBody">
@@ -2376,7 +2376,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureLink" class="failureLink">
@@ -2387,7 +2387,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureAttach" class="failureAttach">
@@ -2398,7 +2398,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureNothing" class="failureNothing">
@@ -2408,7 +2408,7 @@ Do you want to unsubscribe?
                 <p>There may have been something that was missed while checking this email. Keep investigating to find out what it may have been!</p>
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          
@@ -2424,7 +2424,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
          
             </div>
         </div>
@@ -2497,7 +2497,7 @@ Do you want to unsubscribe?
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="successN()">There is nothing suspicious about this email</button>
+            <button onclick="successN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -2525,7 +2525,7 @@ Do you want to unsubscribe?
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -2587,7 +2587,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email7','Email8')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email7','Email8')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -2625,7 +2625,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email7','Email8')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email7','Email8')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -2678,7 +2678,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email7','Email8')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email7','Email8')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -2697,7 +2697,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Success Close-->
-                <button class="promptButton" onclick = "switchDivs('Email7','Email8')"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
+                <button class="promptButton" onclick="switchWithCondition(true)" onclick = "switchDivs('Email7','Email8')" onclick="closeSPrompt()"><p>Continue to next email</p></button>   <button class="backToMail" onclick = "closeSPrompt()"><p>Go Back</p></button>
                 <!--
                 <button onclick="randPage()">Continue</button>
                 -->
@@ -2716,7 +2716,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          
@@ -2728,7 +2728,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureTo" class="failureTo">
@@ -2739,7 +2739,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureSubject" class="failureSubject">
@@ -2750,7 +2750,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          
@@ -2762,7 +2762,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureBody" class="failureBody">
@@ -2773,7 +2773,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureLink" class="failureLink">
@@ -2784,7 +2784,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureAttach" class="failureAttach">
@@ -2795,7 +2795,7 @@ Do you want to unsubscribe?
                 
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          <div id="failureNothing" class="failureNothing">
@@ -2805,7 +2805,7 @@ Do you want to unsubscribe?
                 <p>This was actually an attempt at spear phishing. Keep investigating to find out what it may have been!</p>
                 
         <!--Failure Close-->
-                <button class="promptButton" onclick="closeFPrompt()">Continue</button>
+                <button class="promptButton" onclick="switchWithCondition(false)" onclick="closeFPrompt()">Continue</button>
             </div>
         </div>
          
@@ -2887,7 +2887,7 @@ Do you want to unsubscribe?
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -2914,7 +2914,7 @@ Do you want to unsubscribe?
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -3276,7 +3276,7 @@ Do you want to unsubscribe?
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="successN()">There is nothing suspicious about this email</button>
+            <button onclick="successN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -3301,7 +3301,7 @@ Do you want to unsubscribe?
     </head>
     <body>
   
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -3675,7 +3675,7 @@ Do you want to unsubscribe?
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -3701,7 +3701,7 @@ Do you want to unsubscribe?
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -4048,7 +4048,7 @@ Do you want to unsubscribe?
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -4082,7 +4082,7 @@ Do you want to unsubscribe?
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -4432,7 +4432,7 @@ Do you want to unsubscribe?
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -4457,7 +4457,7 @@ Do you want to unsubscribe?
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -4780,7 +4780,7 @@ Do you want to unsubscribe?
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -4806,7 +4806,7 @@ Do you want to unsubscribe?
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -5155,7 +5155,7 @@ Do you want to unsubscribe?
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -5181,7 +5181,7 @@ Do you want to unsubscribe?
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -5510,7 +5510,7 @@ Do you want to unsubscribe?
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -5536,7 +5536,7 @@ Do you want to unsubscribe?
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -5870,7 +5870,7 @@ from the good ones in the waters! </p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="successN()">There is nothing suspicious about this email</button>
+            <button onclick="successN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -5896,7 +5896,7 @@ from the good ones in the waters! </p>
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -6224,7 +6224,7 @@ from the good ones in the waters! </p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -6250,7 +6250,7 @@ from the good ones in the waters! </p>
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -6629,7 +6629,7 @@ products. </p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -6655,7 +6655,7 @@ products. </p>
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -7031,7 +7031,7 @@ products. </p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -7057,7 +7057,7 @@ products. </p>
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -7439,7 +7439,7 @@ products. </p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -7465,7 +7465,7 @@ products. </p>
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -7843,7 +7843,7 @@ Sent from myiOS</p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -7869,7 +7869,7 @@ Sent from myiOS</p>
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -8270,7 +8270,7 @@ CLASSIFICATION : UNCLASSIFIED
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -8296,7 +8296,7 @@ CLASSIFICATION : UNCLASSIFIED
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -8672,7 +8672,7 @@ CLASSIFICATION : UNCLASSIFIED
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -8698,7 +8698,7 @@ CLASSIFICATION : UNCLASSIFIED
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -9074,7 +9074,7 @@ CLASSIFICATION : UNCLASSIFIED
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="successN()">There is nothing suspicious about this email</button>
+            <button onclick="successN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -9100,7 +9100,7 @@ CLASSIFICATION : UNCLASSIFIED
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -9478,7 +9478,7 @@ Phone: 555-555-5554</p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="successN()">There is nothing suspicious about this email</button>
+            <button onclick="successN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -9504,7 +9504,7 @@ Phone: 555-555-5554</p>
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -9882,7 +9882,7 @@ confirm that the activity was from the suspect and not from you.    </p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -9908,7 +9908,7 @@ confirm that the activity was from the suspect and not from you.    </p>
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -10284,7 +10284,7 @@ Thank you.</p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -10310,7 +10310,7 @@ Thank you.</p>
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -10696,7 +10696,7 @@ Thank you for being a valued Google Cloud Platform customer.</p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="successN()">There is nothing suspicious about this email</button>
+            <button onclick="successN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -10722,7 +10722,7 @@ Thank you for being a valued Google Cloud Platform customer.</p>
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -11099,7 +11099,7 @@ Andrew Ryan, Executive Director of FoodRapture </p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="successN()">There is nothing suspicious about this email</button>
+            <button onclick="successN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -11125,7 +11125,7 @@ Andrew Ryan, Executive Director of FoodRapture </p>
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -11508,7 +11508,7 @@ Music Theory and Composition. </p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="successN()">There is nothing suspicious about this email</button>
+            <button onclick="successN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
@@ -11534,7 +11534,7 @@ Music Theory and Composition. </p>
     </head>
     <body>
 
-    <div id="Success Part">    
+    <div class="Success Part">    
         <!--Success Prompt-->
         <div id="successPrompt" class="successPrompt">
             <div class="successContent">
@@ -11907,7 +11907,7 @@ Music Theory and Composition. </p>
                 
             </div>
         <div id="NothingButton" class="NothingButton" >
-            <button onclick="failureN()">There is nothing suspicious about this email</button>
+            <button onclick="failureN()">There is nothing suspicious about this email</button> <button class="RTWButton" onclick="switchBack()">Back to World</button>
             
         </div>
     
