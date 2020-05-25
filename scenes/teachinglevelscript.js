@@ -58,7 +58,7 @@ var MalGameScene = new Phaser.Class({
         
         //Creation of variables that refer to the game objects. Use setInteractive to enable objects to interact with user, setDraggable so user can drag the icons
         var antivirus = this.physics.add.sprite(200,100,"antivirus").setInteractive();
-        var hitbox = this.physics.add.sprite(200,100,"hitbox").setInteractive();
+        var hitbox = this.physics.add.sprite(185,100,"hitbox").setInteractive();
 
         //Once all icons have been scanned, allow the user to switch back to the main game
         var completed = this.physics.add.sprite(200,100,"completed").setInteractive();
