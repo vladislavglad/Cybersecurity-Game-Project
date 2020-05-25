@@ -76,15 +76,24 @@ function success() {
 }
 
 
-
+ //document.getElementsByClassName('from').addEventListener("click", successF)
 function successF() {
     
- 
-   
-    
-    this.successFrom.style.display = "none";
-    this.audioS.play();
 
+    //From
+   var from = document.getElementsByClassName('successFrom');
+   
+   
+    for (var i=0;i<from.length;i+=1){
+        
+        from[i].style.display = 'block';
+        
+        this.audioS.play();
+        
+    }
+    from[i].style.display = 'none';
+    
+    
 }
 
 
@@ -93,7 +102,13 @@ function successT() {
     
     //To
     
-    this.successTo.style.display = "block";
+    var too = document.getElementsByClassName('successTo');
+   
+   
+    for (var i=0;i<too.length;i+=1){
+        
+        too[i].style.display = 'block';
+    }
     
     this.audioS.play();
 }
@@ -102,8 +117,14 @@ function successS() {
     
     //Subject
     
-    this.successSubject.style.display = "block";
-    this.successSubject.style.display = "block";
+    var subject = document.getElementsByClassName('successSubject');
+   
+   
+    for (var i=0;i<subject.length;i+=1){
+        
+        subject[i].style.display = 'block';
+    }
+    
     this.audioS.play();
 }
 
@@ -111,7 +132,14 @@ function successD() {
     
     //Dear
     
-    this.successDear.style.display = "block";
+    var dear = document.getElementsByClassName('successDear');
+   
+   
+    for (var i=0;i<dear.length;i+=1){
+        
+        dear[i].style.display = 'block';
+    }
+    
     this.audioS.play();
 }
 
@@ -119,7 +147,14 @@ function successB() {
     
     //Body
     
-    this.successBody.style.display = "block";
+    var body = document.getElementsByClassName('successBody');
+   
+   
+    for (var i=0;i<body.length;i+=1){
+        
+        body[i].style.display = 'block';
+    }
+    
     this.audioS.play();
 }
 
@@ -127,7 +162,14 @@ function successL() {
     
     //Links
     
-    this.successLink.style.display = "block";
+    var link = document.getElementsByClassName('successLink');
+   
+   
+    for (var i=0;i<link.length;i+=1){
+        
+        link[i].style.display = 'block';
+    }
+    
     this.audioS.play();
 }
 
@@ -135,9 +177,18 @@ function successA() {
     
     //Attachments
     
-    this.successAttach.style.display = "block";
+    
     this.atConfirm.style.display = "none";
+    var attach = document.getElementsByClassName('successAttach');
+   
+   
+    for (var i=0;i<attach.length;i+=1){
+        
+        attach[i].style.display = 'block';
+    }
+    
     this.audioS.play();
+    
 }
 
 
@@ -147,7 +198,14 @@ function successN() {
     
     //Button for no part of the email is wrong.
     
-    this.successNothing.style.display = "block";
+    var nothing = document.getElementsByClassName('successNothing');
+   
+   
+    for (var i=0;i<nothing.length;i+=1){
+        
+        nothing[i].style.display = 'block';
+    }
+    
     this.audioS.play();
 }
 
@@ -155,25 +213,72 @@ function successExBu() {
     
     //Button Prompt for certain email
     
-    this.successExtraButton.style.display = "block";
+   
     this.buConfirm.style.display = "none";
+    var exbu = document.getElementsByClassName('successExtraButton');
+   
+   
+    for (var i=0;i<exbu.length;i+=1){
+        
+        exbu[i].style.display = 'block';
+    }
+    
     this.audioS.play();
+    
 }
 
 
 function closeSPrompt() {
     
-    //Closing any prompt
+    //Closing any success prompt
+    var from = document.getElementsByClassName('successFrom');
+    var to = document.getElementsByClassName('successTo');
+    var subject = document.getElementsByClassName('successSubject');
+    var dear = document.getElementsByClassName('successDear');
+    var body = document.getElementsByClassName('successBody');
+    var link = document.getElementsByClassName('successLink');
+    var nothing = document.getElementsByClassName('successNothing');
+    var attach = document.getElementsByClassName('successAttach');
+    var exbu = document.getElementsByClassName('successExtraButton');
    
-    this.successFrom.style.display = "none";
-    this.successTo.style.display = "none";
-    this.successSubject.style.display = "none";
-    this.successDear.style.display = "none";
-    this.successBody.style.display = "none";
-    this.successLink.style.display = "none";
-    this.successAttach.style.display = "none";
-    this.successNothing.style.display = "none";
-    this.successExtraButton.style.display = "none";
+   
+    for (var i=0;i<from.length;i+=1){
+        
+        from[i].style.display = 'none';
+    }
+    for (var i=0;i<to.length;i+=1){
+        
+        to[i].style.display = 'none';
+    }
+    for (var i=0;i<subject.length;i+=1){
+        
+        subject[i].style.display = 'none';
+    }
+    for (var i=0;i<dear.length;i+=1){
+        
+        dear[i].style.display = 'none';
+    }
+    for (var i=0;i<body.length;i+=1){
+        
+        body[i].style.display = 'none';
+    }
+    for (var i=0;i<link.length;i+=1){
+        
+        link[i].style.display = 'none';
+    }
+    for (var i=0;i<nothing.length;i+=1){
+        
+        nothing[i].style.display = 'none';
+    }
+    for (var i=0;i<attach.length;i+=1){
+        
+        attach[i].style.display = 'none';
+    }
+    for (var i=0;i<exbu.length;i+=1){
+        
+        exbu[i].style.display = 'none';
+    }
+    
 }
 
 
@@ -190,7 +295,15 @@ function failureF() {
     
     //From
     
-    this.failureFrom.style.display= "block";
+var from = document.getElementsByClassName('failureFrom');
+   
+   
+    for (var i=0;i<from.length;i+=1){
+        
+        from[i].style.display = 'block';
+    }
+    
+    
     this.audioF.play();
 }
 
@@ -198,7 +311,15 @@ function failureT() {
     
     //To
     
-    this.failureTo.style.display= "block";
+    var to = document.getElementsByClassName('failureTo');
+   
+   
+    for (var i=0;i<to.length;i+=1){
+        
+        to[i].style.display = 'block';
+    }
+    
+    
     this.audioF.play();
     
 }
@@ -208,7 +329,15 @@ function failureS() {
     
     //Subject
     
-    this.failureSubject.style.display= "block";
+    var subject = document.getElementsByClassName('failureSubject');
+   
+   
+    for (var i=0;i<subject.length;i+=1){
+        
+        subject[i].style.display = 'block';
+    }
+    
+    
     this.audioF.play();
 }
 
@@ -216,7 +345,15 @@ function failureD() {
     
     //Dear
     
-    this.failureDear.style.display= "block";
+    var dear = document.getElementsByClassName('failureDear');
+   
+   
+    for (var i=0;i<dear.length;i+=1){
+        
+        dear[i].style.display = 'block';
+    }
+    
+    
     this.audioF.play();
 }
 
@@ -224,7 +361,15 @@ function failureB() {
     
     //Body
     
-    this.failureBody.style.display= "block";
+    var body = document.getElementsByClassName('failureNody');
+   
+   
+    for (var i=0;i<body.length;i+=1){
+        
+        body[i].style.display = 'block';
+    }
+    
+    
     this.audioF.play();
 }
 
@@ -232,7 +377,15 @@ function failureL() {
     
     //Link
     
-    this.failureLink.style.display= "block";
+    var link = document.getElementsByClassName('failureLink');
+   
+   
+    for (var i=0;i<link.length;i+=1){
+        
+        link[i].style.display = 'block';
+    }
+    
+    
     this.audioF.play();
 }
 
@@ -240,8 +393,17 @@ function failureA() {
     
     //Attachment
     
-    this.failureAttach.style.display= "block";
+    
     this.atConfirm.style.display = "none";
+    var attach = document.getElementsByClassName('failureAttach');
+   
+   
+    for (var i=0;i< attach.length;i+=1){
+        
+        attach[i].style.display = 'block';
+    }
+    
+    
     this.audioF.play();
 }
 
@@ -249,7 +411,15 @@ function failureN() {
     
     //Button for no part of the email is wrong.
     
-    this.failureNothing.style.display= "block";
+    var nothing = document.getElementsByClassName('failureNothing');
+   
+   
+    for (var i=0;i<nothing.length;i+=1){
+        
+        nothing[i].style.display = 'block';
+    }
+    
+    
     this.audioF.play();
 }
 
@@ -257,23 +427,72 @@ function failureExBu() {
     
     //Button Prompt for certain email
     
-    this.failureExtraButton.style.display = "block";
+    
     this.buConfirm.style.display = "none";
+    var exbu = document.getElementsByClassName('failureExtraButton');
+   
+   
+    for (var i=0;i<exbu.length;i+=1){
+        
+        exbu[i].style.display = 'block';
+    }
+    
+    
     this.audioF.play();
+    
 }
 
 
 function closeFPrompt() {
     
-    this.failureFrom.style.display = "none";
-    this.failureTo.style.display = "none";
-    this.failureSubject.style.display = "none";
-    this.failureDear.style.display = "none";
-    this.failureBody.style.display = "none";
-    this.failureLink.style.display = "none";
-    this.failureAttach.style.display = "none";
-    this.failureNothing.style.display = "none";
-    this.failureExtraButton.style.display = "none";
+var from = document.getElementsByClassName('failureFrom');
+    var to = document.getElementsByClassName('failureTo');
+    var subject = document.getElementsByClassName('failureSubject');
+    var dear = document.getElementsByClassName('failureDear');
+    var body = document.getElementsByClassName('failureBody');
+    var link = document.getElementsByClassName('failureLink');
+    var nothing = document.getElementsByClassName('failureNothing');
+    var attach = document.getElementsByClassName('failureAttach');
+    var exbu = document.getElementsByClassName('failureExtraButton');
+   
+   
+    for (var i=0;i<from.length;i+=1){
+        
+        from[i].style.display = 'none';
+        
+    }
+    for (var i=0;i<to.length;i+=1){
+        
+        to[i].style.display = 'none';
+    }
+    for (var i=0;i<subject.length;i+=1){
+        
+        subject[i].style.display = 'none';
+    }
+    for (var i=0;i<dear.length;i+=1){
+        
+        dear[i].style.display = 'none';
+    }
+    for (var i=0;i<body.length;i+=1){
+        
+        body[i].style.display = 'none';
+    }
+    for (var i=0;i<link.length;i+=1){
+        
+        link[i].style.display = 'none';
+    }
+    for (var i=0;i<nothing.length;i+=1){
+        
+        nothing[i].style.display = 'none';
+    }
+    for (var i=0;i<attach.length;i+=1){
+        
+        attach[i].style.display = 'none';
+    }
+    for (var i=0;i<exbu.length;i+=1){
+        
+        exbu[i].style.display = 'none';
+    }
     
 }
 
@@ -281,7 +500,16 @@ function attachConfirm() {
     
     //Open attachment prompt
     
-    this.atConfirm.style.display = "block";
+    var atConf = document.getElementsByClassName('atConfirm');
+   
+   
+    for (var i=0;i<atConf.length;i+=1){
+        
+        atConf[i].style.display = 'block';
+    }
+    
+    
+   
 
     
 }
@@ -290,14 +518,30 @@ function buttonConfirm() {
     
     //Open attachment prompt
     
-    this.buConfirm.style.display = "block";
+    var buConf = document.getElementsByClassName('buConfirm');
+   
+   
+    for (var i=0;i<buConf.length;i+=1){
+        
+        buConf[i].style.display = 'block';
+    }
+    
+    
 
     
 }
 
 function closePrompt() {
-    this.atConfirm.style.display = "none";
-    this.buConfirm.style.display = "none";
+    var attach = document.getElementsByClassName('failureAttach');
+    var exbu = document.getElementsByClassName('failureExtraButton');
+        for (var i=0;i<attach.length;i+=1){
+        
+        attach[i].style.display = 'none';
+    }
+    for (var i=0;i<exbu.length;i+=1){
+        
+        exbu[i].style.display = 'none';
+    }
 }
 
 
