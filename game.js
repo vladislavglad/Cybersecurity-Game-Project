@@ -40,7 +40,8 @@ var config = {
                 BattleScene, 
                 BattleUI, 
                 DialogScene, 
-                BookInteraction
+                BookInteraction,
+                MalGameScene
             ]
 };
 

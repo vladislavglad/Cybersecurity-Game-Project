@@ -34,6 +34,8 @@
     <script src="scenes/dialog.js"></script>
     <script src="scenes/book.js"></script>
 
+    <script src="scenes/teachinglevelscript.js"></script>
+
     <!-- Configs of the game are here -->
     <script src="game.js"></script>
 
@@ -45,6 +47,14 @@
 
 
     <!------------ YOUR SCRIPTS GO HERE. ------------>
+
+    <!-- Malware Teaching Level Scripts and Scenes -->
+    <!-- <script src="/scenes/teachinglevelscript.js"></script> -->
+    
+    <!-- Kanaan's Malware Testing Level Script -->
+    <script defer src="scripts/hangman.js"></script>
+
+    <!-- Gallal's module scripts -->
     <script defer src="scripts/encryption_script.js"></script>
 </head>
 <body>
@@ -52,13 +62,48 @@
     <div id="gameContainer"></div>
 
     <!-- Example of an outside "game module" that is manipulated through a separate file -->
-    <div class="gameModule" id="module1" style="background-color:lightgreen"></div>
+    <!-- <div class="gameModule" id="module1" style="background-color:lightgreen"></div> -->
     <!-- And so forth... -->
 
 
     <!------------ YOUR DIVS GO HERE. ----------------->
-    <!-- Use these by id or override them altogether -->
-    <div class="gameModule" id="instruction0">
+
+    <!-- Kanaan's instructions module -->
+    <div class="gameModule" id="instruction0"></div>
+
+    <!-- Kanaan's Malware Evaluation Module -->
+    <div class="gameModule" id="module0" style="background-image: url('assets/images/hangmanimages/background.jpg'); font-family: Tahoma, Helvetica, Arial, Lucida Grande, sans-serif;
+    color: whitesmoke; height: 100%; text-align: center; font-size: 40px;">
+        <div class="malware">
+            <!-- Score: <span id ="score"></span> -->
+          </div>
+          <div class="container">
+            <h2>Use the letters to guess the form of malware:</h2>
+            <img src="assets/images/hangmanimages/livesicon.png" style="width:20px;height:20px;"> <span id='lives'></span> of 5
+            <p>Hint: </p>
+            <div id="hint">
+        
+            </div>
+          </div>
+          <div class="main">
+            <div class="spotlight">
+              <p id="wordSpotlight">The word to be guessed goes here</p>
+            </div>
+            <div id="keyboard">
+        
+            </div>
+          </div>
+        
+          <div class="controllers">
+            <button class="butn" id="previous" onClick="previousWord()">Previous</button>
+            <!-- <button class="butn" onClick="reset()">Reset</button> -->
+            <button class="butn" id="next" onClick="nextWord()">Next Word</button>
+          </div>
+    </div>
+    <!-- End of Kanaan's module -->
+
+    <!-- Gallal's instruction module -->
+    <div class="gameModule" id="instruction1">
 
 
         <link rel="stylesheet" href="/styles/encryption_style.css">
@@ -170,8 +215,8 @@
         <button onclick="switchBack()">Got it!</button>
     </div>
 
-
-    <div class="gameModule" id="module0"> <!--Caesar questions-->
+    <!-- Gallal's game module -->
+    <div class="gameModule" id="module1"> <!--Caesar questions-->
 
         <br />
         <h1>Decrypt this code! Caesar Easy</h1>
@@ -309,9 +354,9 @@
         <p id="r3Ans"></p>
    
     <!-- End of Rotational -->
-        
-      
+            
 </div>
+<!-- End of Gallal's module -->
 
 </body>
 </html>

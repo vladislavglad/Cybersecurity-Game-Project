@@ -63,6 +63,34 @@ class PreloadAssets extends Phaser.Scene {
         this.load.image("game-map", "assets/images/game-map.png");
 
         this.load.image("phishing-rod", "assets/images/phishing-rod.png");
+
+        //assets for malware teaching level.
+        /* this.load.image("background", "assets/images/malwareimages/bck.png");
+        this.load.image("recycle", "assets/images/malwareimages/recycle.png");
+        this.load.image("trojan", "assets/images/malwareimages/trojan.png");
+        this.load.image("keylog", "assets/images/malwareimages/keylog.png");
+        this.load.image("dos", "assets/images/malwareimages/dos.png");
+        this.load.image("spy", "assets/images/malwareimages/spy.png");
+        this.load.image("root", "assets/images/malwareimages/root.png");
+        this.load.image("virusicon", "assets/images/malwareimages/virusicon.png");
+        this.load.image("ransom", "assets/images/malwareimages/ransom.png");
+        this.load.image("adware", "assets/images/malwareimages/adware.png");
+        this.load.image("worm", "assets/images/malwareimages/worm.png");
+        this.load.image("antivirus", "assets/images/malwareimages/antivirus.png");
+
+        this.load.image("ransomalert", "assets/images/malwareimages/ransomalert.png");
+        this.load.image("adalert", "assets/images/malwareimages/adalert.png");
+        this.load.image("spyalert", "assets/images/malwareimages/spyalert.png");
+        this.load.image("trojanalert", "assets/images/malwareimages/trojanalert.png");
+        this.load.image("botalert", "assets/images/malwareimages/botalert.png");
+        this.load.image("virusalert", "assets/images/malwareimages/virusalert.png");
+        this.load.image("rootalert", "assets/images/malwareimages/rootalert.png");
+        this.load.image("keyalert", "assets/images/malwareimages/keyalert.png");
+        this.load.image("wormalert", "assets/images/malwareimages/wormalert.png");
+        this.load.image("alert", "assets/images/malwareimages/ransomalert.png");
+        this.load.image("recyclealert", "assets/images/malwareimages/recyclealert.png");
+
+        this.load.image("hitbox", "assets/images/malwareimages/hitbox.png"); */
     }
 
     create() {      

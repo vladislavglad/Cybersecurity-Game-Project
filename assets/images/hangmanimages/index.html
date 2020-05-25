@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" type="text/css" href="matrix.css">
+  <link rel="shortcut icon" type="image/x-icon" href="mini.ico">
+
+  <title>Malware Game</title>
+</head>
+
+<body>
+  
+  <div class="header">
+    <img src="gameicon.png" style="float:left;width:200px;height:85px;">
+    <!-- Score: <span id ="score"></span> -->
+  </div>
+  <div class="container">
+    <h2>Use the letters to guess the form of malware:</h2>
+    <p>Hint: </p>
+    <div id="hint">
+
+    </div>
+  </div>
+  <div class="main">
+    <div class="spotlight">
+      <p id="wordSpotlight">The word to be guessed goes here</p>
+    </div>
+    <div id="keyboard">
+
+    </div>
+  </div>
+  <div class="float-right">
+    <img src="livesicon.png" style="width:25px;height:25px;"> <span id='lives'></span> of 5
+  </div>
+
+  <div class="controllers">
+    <button class="butn" id="previous" onClick="previousWord()">Previous</button>
+    <button class="butn" onClick="reset()">Reset</button>
+    <button class="butn" id="next" onClick="nextWord()">Next Word</button>
+  </div>
+
+  <script src='./js/hangman.js'></script>
+</body>
+
+</html>
