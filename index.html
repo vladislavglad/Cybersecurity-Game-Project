@@ -61,7 +61,7 @@
     <div class="gameModule" id="instruction0">
 
 
-        <link rel="stylesheet" href="/styles/encryption_style.css">
+        <link rel="stylesheet" href="styles/encryption_style.css">
     
         <h1>What is Encryption?</h1>
 
@@ -124,11 +124,11 @@
         which grid to look at, and the shape of the symbol to figure out which
         letter to choose. For example, if we were given the symbols:<br />
         <img
-            src="/assets/images/Pigpen_Ex.png"
+            src="assets/images/encryption_images/Pigpen_Ex.png"
         />
         <br />using the key below:<br />
         <img
-            src="/assets/images/Pigpen_Full.jpg"
+            src="assets/images/encryption_images/Pigpen_Full.jpg"
         />
         <br />We can see that the encrypted message says "HELLO"<br />
 
@@ -174,7 +174,8 @@
     <div class="gameModule" id="module0"> <!--Caesar questions-->
 
         <br />
-        <h1>Decrypt this code! Caesar Easy</h1>
+      <div id="caesar1Ex">
+        <h1>Decrypt this text! Caesar</h1>
 
         <textarea cols="20" rows="3" id="caesarq1">text: ZKHHO                     key:  3
         </textarea>
@@ -185,9 +186,10 @@
         <input type="text" id="c1" placeholder="Your answer..." />
         <button onclick="c1completed()">Submit</button>
         <p id="c1Ans"></p>
-        
+      </div>  
     <!-- Caesar Medium -->
-        <h1>Medium</h1>
+      <div id="caesar2Ex">
+        <h1>Decrypt this text! Caesar</h1>
 
         <textarea cols="20" rows="3" id="caesarq2">text: MRJSVQEXMSR                 key:  4
         </textarea>
@@ -198,9 +200,10 @@
         <input type="text" id="c2" placeholder="Your answer..." />
         <button onclick="c2completed()">Submit</button>
         <p id="c2Ans"></p>
-
+      </div>
     <!-- Caesar Hard -->
-        <h1>Hard</h1>
+      <div id="caesar3Ex">
+        <h1>Decrypt this text! Caesar</h1>
 
         <textarea cols="20" rows="3" id="caesarq3">text: QBSPBZ JHLZHY                key:  7
         </textarea>
@@ -210,6 +213,7 @@
         <input type="text" id="c3" placeholder="Your answer..." />
         <button onclick="c3completed()">Submit</button>
         <p id="c3Ans"></p>
+      </div>
         <br>
         <br>
     
@@ -219,18 +223,22 @@
 
 
     <!-- For pigpen -->
-    
-        <h1>Decrypt this code! Pigpen Easy</h1>
+      
+      <!-- Have Pigpen picture on top to show no matter what so the user can reference it -->
+        <img
+          src="assets/images/encryption_images/Pigpen_Full.jpg"
+        />
+
+      <div id="pigpen1Ex">
+
+        <h1>Decrypt this text! Pigpen</h1>
         <p>
 
-          <img
-          src="/assets/images/Pigpen_Full.jpg"
-        />
         <br> <br>
 
-          <img
-            src="/assets/images/Pigpen1.png"
-          />
+        <img
+            src="assets/images/encryption_images/Pigpen1.png"
+        />
 
         </p>
         <p1>(Write your answer in all caps or lowercase)</p1>
@@ -239,11 +247,15 @@
         <button onclick="p1completed()">Submit</button>
         <p id="p1Ans"></p>
 
+      </div>
 
-        <h1>Medium</h1>
+
+      <div id="pigpen2Ex">
+
+        <h1>Decrypt this text! Pigpen</h1>
         <p>
           <img
-            src="/assets/images/Pigpen2.png"
+            src="assets/images/encryption_images/Pigpen2.png"
           />
          
         </p>
@@ -253,11 +265,13 @@
           <button onclick="p2completed()">Submit</button>
           <p id="p2Ans"></p>
 
+      </div>
 
-        <h1>Hard</h1>
+      <div id="pigpen3Ex">
+        <h1>Decrypt this text! Pigpen</h1>
         <p>
           <img
-            src="/assets/images/Pigpen3.png"
+            src="assets/images/encryption_images/Pigpen3.png"
           />
 
         </p>
@@ -266,11 +280,14 @@
           <input type="text" id="p3" placeholder="Your answer..." />
           <button onclick="p3completed()">Submit</button>
           <p id="p3Ans"></p>
+
+      </div>
     <!-- End of Pigpen -->
 
     <!-- Easy Rotational -->
       
-        <h1>Decrypt this code! One-time Pad Easy</h1>
+      <div id="OTP1Ex">
+        <h1>Decrypt this text! OTP</h1>
     
         <textarea cols="20" rows="3" id="rotationq1">text: ZNFGP                     key:  36124
         </textarea>
@@ -281,9 +298,11 @@
           <input type="text" id="r1" placeholder="Your answer..." />
           <button onclick="r1completed()">Submit</button>
           <p id="r1Ans"></p>
-    
+      </div>
+
     <!-- Medium Rotational -->
-        <h1>Medium</h1>
+      <div id="OTP2Ex">
+        <h1>Decrypt this text! OTP</h1>
 
         <textarea cols="20" rows="3" id="rotationq2">text: WEOPVP                    key:  427174
         </textarea>
@@ -294,9 +313,11 @@
         <input type="text" id="r2" placeholder="Your answer..." />
         <button onclick="r2completed()">Submit</button>
         <p id="r2Ans"></p>
+      </div>
 
     <!-- Hard Rotational -->
-        <h1>Hard</h1>
+      <div id="OTP3Ex">
+        <h1>Decrypt this text! OTP</h1>
 
         <textarea cols="20" rows="3" id="rotationq3">text: ITDVAUVNTT               key:  4614252556
         </textarea>
@@ -307,7 +328,7 @@
         <input type="text" id="r3" placeholder="Your answer..." />
         <button onclick="r3completed()">Submit</button>
         <p id="r3Ans"></p>
-   
+      </div>
     <!-- End of Rotational -->
         
       
