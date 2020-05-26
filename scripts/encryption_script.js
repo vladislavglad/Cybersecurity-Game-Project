@@ -111,6 +111,7 @@ function c1completed() {
 
     if(rightCount == 3){
       rightCount = 0; //Restart the counter to make sure it isn't at or above 3
+      alert("Correct!");
       switchWithCondition(true);
     }
 
@@ -140,6 +141,7 @@ function c2completed() {
 
     if(rightCount == 3){
       rightCount = 0; //Restart the counter to make sure it isn't at or above 3
+      alert("Correct!");
       switchWithCondition(true);
     }
 
@@ -169,6 +171,7 @@ function c3completed() {
 
     if(rightCount == 3){
       rightCount = 0; //Restart the counter to make sure it isn't at or above 3
+      alert("Correct!");
       switchWithCondition(true);
     }
 
@@ -199,6 +202,7 @@ function p1completed() {
 
     if(rightCount == 3){
       rightCount = 0; //Restart the counter to make sure it isn't at or above 3
+      alert("Correct!");
       switchWithCondition(true);
     }
 
@@ -230,6 +234,7 @@ function p2completed() {
 
     if(rightCount == 3){
       rightCount = 0; //Restart the counter to make sure it isn't at or above 3
+      alert("Correct!");
       switchWithCondition(true);
     }
 
@@ -260,6 +265,7 @@ function p3completed() {
 
     if(rightCount == 3){
       rightCount = 0; //Restart the counter to make sure it isn't at or above 3
+      alert("Correct!");
       switchWithCondition(true);
     }
 
@@ -290,6 +296,7 @@ function r1completed() {
 
     if(rightCount == 3){
       rightCount = 0; //Restart the counter to make sure it isn't at or above 3
+      alert("Correct!");
       switchWithCondition(true);
     }
 
@@ -320,6 +327,7 @@ function r2completed() {
 
     if(rightCount == 3){
       rightCount = 0; //Restart the counter to make sure it isn't at or above 3
+      alert("Correct!");
       switchWithCondition(true);
     }
 
@@ -350,6 +358,7 @@ function r3completed() {
 
     if(rightCount == 3){
       rightCount = 0; //Restart the counter to make sure it isn't at or above 3
+      alert("Correct!");
       switchWithCondition(true);
     }
 
