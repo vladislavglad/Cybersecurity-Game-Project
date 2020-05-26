@@ -1,11 +1,33 @@
-html, body {
-    margin: 0; 
-    padding: 0;
+/* Colors
+green: #046E04
+black: #040204
+white: #b7b9b7
+*/
+
+h1 {
+    font-size: 80px;
 }
-div.gameModule {
-    display: none;
-    width: 800px;
-    height: 600px;
+h2 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 24px;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+body {
+    background-image: url('background.jpg');
+    font-family: Tahoma, Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: whitesmoke;
+    height: 100%;
+    text-align: center;
+    font-size: 40px;
 }
 
 .main {
@@ -26,15 +48,14 @@ button:hover {
 }
 
 .butn{
-    font-size:15px;
-    padding: 7px;
+    font-size:35px;
+    padding: 10px;
     background-color: burlywood;
     color: #85786a;
     border:none;
     text-align:center;
     border-radius:8px;
-    margin-top: 3px;
-    margin-bottom: 3px;
+    margin-top: 50px;
     transition-duration: 0.4s;
 }
 .butn:hover{
@@ -43,11 +64,11 @@ button:hover {
 }
 
 .container {
-    margin-top: 0px;
-    font-size: 15px;
-    margin-left: 145px;
-    margin-right: 145px;
-    padding: 3px 0px 25px;
+    margin-top: 100px;
+    font-size: 24px;
+    margin-left: 325px;
+    margin-right: 325px;
+    padding: 10px 0px 50px;
     background-color: #423b39;
     color: #85786a;
     border: hidden;
@@ -55,8 +76,8 @@ button:hover {
 }
 
 .float-right {
+    position: absolute;
     color: #85786a;
     top: 0;
     right: 0;
-    font-size: 15px;
 }

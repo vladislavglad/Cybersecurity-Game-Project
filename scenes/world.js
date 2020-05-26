@@ -293,7 +293,9 @@ class WorldScene extends Phaser.Scene {
         book.destroy();
         //this.scene.switch("BookInteraction");
 
-        switchTo(`instruction0`);
+        //Temporarily changed this to invoke a scene switch but could add another game object and replace this
+        //switchTo(`instruction0`);
+        this.scene.switch("MalGameScene");
     }
 
     onMute(key) {
