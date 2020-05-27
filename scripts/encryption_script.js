@@ -104,7 +104,7 @@ function c1completed() {
     answer.innerHTML = " ";
   }
 
-  if (input == "WHEEL" || input == "wheel") {
+  if (input.toLowerCase() == "salad") {
     answer.innerHTML = "Correct!";
     //caesarCount += 1;
     rightCount += 1;
@@ -134,7 +134,7 @@ function c2completed() {
     answer.innerHTML = " ";
   }
 
-  if (input == "INFORMATION" || input == "information") {
+  if (input.toLowerCase() == "information") {
     answer.innerHTML = "Correct!";
     //caesarCount += 1;
     rightCount += 1;
@@ -164,7 +164,7 @@ function c3completed() {
     answer.innerHTML = " ";
   }
 
-  if (input == "JULIUS CAESAR" || input == "julius caesar") {
+  if (input.toLowerCase() == "cognition") {
     answer.innerHTML = "Correct!";
     //caesarCount += 1;
     rightCount += 1;
@@ -194,7 +194,7 @@ function p1completed() {
     answer.innerHTML = " ";
   }
 
-  if (input == "TACO" || input == "taco") {
+  if (input.toLowerCase() == "taco") {
     answer.innerHTML = "Correct!";
     //pigCount += 1;
     rightCount += 1;
@@ -227,7 +227,7 @@ function p2completed() {
     answer.innerHTML = " ";
   }
 
-  if (input == "ORANGE" || input == "orange") {
+  if (input.toLowerCase() == "orange") {
     answer.innerHTML = "Correct!";
     //pigCount += 1;
     rightCount += 1;
@@ -258,7 +258,7 @@ function p3completed() {
     answer.innerHTML = " ";
   }
 
-  if (input == "AMAZING" || input == "amazing") {
+  if (input.toLowerCase() == "amazing") {
     answer.innerHTML = "Correct!";
     //pigCount += 1;
     rightCount += 1;
@@ -289,7 +289,7 @@ function r1completed() {
     answer.innerHTML = " ";
   }
 
-  if (input == "WHEEL" || input == "wheel") {
+  if (input.toLowerCase() == "wheel") {
     answer.innerHTML = "Correct!";
     //rotCount += 1;
     rightCount += 1;
@@ -320,7 +320,7 @@ function r2completed() {
     answer.innerHTML = " ";
   }
 
-  if (input == "SCHOOL" || input == "school") {
+  if (input .toLowerCase()  == "school") {
     answer.innerHTML = "Correct!";
     //rotCount += 1;
     rightCount += 1;
@@ -351,7 +351,7 @@ function r3completed() {
     answer.innerHTML = " ";
   }
 
-  if (input == "ENCRYPTION" || input == "encryption") {
+  if (input.toLowerCase == "encryption") {
     answer.innerHTML = "Correct!";
     //rotCount += 1;
     rightCount += 1;

@@ -41,7 +41,7 @@ var config = {
                 BattleUI, 
                 DialogScene, 
                 BookInteraction,
-               // MalGameScene
+                MalGameScene
             ]
 };
 
